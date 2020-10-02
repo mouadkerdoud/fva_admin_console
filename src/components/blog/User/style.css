@@ -1,0 +1,62 @@
+.body{
+    height: 657px;
+}
+a{
+    text-decoration: none !important;
+    color: white !important;
+}
+.admin-wrapper{
+    height: calc(100% - 66px);
+    display: flex;
+}
+.admin-wrapper .admin-content{
+    flex: 8;
+    height: 100%;
+    margin: 40px 100px 100px;
+    overflow-y: auto;
+}
+.button-group a{
+    padding: 18px;  
+    margin-right: 5px; 
+    background-color: #025f62;
+}
+.add{
+    padding: 18px;
+    color: #fff !important;  
+    background-color: #025f62 !important;
+}
+.button-group a:hover{
+    background-color: #01474a;
+}
+.page-title{
+    font-size: 1rem;
+    text-align: center;
+    color: gray;
+    font-weight: 800;
+}
+/* 
+table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.1rem;
+}
+th, td{
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #d3d3d3;
+} */
+.edit{
+    color:green !important;
+}
+.update{
+    color:red !important;
+}
+.delete{
+    color:black !important;
+}
+.publish{
+    color:blue !important;
+}
+.edit:hover,.update:hover,.delete:hover,.publish:hover{
+    text-decoration: underline !important;
+}

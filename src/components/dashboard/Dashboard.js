@@ -1,6 +1,7 @@
 import React from 'react'
 import "./Dashboard.css"
 
+
 const Dashboard = () => {
     return (
         <div className='container'>
@@ -31,66 +32,99 @@ const Dashboard = () => {
             </div>
         </div>
   
-        <p className="recent">Recent Orders</p>
+        <p className="table-title">Recent Orders</p>
   
-        <table>
+        <table className="dash-table">
  
             <tr>
             <th>Order Id</th>
             <th>Client Name</th>
             <th>Order Date</th>
             <th>Delivery Date</th>
+            <th>Discount</th>
             <th>Status </th>
             <th>Actions</th>
             </tr>
 
             <tr>
-            <td>5548</td>
-            <td>John Doe</td>
-            <td>22/08/2017</td>
-            <td>06/05/2017</td>
-            <td>Pending</td>
-            <td>Delete</td>
+              <td>5548</td>
+              <td>John Doe</td>
+              <td>22/08/2017</td>
+              <td>06/05/2017</td>
+              <td>0%</td>
+              <td>Pending</td>
+              <td className="actions-table">
+                  <i className="fas fa-edit"></i>
+                  <i className="fas fa-trash"></i>
+              </td>
             </tr>
 
             <tr>
-            <td>5548</td>
-            <td>John Doe</td>
-            <td>22/08/2017</td>
-            <td>06/05/2017</td>
-            <td>Pending</td>
-            <td>Delete</td>
+              <td>5548</td>
+              <td>John Doe</td>
+              <td>22/08/2017</td>
+              <td>06/05/2017</td>
+              <td>20%</td>
+              <td>Pending</td>
+              <td className="actions-table">
+                  <i className="fas fa-edit"></i>
+                  <i className="fas fa-trash"></i>
+              </td>
             </tr>
 
             <tr>
-            <td>5548</td>
-            <td>John Doe</td>
-            <td>22/08/2017</td>
-            <td>06/05/2017</td>
-            <td>Pending</td>
-            <td>Delete</td>
+              <td>5548</td>
+              <td>John Doe</td>
+              <td>22/08/2017</td>
+              <td>06/05/2017</td>
+              <td>50%</td>
+              <td>Pending</td>
+              <td className="actions-table">
+                  <i className="fas fa-edit"></i>
+                  <i className="fas fa-trash"></i>
+              </td>
             </tr>
 
             <tr>
-            <td>5548</td>
-            <td>John Doe</td>
-            <td>22/08/2017</td>
-            <td>06/05/2017</td>
-            <td>Pending</td>
-            <td>Delete</td>
+              <td>5548</td>
+              <td>John Doe</td>
+              <td>22/08/2017</td>
+              <td>06/05/2017</td>
+              <td>5%</td>
+              <td>Pending</td>
+              <td className="actions-table">
+                  <i className="fas fa-edit"></i>
+                  <i className="fas fa-trash"></i>
+              </td>
             </tr>
 
             <tr>
-            <td>5548</td>
-            <td>John Doe</td>
-            <td>22/08/2017</td>
-            <td>06/05/2017</td>
-            <td>Pending</td>
-            <td>Delete</td>
+              <td>5548</td>
+              <td>John Doe</td>
+              <td>22/08/2017</td>
+              <td>06/05/2017</td>
+              <td>10%</td>
+              <td>Pending</td>
+              <td className="actions-table">
+                  <i className="fas fa-edit"></i>
+                  <i className="fas fa-trash"></i>
+              </td>
             </tr>
 
-            
-            
+            <tr>
+              <td>5548</td>
+              <td>John Doe</td>
+              <td>22/08/2017</td>
+              <td>06/05/2017</td>
+              <td>10%</td>
+              <td>Pending</td>
+              <td className="actions-table">
+                  <i className="fas fa-edit"></i>
+                  <i className="fas fa-trash"></i>
+              </td>
+            </tr>
+
+
         </table>
 
   

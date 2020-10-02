@@ -1,5 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 
 *{
   margin: 0;
@@ -10,7 +9,70 @@
   font-family: 'Josefin Sans', sans-serif;
 }
 
+html{
+  font-size: 16px;
+}
+
 body{
    background-color: #f3f5f9;
 }
 
+::-webkit-scrollbar
+{
+  width: 0.5rem;  /* for vertical scrollbars */
+}
+
+
+::-webkit-scrollbar-thumb
+{
+  background: #594f8d;
+}
+
+
+.container{
+  padding-left: 14.375rem;
+  padding-top: 2.5rem;
+}
+
+.container h1{
+  font-size: 1.5rem;
+  position: relative;
+  bottom: 1.5rem;
+}
+
+table{
+position: relative;
+width: 95%; 
+border-collapse: collapse;
+border-spacing: 0;
+box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0,0, 0, 0.12) 0px 3px 1px -2px;
+border-radius: 0.75rem 0.75rem 0 0;
+}
+
+
+td , th{
+padding: 0.9375rem 1.25rem;
+text-align: center;
+
+
+}
+th{
+background-color: #594f8d;
+color: #fafafa;
+font-family: 'Open Sans',Sans-serif;
+font-weight: 200;
+text-transform: uppercase;
+
+}
+tr{
+width: 100%;
+background-color: #fafafa;
+}
+tr:nth-child(even){
+background-color: #eeeeee;
+}
+
+.actions-table{
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -1,97 +1,58 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto');
   
-  .container{
-      padding-left: 230px;
-      padding-top: 40px;
-  }
-  
-  .order-data{
-      display: flex;
-      justify-content: space-around;
-      position:relative;
-      right: 22px;
-      top:20px;
+.order-data{
+    display: flex;
+    justify-content: space-around;
+    position:relative;
+    right: 1.375rem;
+    top:1.25rem;
+    
   }
   
   
   .stat-elements{
-      position: relative;
-      right: 50px;
-  }
-  
-  .stat-elements h4{
-    font-size: 18px;
     position: relative;
-    bottom: 12px;
-  }
-  
-  .stat-elements p{
-    font-size: 25px;
-    position: relative;
-    top: 10px;
+    right: 3.125rem;
     
   }
   
+  .stat-elements h4{
+  font-size: 1.125rem;
+  position: relative;
+  bottom: 0.75rem;
+  }
+  
+  .stat-elements p{
+  font-size: 1.125rem;
+  position: relative;
+  top: 0.625rem;
+  
+  }
+  
   .order{
-      padding: 35px 100px;
-      color: white;
-      border-radius: 4px;
-      text-align: justify;
+    padding: 2.1875rem 6.25rem;
+    color: white;
+    border-radius: 0.25rem;
+    text-align: justify;
+    box-shadow: 0 0.125rem 0.125rem rgba(64,64,64,.7);
+
   }
   
   .pending{
-      background: #9081d7;
+    background: #9081d7;
   }
   
   .canceled{
-      background: #f23247;
+    background: #f23247;
   
   }
   
   .delivered{
-      background: #52d344;
+    background: #52d344;
   
   }
   
-
-
-  
-  .recent{
-    margin-top: 50px;
-    margin-bottom:20px ;
-    font-size: 20px;
+  .dash-table{
+    margin-top: 2rem;
   }
   
- 
-   table{
-    position: relative;
-    width: 95%; 
-    border-collapse: collapse;
-    border-spacing: 0;
-    box-shadow: 0 2px 2px rgba(64,64,64,.7);
-    border-radius: 12px 12px 0 0;
-    overflow: hidden;
-   
-   }
-   td , th{
-    padding: 15px 20px;
-    text-align: center;
-    
-   
-   }
-   th{
-    background-color: #594f8d;
-    color: #fafafa;
-    font-family: 'Open Sans',Sans-serif;
-    font-weight: 200;
-    text-transform: uppercase;
-   
-   }
-   tr{
-    width: 100%;
-    background-color: #fafafa;
-    font-family: 'Montserrat', sans-serif;
-   }
-   tr:nth-child(even){
-    background-color: #eeeeee;
-   }
