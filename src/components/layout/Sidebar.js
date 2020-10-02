@@ -14,7 +14,7 @@ const Sidebar = () => {
              
                     <SidebarItems title="Home" icon={<i class="fas fa-home"></i>} link="home" />
 
-                    <SidebarItems title="Ecommerce" icon={<i class="fas fa-shopping-cart"></i>} link="ecommerce" drop={<i class="fas fa-caret-down"></i>} >
+                    <SidebarItems title="Ecommerce" icon={<i class="fas fa-shopping-cart"></i>} drop={<i class="fas fa-caret-down"></i>} >
                         
                         <DropDown title="Dashboard" icon={<i class="fas fa-chart-bar"></i>} link="dashboard" />
                         <DropDown title="Products" icon={<i class="fas fa-shopping-bag"></i>} link="products" />
@@ -22,7 +22,7 @@ const Sidebar = () => {
 
                     </SidebarItems>
 
-                    <SidebarItems title="Blog" icon={<i class="fas fa-address-card"></i>} link="blog"  drop={<i class="fas fa-caret-down"></i>} />
+                    <SidebarItems title="Blog" icon={<i class="fas fa-address-card"></i>} drop={<i class="fas fa-caret-down"></i>} />
 
                     <SidebarItems title="Messages" icon={<i class="fas fa-envelope"></i>} link="messages" />
                     <SidebarItems title="Support" icon={<i class="fas fa-question-circle"></i>} link="support" />
