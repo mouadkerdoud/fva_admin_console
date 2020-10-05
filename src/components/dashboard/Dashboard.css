@@ -1,28 +1,107 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto');
+
+:root{
+  --main-bg-color: #594f8d;
+}
   
+
+                                    /* OVERVIEW SECTION */
+
+.bar{
+  background-color: var(--main-bg-color);
+  color: white;
+  padding: 1rem;
+  width: 98%;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0,0, 0, 0.12) 0px 3px 1px -2px;
+  margin-top: 2rem;
+
+}
+
+
+.overview{
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-between;
+  width: 98%;
+}
+
+.stat-overview{
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0,0, 0, 0.12) 0px 3px 1px -2px;
+  padding: 4rem 2rem;
+}
+
+
+
+.top-elements{
+  display: flex;
+  justify-content: space-between;
+  width: 12.5rem;
+  position: relative;
+  bottom: 1.8rem;
+}
+
+.number{
+  font-size: 2rem;
+}
+
+.currency{
+  font-size: 1.5rem;
+}
+
+.overview-icon{
+  font-size: 2rem;
+}
+
+.stat-overview p{
+  position: relative;
+  top: 1rem;
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
+
+.income{
+  color: #f23247;
+}
+
+.feedback{
+  color: #52d344;
+}
+
+.nbr-order{
+  color: #5C9BD1;
+}
+
+.nbr-users{
+  color:  #9081d7;
+}
+
+
+
+                                    /* ORDERS SECTION */
+
 .order-data{
     display: flex;
-    justify-content: space-around;
-    position:relative;
-    right: 1.375rem;
-    top:1.25rem;
-    
+    justify-content: space-between;
+    width: 98%;
+    margin-top: 2rem;
   }
   
   
-  .stat-elements{
+  .stat-orders{
     position: relative;
     right: 3.125rem;
     
   }
   
-  .stat-elements h4{
+  .stat-orders h4{
   font-size: 1.125rem;
   position: relative;
   bottom: 0.75rem;
   }
   
-  .stat-elements p{
+  .stat-orders p{
   font-size: 1.125rem;
   position: relative;
   top: 0.625rem;
@@ -35,7 +114,6 @@
     border-radius: 0.25rem;
     text-align: justify;
     box-shadow: 0 0.125rem 0.125rem rgba(64,64,64,.7);
-
   }
   
   .pending{
@@ -51,8 +129,14 @@
     background: #52d344;
   
   }
+
+  .table-title{
+    font-size: 1.25rem;
+    margin-top: 2rem;
+  }
   
   .dash-table{
-    margin-top: 2rem;
+    margin-top: 1rem;
+    width: 98%;
   }
   
