@@ -7,7 +7,7 @@ const AddProduct = () => {
 
         <div className="categories">
 
-            <div className="main-category category-element">
+            <div className="product-category-element label-input">
                 <label className="label">Category*</label>
                 <select>
                     <option value="" disabled selected>Select Category...</option>
@@ -18,10 +18,10 @@ const AddProduct = () => {
                 </select>
             </div>
 
-            <div className="sub-category category-element">
-                <label className="label">Sub Category*</label>
+            <div className="sub-category product-category-element label-input">
+                <label className="label">Subcategory*</label>
                 <select>
-                    <option value="" disabled selected>Select Sub Category...</option>
+                    <option value="" disabled selected>Select Subcategory...</option>
                     <option>something1</option>
                     <option>something2</option>
                     <option>something3</option>
@@ -33,38 +33,38 @@ const AddProduct = () => {
 
         <form class="add-product-form">
             <div className="form-flex-items">
-                <div className="field">
-                    <label>Product Name*</label>
+                <div className="field label-input">
+                    <label className="label">Product Name*</label>
                     <input placeholder="Name..." type="text" className="data-form" />
                 </div>
 
-                <div className="field">
-                    <label>Model*</label>
+                <div className="field label-input">
+                    <label className="label">Model*</label>
                     <input placeholder="Model..." type="text" className="data-form" />
                 </div>
 
-                <div className="field">
-                    <label>Brand*</label>
+                <div className="field label-input">
+                    <label className="label">Brand*</label>
                     <input placeholder="Brand..." type="text" className="data-form" />
                 </div>
 
-                <div className="field">
-                    <label>Price*</label>
+                <div className="field label-input">
+                    <label className="label">Price*</label>
                     <input placeholder="Price..." type="text" className="data-form" />
                 </div>
                 
-                <div className="field">
-                    <label>Quantity*</label>
+                <div className="field label-input">
+                    <label className="label">Quantity*</label>
                     <input placeholder="Quantity..." type="text" className="data-form" />
                 </div>
 
-                <div className="field">
-                    <label>Discount*</label>
+                <div className="field label-input">
+                    <label className="label">Discount*</label>
                     <input placeholder="Discount..." type="text" className="data-form" />
                 </div>
 
-                <div className="field">
-                    <label>Product Tags*</label>
+                <div className="field label-input">
+                    <label className="label">Product Tags*</label>
                     <select>
                         <option value="" disabled selected>Select Tag...</option>
                         <option>Tag 1</option>
@@ -73,8 +73,8 @@ const AddProduct = () => {
                     </select>
                 </div>
 
-                <div className="field">
-                    <label>Image*</label>
+                <div className="field label-input">
+                    <label className="label">Image*</label>
                     <input type="file" />
                 </div>
 
@@ -82,13 +82,13 @@ const AddProduct = () => {
 
             </div>  
 
-                <div className="short-description description-element">
-                    <label>Short description*</label>
+                <div className="description-element label-input">
+                    <label className="label">Short description*</label>
                     <textarea placeholder="Short Description..." />
                 </div>
 
-                <div className="long-description description-element">
-                    <label>Long description*</label>
+                <div className="description-element label-input">
+                    <label className="label">Long description*</label>
                     <textarea placeholder="Long Description..." />
                 </div>
 

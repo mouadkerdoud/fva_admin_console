@@ -76,3 +76,14 @@ background-color: #eeeeee;
   display: flex;
   justify-content: space-evenly;
 }
+
+.label-input{
+  display: flex;
+  flex-direction: column;
+}
+
+.label{
+  margin-bottom: 0.5rem;
+  font-size:0.9rem;
+  font-weight: bolder;
+}

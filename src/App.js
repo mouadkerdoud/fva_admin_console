@@ -4,6 +4,10 @@ import Sidebar from "./components/layout/Sidebar"
 import Dashboard from "./components/dashboard/Dashboard"
 import Products from "./components/products/Products"
 import AddProduct from "./components/products/AddProduct"
+import Categories from "./components/categories/Categories"
+import AddCategory from "./components/categories/AddCategory"
+
+
 
 
 import ManagePost from './components/blog/Post';
@@ -31,6 +35,9 @@ function App() {
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/products" component={Products} />
         <Route path="/AddProduct" component={AddProduct} />
+        <Route path="/categories" component={Categories} />
+        <Route path="/AddCategory" component={AddCategory} />
+
 
         <Route exact path="/ManagePost" component={ManagePost} /> 
         <Route exact path="/AddPost" component={AddPost} /> 

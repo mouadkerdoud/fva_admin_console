@@ -10,9 +10,7 @@ const Products = () => {
         <div className="container">
 
             <h1>Products</h1>
-
             <Link to='/AddProduct'><button className="btn">Add New</button></Link>
-
 
             <div className="meta-table">
 
@@ -38,7 +36,7 @@ const Products = () => {
                     <th>Price </th>
                     <th>Quantity</th>
                     <th>Discount</th>
-                    <th>Action</th>
+                    <th>Actions</th>
                 </tr>
 
                

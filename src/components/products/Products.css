@@ -54,20 +54,18 @@
   bottom: 0.5rem;
 }
 
-.category-element{
+.product-category-element{
   background: white;
   width: 34rem;
   padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0,0, 0, 0.12) 0px 3px 1px -2px
 }
 
-.category-element select{
+.product-category-element select{
     padding: 0.5rem;
 }
 
-.category-element select:focus{
+.product-category-element select:focus{
   border: 2px solid #594f8d;
   border-radius: 2px;
   outline: #594f8d;
@@ -77,12 +75,6 @@
 
 .sub-category{
   margin-left: 1.2rem;
-}
-
-.label{
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-  font-weight: bolder;
 }
 
 .add-product-form{
@@ -100,8 +92,6 @@
 }
 
 .field{
-  display: flex;
-  flex-direction: column;
   margin-right: 1rem;
 }
 
@@ -110,11 +100,6 @@
   padding: 0.2rem 0rem;
 }
 
-.field label{
-  margin-bottom: 0.5rem;
-  font-size:0.9rem;
-  font-weight: bolder;
-}
 
 .data-form{
     width: 9rem;
@@ -131,8 +116,6 @@
 
 
 .description-element{
-  display: flex;
-  flex-direction: column;
   margin-top: 2rem;
 }
 
@@ -146,11 +129,6 @@
   border: 1px solid #594f8d;
 }
 
-.description-element label{
-  margin-bottom: 0.5rem;
-  font-weight: bolder;
-  font-size:0.95rem;
-}
 
 .btn-add-prod{
   color: white;
