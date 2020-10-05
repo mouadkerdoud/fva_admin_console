@@ -1,22 +1,20 @@
 import React from 'react'
-import "./Category.css"
 
-
-const AddCategory = () => {
+const AddCategoryPost = () => {
     return (
         <div className="container">
             <div className="addcategory-page-container">
-                <h1>Add Categories & Subcategories</h1>
+                <h1>Add Post Categories & Subcategories</h1>
                 
                 <form className="form-cat">
                     <div className="category-items-flex">
 
                         <div className="category-element label-input">
-                            <label className="label">Add Category</label>
-                            <input id="add-cat-input" type="text" placeholder="Add Category..." />
+                            <label className="label">Add Category Post</label>
+                            <input id="add-cat-input" type="text" placeholder="Add Category Post..." />
                         </div>
 
-                        <input type="submit" value="Add Category" className="add-cat-btn" />
+                        <input type="submit" value="Add Category Post" className="add-cat-btn" />
 
                     </div>
                 </form>
@@ -25,19 +23,19 @@ const AddCategory = () => {
                     <div className="category-items-flex" >
 
                         <div className="category-element label-input">
-                            <label className="label">Parent Category</label>
+                            <label className="label">Parent Category Post</label>
                             <select>
                                 <option value="" disabled selected>Select Parent Category...</option>
-                                <option>Food</option>
-                                <option>Clothes</option>
-                                <option>Electronics</option>
-                                <option>Jewelery</option>
+                                <option>Web Dev</option>
+                                <option>Humanity</option>
+                                <option>Tech</option>
+                                <option>Culture</option>
                             </select>
                         </div>
 
                         <div className="category-element label-input">
-                            <label className="label">Add Subcategory</label>
-                            <input id="add-cat-input" type="text" placeholder="Add Subcategory..." />
+                            <label className="label">Add Subcategory Post</label>
+                            <input id="add-cat-input" type="text" placeholder="Add Subcategory Post..." />
                         </div>
 
                         
@@ -52,4 +50,4 @@ const AddCategory = () => {
     )
 }
 
-export default AddCategory
+export default AddCategoryPost

@@ -117,17 +117,18 @@
   }
   
   .pending{
-    background: #9081d7;
+    background:#5C9BD1 ;
+    order:3;
   }
   
   .canceled{
     background: #f23247;
-  
+    order:1;
   }
   
   .delivered{
     background: #52d344;
-  
+    order:2;
   }
 
   .table-title{
