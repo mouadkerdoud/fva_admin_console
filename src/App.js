@@ -9,10 +9,10 @@ import AddCategoryProduct from "./components/ecommerce/categories_products/AddCa
 
 import Post from "./components/blog/Posts/Post"
 import AddPost from "./components/blog/Posts/AddPost"
-
 import CategoryPost from "./components/blog/categories_posts/CategoryPost"
 import AddCategoryPost from "./components/blog/categories_posts/AddCategoryPost"
 
+import Association from "./components/association_profile/Association"
 
 
 
@@ -31,6 +31,7 @@ function App() {
       <Sidebar />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/association" component={Association} />
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/products" component={Products} />
         <Route path="/AddProduct" component={AddProduct} />
