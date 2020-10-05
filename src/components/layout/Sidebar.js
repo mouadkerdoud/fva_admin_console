@@ -11,7 +11,10 @@ const Sidebar = () => {
             <div class="sidebar">
                 <h2>FVA Admin</h2>
                 <ul>
-             
+               
+
+                    <SidebarItems title="Association Profile" icon={ <i class="fas fa-id-badge"></i>} link="association" />
+
                     <SidebarItems title="Home" icon={<i class="fas fa-home"></i>} link="home" />
 
                     <SidebarItems title="Ecommerce" icon={<i class="fas fa-shopping-cart"></i>} drop={<i class="fas fa-caret-down"></i>} >
