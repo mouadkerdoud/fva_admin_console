@@ -14,7 +14,7 @@ const AddCategoryPost = () => {
                             <input id="add-cat-input" type="text" placeholder="Add Category Post..." />
                         </div>
 
-                        <input type="submit" value="Add Category Post" className="add-cat-btn" />
+                        <input type="submit" value="Add Category Post" className="btn add-cat-btn" />
 
                     </div>
                 </form>
@@ -42,7 +42,7 @@ const AddCategoryPost = () => {
 
                     </div>
 
-                    <input type="submit" value="Add Subcategory" className="add-cat-btn add-subcat-btn" />
+                    <input type="submit" value="Add Subcategory" className="btn add-cat-btn add-subcat-btn" />
                 </form>
                 
             </div>

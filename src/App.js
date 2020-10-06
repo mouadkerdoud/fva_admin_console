@@ -11,6 +11,8 @@ import Post from "./components/blog/Posts/Post"
 import AddPost from "./components/blog/Posts/AddPost"
 import CategoryPost from "./components/blog/categories_posts/CategoryPost"
 import AddCategoryPost from "./components/blog/categories_posts/AddCategoryPost"
+import User from "./components/blog/Users/User"
+import AddUser from "./components/association_profile/AddUser"
 
 import Association from "./components/association_profile/Association"
 
@@ -41,6 +43,8 @@ function App() {
         <Route path="/categoriesPost" component={CategoryPost} />
         <Route path="/AddPost" component={AddPost} />
         <Route path="/AddCategoryPost" component={AddCategoryPost} />
+        <Route path="/User" component={User} />
+        <Route path="/AddUser" component={AddUser} />
         
       </Switch>
     </Router>

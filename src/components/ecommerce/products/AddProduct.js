@@ -1,4 +1,7 @@
 import React from 'react'
+/* CKEditor */
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
+import CKEditor from "@ckeditor/ckeditor5-react"
 
 const AddProduct = () => {
   return (
@@ -84,12 +87,20 @@ const AddProduct = () => {
 
                 <div className="description-element label-input">
                     <label className="label">Short description*</label>
-                    <textarea placeholder="Short Description..." />
+                    <CKEditor
+                                editor={ClassicEditor}
+                                onInit={editor=>{
+                                }}
+                    />                
                 </div>
 
                 <div className="description-element label-input">
                     <label className="label">Long description*</label>
-                    <textarea placeholder="Long Description..." />
+                    <CKEditor
+                                editor={ClassicEditor}
+                                onInit={editor=>{
+                                }}
+                    />
                 </div>
 
                 <button className="btn-add-prod">Add Product</button>

@@ -1,8 +1,12 @@
 import React from 'react'
 import "./Posts.css"
-
+/* CKEditor */
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
+import CKEditor from "@ckeditor/ckeditor5-react"
 
 const AddPost = () => {
+     
+    
     return (
         <div className="container">
             <h1>Add Post</h1>
@@ -63,10 +67,14 @@ const AddPost = () => {
 
                 <div className="description-element label-input">
                     <label className="label">Post Content*</label>
-                    <textarea className="post-text" placeholder="Post Content..." />
+                    <CKEditor
+                                editor={ClassicEditor}
+                                onInit={editor=>{
+                                }}
+                    />
                 </div>
 
-                <button className="btn-add-prod">Add Post</button>
+                <button className="btn btn-add-prod">Add Post</button>
 
         </form>
             
