@@ -13,7 +13,11 @@ const Sidebar = () => {
                 <ul>
                
 
-                    <SidebarItems title="Association Profile" icon={ <i class="fas fa-id-badge"></i>} link="association" />
+                    <SidebarItems title="Association" icon={ <i class="fas fa-id-badge"></i>} drop={<i class="fas fa-caret-down"></i>} >
+                        <DropDown title=" Edit Association" icon={<i class="fa fa-pencil-square-o"></i>} link="association" />
+                        <DropDown title="Add User" icon={<i class="fas fa-user"></i>} link="AddUser" />
+                        <DropDown title="Manages Users" icon={<i className="fas fa-users"></i>} link="User" />
+                    </SidebarItems>
 
                     <SidebarItems title="Home" icon={<i class="fas fa-home"></i>} link="home" />
 
@@ -26,7 +30,6 @@ const Sidebar = () => {
                     </SidebarItems>
 
                     <SidebarItems title="Blog" icon={<i class="fas fa-address-card"></i>} drop={<i class="fas fa-caret-down"></i>}>
-                        <DropDown title="Users" icon={<i className="fas fa-users"></i>} link="users" />
                         <DropDown title="Posts" icon={<i class="fas fa-clipboard"></i>} link="post" />
                         <DropDown title="Post Categories" icon={<i class="fas fa-list-ul"></i>} link="categoriesPost" />
                     </SidebarItems>
