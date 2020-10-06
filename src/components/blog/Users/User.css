@@ -1,52 +1,7 @@
-.btn{
-    color: white;
-    background: #594f8d;
-    padding: 0.9rem;
-    border-radius: 0.18rem;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0,0, 0, 0.12) 0px 3px 1px -2px
-
-  }
-.btn:hover{
-    border:2px solid #594f8d;
-    color:#594f8d;
-    background: #fff;
-}
-.meta-table{
-  margin-top: 1.8rem;
-  display: flex;
-  justify-content: space-between;
-}
-
-.meta-table-title{
-    font-size: 1.25rem;
-}
-
-.meta-table-field{
-  margin-right: 3.5rem;
-  display: flex;
-}
-
-.meta-table-field input{
-  padding-left: 0.2rem;
-}
-
-.search-icon{
-  background: #594f8d;
-  padding: 0.5rem;
-  color:white;
-  border-radius: 0.18rem;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0,0, 0, 0.12) 0px 3px 1px -2px;
-  margin-left: 0.2rem;
-  cursor: pointer;
-}
 
 .table-User{
     margin-top: 1.5rem;
-    overflow-x: auto;
-    display: block;
+
 }
 
  
