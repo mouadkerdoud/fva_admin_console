@@ -7,7 +7,7 @@ const SidebarItems = (props) => {
     return (
         <>
             <li>
-                <Link to={props.link} onClick={()=>setOpen(!open)} >{props.icon}{props.title}       {props.drop}</Link>
+                <Link to={props.link ? props.link : ""} onClick={()=>setOpen(!open)} >{props.icon}{props.title}       {props.drop}</Link>
                 
                 {open && props.children}
 
