@@ -32,10 +32,6 @@ const AddPost = () => {
                     <input placeholder="Title..." type="text" className="data-form" />
                 </div>
 
-                <div className="field label-input">
-                    <label className="label">Category*</label>
-                    <input placeholder="Category..." type="text" className="data-form" />
-                </div>
 
                 <div className="field label-input post-select ">
                     <label className="label">Post Status*</label>
