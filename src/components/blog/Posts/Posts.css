@@ -100,7 +100,6 @@
 /* Input "File" */
 .upload{
     margin-top: 4px;
-    border: 2px dotted #A5A5C7;
     width: 320px;
     color: #DADCE3;
     text-align: left;
@@ -124,11 +123,7 @@
     color: #fff !important;  
     background-color: #594f8d !important;
 }
-.btng:hover{
-    background-color: #fff !important;
-    color:#594f8d !important;
-    border: 2px solid #594f8d;
-}
+
 
 .label-input .lbl{
     font-weight: bold;

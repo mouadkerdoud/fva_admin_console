@@ -7,9 +7,7 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
 
 const AddPost = () => {
-    const selectedTags = tags => {
-		console.log(tags);
-	};
+    
     
     return (
         <div className="container">
@@ -47,14 +45,14 @@ const AddPost = () => {
 
                 <div className="field label-input post-select">
                     <label className="label">Post Tags*</label>
-                    <TagsInput selectedTags={selectedTags}  tags={['Beauty', 'Sport']}/>
+                    <TagsInput tags={['Beauty', 'Sport']}/>
                 </div>
 
                 <div className="field label-input">
                     <label className="lbl">Image*</label>
                     <div className="upload">
-                        <label className="btng uploadselect" htmlFor="image">Please Select </label>                               
-                        <input type="file" hidden id="image" name="image"className="form-control" required/>                          
+                        <label className="btng uploadselect" htmlFor="image">Select Image </label>                               
+                        <input type="file" hidden id="image" name="image" className="form-control" required/>                          
                     </div>
                 </div>
 
