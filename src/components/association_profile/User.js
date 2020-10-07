@@ -56,7 +56,7 @@ class User extends Component {
                                     <th>Actions</th>
                                 </tr>
                             </thead>
-                        {users.map(user=>{
+                        {users.slice(0, 7).map(user=>{
                             return (
                                     <tbody key={user.id}>
 
