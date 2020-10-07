@@ -1,9 +1,14 @@
 import React from 'react'
+import TagsInput from "./TagsInput"
+
 /* CKEditor */
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
 
 const AddProduct = () => {
+     const selectedTags = tags => {
+		console.log(tags);
+	};
   return (
     <div className="container">
         <h1>Add Product</h1>
@@ -65,17 +70,15 @@ const AddProduct = () => {
 
                 <div className="field label-input">
                     <label className="label">Product Tags*</label>
-                    <select>
-                        <option value="" disabled selected>Select Tag...</option>
-                        <option>Tag 1</option>
-                        <option>Tag 2</option>
-                        <option>Tag 3</option>
-                    </select>
+                    <TagsInput selectedTags={selectedTags}  tags={['Beauty', 'Sport']}/>
                 </div>
 
                 <div className="field label-input">
-                    <label className="label">Image*</label>
-                    <input type="file" />
+                    <label className="lbl">Image*</label>
+                    <div className="upload">
+                        <label className="btng uploadselect" htmlFor="image">Please Select </label>                               
+                        <input type="file" hidden id="image" name="image"className="form-control" required/>                          
+                    </div>
                 </div>
 
                

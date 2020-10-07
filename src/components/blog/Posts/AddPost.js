@@ -1,11 +1,15 @@
 import React from 'react'
 import "./Posts.css"
+
+import TagsInput from "./TagsInput"
 /* CKEditor */
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
 
 const AddPost = () => {
-     
+    const selectedTags = tags => {
+		console.log(tags);
+	};
     
     return (
         <div className="container">
@@ -29,9 +33,8 @@ const AddPost = () => {
             <div className="form-flex-items">
                 <div className="field label-input">
                     <label className="label">Post Title*</label>
-                    <input placeholder="Title..." type="text" className="data-form" />
+                    <input placeholder="Title..." type="text" className="data-form add-post" />
                 </div>
-
 
                 <div className="field label-input post-select ">
                     <label className="label">Post Status*</label>
@@ -44,20 +47,16 @@ const AddPost = () => {
 
                 <div className="field label-input post-select">
                     <label className="label">Post Tags*</label>
-                    <select >
-                        <option value="" disabled selected>Select Tag...</option>
-                        <option>Tag 1</option>
-                        <option>Tag 2</option>
-                        <option>Tag 3</option>
-                    </select>
+                    <TagsInput selectedTags={selectedTags}  tags={['Beauty', 'Sport']}/>
                 </div>
 
                 <div className="field label-input">
-                    <label className="label">Image*</label>
-                    <input type="file" />
+                    <label className="lbl">Image*</label>
+                    <div className="upload">
+                        <label className="btng uploadselect" htmlFor="image">Please Select </label>                               
+                        <input type="file" hidden id="image" name="image"className="form-control" required/>                          
+                    </div>
                 </div>
-
-               
 
             </div>  
 
