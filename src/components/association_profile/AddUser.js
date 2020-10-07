@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import "./AddUser.css"
 
 
 export class AddUser extends Component {

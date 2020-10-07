@@ -5,7 +5,7 @@ import "./DropDown.css"
 const DropDown = (props) => {
     return (
         <div className="dropdown">
-            <Link to={props.link} >{props.icon}{props.title}</Link>
+            <Link to={props.link}>{props.icon}{props.title}</Link>
 
         </div>
     )

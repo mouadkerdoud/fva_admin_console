@@ -36,8 +36,6 @@ const AddPost = () => {
                     <input placeholder="Title..." type="text" className="data-form add-post" />
                 </div>
 
-                
-
                 <div className="field label-input post-select ">
                     <label className="label">Post Status*</label>
                     <select >

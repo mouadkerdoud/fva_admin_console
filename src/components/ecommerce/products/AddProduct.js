@@ -13,32 +13,29 @@ const AddProduct = () => {
     <div className="container">
         <h1>Add Product</h1>
 
-        <div className="categories">
+        <div className="addcategory-page-container">
 
-            <div className="product-category-element label-input">
-                <label className="label">Category*</label>
-                <select>
-                    <option value="" disabled selected>Select Category...</option>
-                    <option>Food</option>
-                    <option>Clothes</option>
-                    <option>Electronics</option>
-                    <option>Jewelery</option>
-                </select>
-            </div>
+                <div className="form-cat">
+                    <div className="category-items-flex">
 
-            <div className="sub-category product-category-element label-input">
-                <label className="label">Subcategory*</label>
-                <select>
-                    <option value="" disabled selected>Select Subcategory...</option>
-                    <option>something1</option>
-                    <option>something2</option>
-                    <option>something3</option>
-                    <option>something4</option>
-                </select>
-            </div>
+                        <div className="category-element label-input">
+                            <label className="label">Select Category Product</label>
+                            <select className="large-selec">
+                                <option value="" disabled selected>Select Category Product...</option>
+                                <option>Food</option>
+                                <option>Electronics</option>
+                                <option>Jewelery</option>
+                            </select>
+                        </div>
 
+
+                    </div>
+                </div>
+        
         </div>
 
+
+        
         <form class="add-product-form">
             <div className="form-flex-items">
                 <div className="field label-input">
