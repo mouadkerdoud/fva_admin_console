@@ -2,6 +2,21 @@ import React from 'react'
 import {Link} from "react-router-dom"
 
 const Post = () => {
+    const SearchBar = (e)=>{
+        const term = e.value;
+        console.log(term.toLowerCase());
+        /* const posts = document.getElementsByTagName('td');
+        Array.from(posts).forEach(function(post){
+            const title = post.firstElementChild;
+            if(title.toLowerCase().indexOf(term.toLowerCase())!=-1){
+                post.textContent.style.display="block";
+            }
+            else{
+                post.textContent.style.display="none";
+            }
+        }) */
+    }
+    
     return (
         <div className="container">
 
@@ -13,7 +28,7 @@ const Post = () => {
                 <div className="meta-table-title">Posts List</div>
 
                 <div className="meta-table-field">
-                    <input placeholder="Seach Post..." />
+                    <input className="search" placeholder="Seach Post..." />
                     <i className="fas fa-search search-icon"></i>
                 </div>
 
