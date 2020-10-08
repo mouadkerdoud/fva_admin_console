@@ -32,9 +32,10 @@ class User extends Component {
                     <h1>Users</h1>
                     <div className="meta-table">
         
-                        <div className="meta-table-title">User List</div>
-        
-                        <div className="meta-table-field">
+                        <div class="main-menu">
+                            <h2 class="active"><i class="fa fa-file-users"></i>User List</h2>     
+                        </div>
+                        <div className="meta-table-field metatable">
                             <input placeholder="Seach User..." />
                             <i className="fas fa-search search-icon"></i>
                         </div>

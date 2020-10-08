@@ -24,12 +24,14 @@ class CategoryPost extends Component {
     
                 <div className="meta-table">
     
-                    <div className="meta-table-title">Post Categories List</div>
-    
-                    <div className="meta-table-field">
-                        <input placeholder="Seach Post Category..." />
-                        <i className="fas fa-search search-icon"></i>
-                    </div>
+                        <div class="main-menu">
+                            <h2 class="active" style={{width: '16rem'}}><i class="fa fa-list-ul"></i>Categories List</h2>     
+                        </div>
+        
+                        <div className="meta-table-field metatable">
+                            <input placeholder="Seach Post..." />
+                            <i className="fas fa-search search-icon"></i>
+                        </div>
     
                 </div>
     
