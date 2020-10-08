@@ -214,6 +214,14 @@
     text-shadow: 1px 1px 1px var(--dark-green-color);
     font-size: 18px;
 }
-
+/* Edit & Trash */
+.fa-edit{
+	color: #594f8d;
+	cursor: pointer;
+}
+.fa-trash{
+	color: red;
+	cursor: pointer;
+}
 
 

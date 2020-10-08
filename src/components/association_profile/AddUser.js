@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import "./User.css"
 
 export class AddUser extends Component {
     state={
@@ -31,27 +31,37 @@ export class AddUser extends Component {
                     <div className="row">
                         <div className="col label-input">
                             <label className="label" htmlFor="fname">First Name*</label> 
-                            <input type="text" name="fname" placeholder="Please Enter FirstName"/> 
+                            <input type="text" className="inp" name="fname" placeholder="Please Enter FirstName"/> 
                         </div>
 
                         <div className="col label-input">
                             <label className="label" htmlFor="lname">Last Name*</label> 
-                            <input type="text" name="lname" placeholder="Please Enter LastName"  /> 
+                            <input type="text" className="inp" name="lname" placeholder="Please Enter LastName"  /> 
                         </div>
     
                         <div className="col label-input">
                             <label className="label" htmlFor="email">Email*</label> 
-                            <input type="email" name="email" placeholder="Please Enter Email"  />
+                            <input type="email" className="inp" name="email" placeholder="Please Enter Email"  />
                         </div>
     
                         <div className="col label-input">
+                            <label className="label" htmlFor="password">Password*</label> 
+                            <input type="password" className="inp" name="password" placeholder="Please Enter Password"  />
+                        </div>
+
+                        <div className="col label-input">
+                            <label className="label" htmlFor="cpassword">Confirme Password*</label> 
+                            <input type="password" className="inp" name="cpassword" placeholder="Please Enter Confirm Password"  />
+                        </div>
+
+                        <div className="col label-input">
                             <label className="label" htmlFor="lname">Phone Number*</label> 
-                            <input type="text" name="lname" placeholder="Please Enter Number"  /> 
+                            <input type="text" className="inp" name="lname" placeholder="Please Enter Number"  /> 
                         </div>
 
                         <div className="col label-input">
                             <label className="label">Sex*</label> 
-                            <select>
+                            <select className="inp">
                                 <option value="Afghanistan">Male</option>
                                 <option value="Albania">Femal</option>
                             </select>
@@ -59,12 +69,12 @@ export class AddUser extends Component {
 
                         <div className="col label-input">
                             <label className="label">Date Birthday*</label> 
-                            <input type="date"  />
+                            <input className="inp" type="date"  />
                         </div>   
         
                         <div className="col label-input">
                             <label className="label">Country*</label> 
-                            <select>
+                            <select className="inp">
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
                                 <option value="Algeria">Algeria</option>
@@ -308,7 +318,7 @@ export class AddUser extends Component {
                         </div>
                         <div className="col label-input">
                             <label className="label">City*</label> 
-                            <select>
+                            <select className="inp">
                                 <option value="Tanger">Tanger</option>
                                 <option value="Asila">Asila</option>
                                 <option value="Mekness">Mekness</option>
@@ -328,7 +338,7 @@ export class AddUser extends Component {
                         </div>
                         <div className="col label-input">
                             <label className="label">Role*</label> 
-                            <select>
+                            <select className="inp">
                                 <option value="Admin">Admin</option>
                                 <option value="User">User</option>
                             </select>

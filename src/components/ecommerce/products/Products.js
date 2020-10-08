@@ -27,12 +27,14 @@ class Products extends Component {
     
                 <div className="meta-table">
     
-                    <div className="meta-table-title">Products List</div>
-    
-                    <div className="meta-table-field">
-                        <input placeholder="Seach Product..." />
-                        <i className="fas fa-search search-icon"></i>
-                    </div>
+                        <div class="main-menu">
+                            <h2 class="active"><i class="fa fa-shopping-bag"></i>Products List</h2>     
+                        </div>
+        
+                        <div className="meta-table-field metatable">
+                            <input placeholder="Seach Post..." />
+                            <i className="fas fa-search search-icon"></i>
+                        </div>
     
                 </div>
     
