@@ -7,6 +7,7 @@ import AddProduct from "./components/ecommerce/products/AddProduct"
 import CategoriesProducts from "./components/ecommerce/categories_products/CategoriesProducts"
 import AddCategoryProduct from "./components/ecommerce/categories_products/AddCategoryProduct"
 
+import DashBlog from "./components/blog/dashboard-blog/DashBlog"
 import Post from "./components/blog/Posts/Post"
 import AddPost from "./components/blog/Posts/AddPost"
 import CategoryPost from "./components/blog/categories_posts/CategoryPost"
@@ -15,6 +16,7 @@ import AddCategoryPost from "./components/blog/categories_posts/AddCategoryPost"
 import Association from "./components/association_profile/Association"
 import User from "./components/association_profile/User"
 import AddUser from "./components/association_profile/AddUser"
+
 
 
 
@@ -45,6 +47,7 @@ function App() {
         <Route path="/AddCategoryPost" component={AddCategoryPost} />
         <Route path="/User" component={User} />
         <Route path="/AddUser" component={AddUser} />
+        <Route path="/dashblog" component={DashBlog} />
 
 
         
