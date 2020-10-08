@@ -58,7 +58,7 @@ const AddPost = () => {
                     <div className="field label-input">
                         <label className="lbl">Image*</label>
                         <div className="upload">
-                            <label className="btng uploadselect" htmlFor="image">Please Select </label>                               
+                            <label className="btng uploadselect" htmlFor="image">Select Image </label>                               
                             <input type="file" hidden id="image" name="image"className="form-control" required/>                          
                         </div>
                     </div>
