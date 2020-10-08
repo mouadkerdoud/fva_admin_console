@@ -88,19 +88,12 @@ const AddPost = () => {
                         </div>
                         <div className="description-element label-input">
                             <label className="label">Meta Keywords:  *</label>
-                            <CKEditor   
-                                        editor={ClassicEditor}
-                                        onInit={editor=>{
-                                        }}
-                            />
+                            <textarea placeholder="Meta Keywords..." rows="10" className="add-meta" />
+
                         </div>
                         <div className="description-element label-input">
                             <label className="label">Meta Description:  *</label>
-                            <CKEditor
-                                        editor={ClassicEditor}
-                                        onInit={editor=>{
-                                        }}
-                            />
+                            <textarea placeholder="Meta description..." rows="10" className="add-meta" />
                         </div>
                                           
             </form>

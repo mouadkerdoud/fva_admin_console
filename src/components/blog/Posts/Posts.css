@@ -215,13 +215,9 @@
     font-size: 18px;
 }
 /* Edit & Trash */
-.fa-edit{
-	color: #594f8d;
+.fa-edit,.fa-trash{
 	cursor: pointer;
 }
-.fa-trash{
-	color: red;
-	cursor: pointer;
-}
+
 
 

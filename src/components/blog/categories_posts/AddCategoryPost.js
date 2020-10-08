@@ -33,12 +33,12 @@ const AddCategoryPost = () => {
 
                     <div className="field-lar label-input">
                         <label className="label">Meta keywords Category*</label>
-                        <input placeholder="Meta keywords..." type="text" className="data-form-lar" />
+                        <textarea placeholder="Meta keywords..." className="data-form-lar" />
                     </div>
 
                     <div className="field-lar label-input">
                         <label className="label">Meta description Category*</label>
-                        <input placeholder="Meta description..." type="text" className="data-form-lar" />
+                        <textarea placeholder="Meta description..."  className="data-form-lar" />
                     </div>
                 </div>  
                     
