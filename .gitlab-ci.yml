@@ -1,31 +1,47 @@
+image: node:8.10.0-alpine
+cache:
+  key: "alpine"
+  paths:
+    - node_modules/
+
 stages:
   - build
-  - deploy
+  - staging
+  - production
 
 build:
   stage: build
-  image: node:8
-  script:
-    - npm install --progress=false
-    - npm run build
   artifacts:
     paths:
       - dist/
-
-
-deploy:
-  stage: deploy
-  image: "ruby:2.5"
   script:
-    # install dpl:
-    - apt-get update -qy
-    - apt-get install rubygems ruby-dev -y
-    - gem install dpl
-    # deploy to heroku:
-    - dpl --provider=heroku --app=$HEROKU_APP_NAME --api-key=$HEROKU_API_KEY --skip_cleanup
-
-environment:
-  name: develop
-  url: https://$HEROKU_APP_NAME.herokuapp.com
+    - npm install
+    - npm run build
+  tags:
+    - docker
   only:
     - dev
+
+staging:
+  stage: staging
+  image: ruby:latest
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - cd dist
+    - dpl --provider=heroku --app=$HEROKU_DEV_APP_NAME --api-key=$HEROKU_API_KEY --skip_cleanup
+  only:
+    - dev
+
+production:
+  stage: production
+  image: ruby:latest
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - cd dist
+    - dpl --provider=heroku --app=$HEROKU_PROD_APP_NAME --api-key=$HEROKU_API_KEY --skip_cleanup
+  only:
+    - master
