@@ -1,14 +1,30 @@
-.btn{
-    color: white;
-    background: #594f8d;
-    padding: 0.9rem;
-    border-radius: 0.18rem;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0,0, 0, 0.12) 0px 3px 1px -2px
-
-  }
+.categP{
+  width: 48% !important;
+}
+.moy-selec{
+  width: 30rem;
+}
+.formProduct{
+    display: flex;
+    overflow: hidden;
+}
+.forms3{
+  width: 34rem !important;
+  margin-right: 1.2rem;
+}
+.forms4{
+  width: 34rem !important;
+}
+.inp-prod{
+  width: 30.9rem !important;
+}
+.field-pd .tags-input{
+  width: 30.9rem !important;
+  margin-bottom: 10px;
+}
+.field-pd .upload{
+  width: 30.9rem !important;
+}
   
 .meta-table{
   margin-top: 1.8rem;

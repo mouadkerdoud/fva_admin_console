@@ -107,8 +107,7 @@ const AddPost = () => {
 
             </div>
             <form class="add-product-form formsbtn">
-
-            <button className="btn btn-add-prod">Add Post</button>
+                <button className="btn btn-add-prod">Add Post</button>
             </form>
 
         </div>
