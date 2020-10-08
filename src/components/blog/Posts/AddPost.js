@@ -34,9 +34,9 @@ const AddPost = () => {
                             </select>
                 </div>
     
-                    <div className="field label-input post-select ">
+                    <div className="category-element label-input">
                         <label className="label">Post Status*</label>
-                        <select className="add-post">
+                        <select className="moy-selec">
                             <option value="" disabled selected>Select Status...</option>
                             <option>Active</option>
                             <option>Disabled</option>

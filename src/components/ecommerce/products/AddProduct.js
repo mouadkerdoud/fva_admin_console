@@ -13,9 +13,7 @@ const AddProduct = () => {
         <div className="formProduct">
         <form class="add-product-form forms3">
             <div className="form-flex-items">
-                <div class="main-menu">
-                    <h2 class="active"><i class="fa fa-shopping-bag"></i>Product</h2>     
-                </div>
+              
                 <div className="field label-input">
                     <label className="label">Product Name*</label>
                     <input placeholder="Name..." type="text" className="inp-prod data-form" />
@@ -36,9 +34,14 @@ const AddProduct = () => {
                     <input placeholder="Model..." type="text" className="inp-prod data-form" />
                 </div>
 
-                <div className="field label-inp-produt">
-                    <label className="label">Brand*</label>
-                    <input placeholder="Brand..." type="text" className="inp-prod data-form" />
+                <div className="category-element label-input">
+                            <label className="label">Select Brand</label>
+                            <select className="moy-selec">
+                                <option value="" disabled selected>Select Brand Product...</option>
+                                <option>Alver</option>
+                                <option>Lacoste</option>
+                                <option>Rolex</option>
+                            </select>
                 </div>
 
                 <div className="field label-input">
