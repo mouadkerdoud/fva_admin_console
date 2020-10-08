@@ -1,3 +1,32 @@
+.categ{
+    width: 51% !important;
+}
+.formPost{
+    display: flex;
+    overflow: hidden;
+}
+.add-meta{
+    width: 29rem !important;
+}
+.forms{
+    width: 36rem !important;
+    margin-right: 1.2rem;
+}
+.forms2{
+    width: 32rem !important;
+}
+
+.add-post{
+    width: 33rem !important;
+}
+.formsbtn{
+	padding: 10px !important;
+	text-align: center;
+	margin-bottom: 10px;
+}
+.formsbtn .btn{
+	width: 10rem;
+}
 .post-category-element{
     background: white;
     width: 98%;
@@ -17,9 +46,6 @@
 .post-text{
     padding: 3rem;
 }
-.add-post{
-    width: 20rem !important;
-}
 /* Add Tags Post */
 @import url("https://fonts.googleapis.com/css?family=Overpass");
 
@@ -35,7 +61,7 @@
 	align-items: flex-start;
 	flex-wrap: wrap;
 	min-height: 48px;
-	width: 480px;
+    width: 33rem;
 	padding: 0 8px;
 	border: 1px solid rgb(214, 216, 218);
 	border-radius: 6px;
@@ -97,10 +123,12 @@
 		width: calc(100vw - 32px);
 	}
 }
+
 /* Input "File" */
 .upload{
     margin-top: 4px;
-    width: 320px;
+    border: 2px dotted #A5A5C7;
+    width: 33rem;
     color: #DADCE3;
     text-align: left;
     vertical-align: middle;
@@ -117,15 +145,76 @@
     font-weight: 400;
 }
 
-.btng{
-    padding: 18px;  
-    margin-right: 5px; 
-    color: #fff !important;  
-    background-color: #594f8d !important;
-}
+.btn{
+    color: white;
+    background: #594f8d;
+    padding: 0.9rem;
+    border-radius: 0.18rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0,0, 0, 0.12) 0px 3px 1px -2px
 
+  }
+.btn:hover{
+    border:1px solid #594f8d;
+    color:#594f8d;
+    background: #fff;
+}
 
 .label-input .lbl{
     font-weight: bold;
     font-size: 1rem;
   }
+
+/* Shape Post/ Meta */
+  body {
+    --menu-item-size: 50px;
+    --mauve-color: #594f8d;
+    --dark-mauve-color: #175b52;
+    --white-color: #FFF;
+    --gray-color: #EDEDED;
+    --container-width: 700px;
+    --container-height: 400px;
+}
+
+  .main-menu {
+    display: block; 
+    list-style: none;
+    padding: 0.6em 0 0 0;
+    text-align: left;
+}
+
+.main-menu > h2 {
+    box-sizing: border-box;
+    height: var(--menu-item-size);
+    width: calc(3.5 * var(--menu-item-size));  
+    line-height: var(--menu-item-size);
+    padding: 0 2em;
+    margin: 1px;
+    background: var(--mauve-color);
+    color: var(--dark-mauve-color);
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+}
+
+.main-menu > h2:not(.with-submenu) {
+    clip-path: polygon(10% 0%, 0% 100%, 95% 100%, 100% 50%, 95% 0%);
+    shape-outside: polygon(10% 0%, 0% 100%, 95% 100%, 100% 50%, 95% 0%);
+}
+
+.main-menu i {
+    margin-right: 5px;
+}
+
+.main-menu .active {
+    color: var(--white-color);
+    background: var(--mauve-color);
+    cursor: default;
+    text-shadow: 1px 1px 1px var(--dark-green-color);
+    font-size: 18px;
+}
+
+
+
