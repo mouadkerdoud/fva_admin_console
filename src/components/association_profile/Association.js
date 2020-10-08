@@ -22,46 +22,46 @@ export class Association extends Component {
             <h1>Association Profile</h1>
             <form className="assoc-form">
                 <div className="assoc-wrapper">
-    
-                    
+
+
                     <div className="picture-assoc">
-                        <img id="profile-pic-assoc" src={profileImg} alt="Profile Picture" />
+                        <img id="profile-pic-assoc" src={profileImg} alt="Profile" />
                         <input type="file" accept="image/*" name="image-upload" id="input" onChange={this.imageHandler} />
                     </div>
-    
+
                     <div className="row">
                         <div className="col label-input">
-                            <label className="label" >Association Name*</label> 
-                            <input type="text" value="Future Vision Association" /> 
+                            <label className="label" >Association Name*</label>
+                            <input type="text" value="Future Vision Association" />
                         </div>
-    
+
                         <div className="col label-input">
-                            <label className="label">Email*</label> 
+                            <label className="label">Email*</label>
                             <input type="text" value="fva@gmail.com" />
                         </div>
-    
+
                         <div className="col label-input">
-                            <label className="label">Phone Number*</label> 
+                            <label className="label">Phone Number*</label>
                             <input type="text" value="0537849143" />
                         </div>
-    
+
                         <div className="col label-input">
-                            <label className="label">Fax*</label> 
+                            <label className="label">Fax*</label>
                             <input type="text" value="55487910" />
                         </div>
-    
+
                         <div className="col label-input">
-                            <label className="label">Address*</label> 
+                            <label className="label">Address*</label>
                             <input type="text" value="Rue something, somewhere" />
                         </div>
-    
+
                         <div className="col label-input">
-                            <label className="label">City*</label> 
+                            <label className="label">City*</label>
                             <input type="text" value="Rabat" />
                         </div>
-    
+
                         <div className="col label-input">
-                            <label className="label">Country*</label> 
+                            <label className="label">Country*</label>
                             <select>
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
@@ -242,12 +242,12 @@ export class Association extends Component {
                                 <option value="Romania">Romania</option>
                                 <option value="Russia">Russian Federation</option>
                                 <option value="Rwanda">Rwanda</option>
-                                <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option> 
+                                <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
                                 <option value="Saint LUCIA">Saint LUCIA</option>
                                 <option value="Saint Vincent">Saint Vincent and the Grenadines</option>
                                 <option value="Samoa">Samoa</option>
                                 <option value="San Marino">San Marino</option>
-                                <option value="Sao Tome and Principe">Sao Tome and Principe</option> 
+                                <option value="Sao Tome and Principe">Sao Tome and Principe</option>
                                 <option value="Saudi Arabia">Saudi Arabia</option>
                                 <option value="Senegal">Senegal</option>
                                 <option value="Seychelles">Seychelles</option>
@@ -304,32 +304,32 @@ export class Association extends Component {
                                 <option value="Zimbabwe">Zimbabwe</option>
                                 </select>
                         </div>
-    
+
                         <div className="col label-input">
-                            <label className="label">Facebook Link*</label> 
+                            <label className="label">Facebook Link*</label>
                             <input type="text" value="ig/someassociation.com" />
                         </div>
-    
+
                         <div className="col label-input">
-                            <label className="label">Instagram Link*</label> 
+                            <label className="label">Instagram Link*</label>
                             <input type="text" value="fb/someassociation.com" />
                         </div>
-    
+
                         <div className="col label-input">
-                            <label className="label">Linkedin Link*</label> 
+                            <label className="label">Linkedin Link*</label>
                             <input type="text" value="lkdin/someassociation.com" />
                         </div>
-    
+
                         <div className="col label-input">
-                            <label className="label">Association Description*</label> 
+                            <label className="label">Association Description*</label>
                             <textarea type="text" value="blah blah blah" />
                         </div>
-    
+
                         <div className="col label-input">
-                            <label className="label">About us*</label> 
+                            <label className="label">About us*</label>
                             <textarea type="text" value="blah blah blah" />
                         </div>
-    
+
                     </div>
                 </div>
                 <input type="submit" value="Update" className="btn btn-assoc" />
