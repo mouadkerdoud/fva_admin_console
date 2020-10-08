@@ -11,7 +11,6 @@ import Post from "./components/blog/Posts/Post"
 import AddPost from "./components/blog/Posts/AddPost"
 import CategoryPost from "./components/blog/categories_posts/CategoryPost"
 import AddCategoryPost from "./components/blog/categories_posts/AddCategoryPost"
-import DashboardBlog from './components/blog/dashboard/DashboardBlog';
 
 import Association from "./components/association_profile/Association"
 import User from "./components/association_profile/User"
@@ -47,7 +46,6 @@ function App() {
         <Route path="/AddCategoryPost" component={AddCategoryPost} />
         <Route path="/User" component={User} />
         <Route path="/AddUser" component={AddUser} />
-        <Route path="/DashboardBlog" component={DashboardBlog} />
 
 
         
