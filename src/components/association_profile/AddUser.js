@@ -70,9 +70,8 @@ export class AddUser extends Component {
                             <input className="inp" type="date" name="dateofbirth" id="dateofbirth" />
                         </div>   
         
-                            <label className="label">Date Birthday*</label>
-                            <input className="inp" type="date"  />
-                        </div>
+                            
+                       
 
                         <div className="col label-input">
                             <label className="label">Country*</label>
@@ -344,6 +343,7 @@ export class AddUser extends Component {
                                 <option value="Admin">Admin</option>
                                 <option value="User">User</option>
                             </select>
+                        </div>
                         </div>
                     </div>
                 <input type="submit" value="Add User" className="btn btn-assoc" />
