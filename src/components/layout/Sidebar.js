@@ -33,7 +33,7 @@ const Sidebar = () => {
                     </SidebarItems>
 
                     <SidebarItems title="Blog" icon={<i className="fas fa-address-card"></i>} drop={<i className="fas fa-caret-down"></i>}>
-                        <DropDown title="Dashboard Blog" icon={<i class="fas fa-chart-bar"></i>} link="DashboardBlog" />
+                        <DropDown title="Dashboard Blog" icon={<i class="fas fa-chart-bar"></i>} link="dashblog" />
                         <DropDown title="Posts" icon={<i className="fas fa-clipboard"></i>} link="post" />
                         <DropDown title="Post Categories" icon={<i class="fas fa-list-ul"></i>} link="categoriesPost" />
                     </SidebarItems>

@@ -1,33 +1,18 @@
 import React from 'react'
 import "./Posts.css"
 
-import TagsInput from "./TagsInput"
+// import TagsInput from "../../layout/TagsInput"
 /* CKEditor */
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
 
 const AddPost = () => {
-    const selectedTags = tags => {
-		console.log(tags);
-	};
+    
     
     return (
         <div className="container">
             <h1>Add Post</h1>
 
-            <div className="categories">
-
-                <div className="post-category-element categ label-input">
-                    <label className="label">Category*</label>
-                    <select>
-                        <option value="" disabled selected>Select Category...</option>
-                        <option>Web Development</option>
-                        <option>Humanity</option>
-                        <option>Tech</option>
-                        <option>Culture</option>
-                    </select>
-                </div>
-            </div>
             <div className="formPost">
             <form class="add-product-form forms">
                 
@@ -39,21 +24,25 @@ const AddPost = () => {
                         <label className="label">Post Title*</label>
                         <input placeholder="Title..." type="text" className="data-form add-post" />
                     </div>
+                    <div className="category-element label-input">
+                            <label className="label">Select Category Product</label>
+                            <select className="moy-selec">
+                                <option value="" disabled selected>Select Category Product...</option>
+                                <option>Food</option>
+                                <option>Electronics</option>
+                                <option>Jewelery</option>
+                            </select>
+                </div>
     
-    
-                    <div className="field label-input post-select ">
+                    <div className="category-element label-input">
                         <label className="label">Post Status*</label>
-                        <select className="add-post">
+                        <select className="moy-selec">
                             <option value="" disabled selected>Select Status...</option>
                             <option>Active</option>
                             <option>Disabled</option>
                         </select>
                     </div>
     
-                    <div className="field label-input post-select">
-                        <label className="label">Post Tags*</label>
-                        <TagsInput selectedTags={selectedTags}  tags={['Beauty', 'Sport']}/>
-                    </div>
     
                     <div className="field label-input">
                         <label className="lbl">Image*</label>

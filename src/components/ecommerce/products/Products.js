@@ -50,8 +50,6 @@ class Products extends Component {
                         <th>Brand</th>
                         <th>Price </th>
                         <th>Quantity</th>
-                        <th>Discount</th>
-                        <th>Date Exp Discount</th>
                         <th>Actions</th>
                     </tr>
     
@@ -65,8 +63,6 @@ class Products extends Component {
                         <td>Alver</td>
                         <td>700 DH</td>
                         <td>15</td>
-                        <td>20%</td>
-                        <td>20/07/2018</td>
                         <td className="actions-table">
                             <i class="fas fa-edit"></i>
                             <i class="fas fa-trash"></i>
@@ -81,8 +77,6 @@ class Products extends Component {
                         <td>Alver</td>
                         <td>700 DH</td>
                         <td>15</td>
-                        <td>20%</td>
-                        <td>20/07/2018</td>
                         <td className="actions-table">
                             <i class="fas fa-edit"></i>
                             <i class="fas fa-trash"></i>
@@ -98,8 +92,6 @@ class Products extends Component {
                         <td>Alver</td>
                         <td>700 DH</td>
                         <td>15</td>
-                        <td>20%</td>
-                        <td>20/07/2018</td>
                         <td className="actions-table">
                             <i class="fas fa-edit"></i>
                             <i class="fas fa-trash"></i>
@@ -114,11 +106,9 @@ class Products extends Component {
                         <td>Alver</td>
                         <td>700 DH</td>
                         <td>15</td>
-                        <td>20%</td>
-                        <td>20/07/2018</td>
                         <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
+                            <i className="fas fa-edit"></i>
+                            <i className="fas fa-trash"></i>
                         </td>
                     </tr>
     

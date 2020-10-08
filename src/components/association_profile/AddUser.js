@@ -21,46 +21,44 @@ export class AddUser extends Component {
             <h1>Add User</h1>
             <form className="assoc-form">
                 <div className="assoc-wrapper">
-    
-                    
                     <div className="picture-assoc">
-                        <img id="profile-pic-assoc" src={profileImg} alt="Profile Picture" />
+                        <img id="profile-pic-assoc" src={profileImg} alt="Profile" />
                         <input type="file" accept="image/*" name="image-upload" id="input" onChange={this.imageHandler} />
                     </div>
-    
+
                     <div className="row">
                         <div className="col label-input">
-                            <label className="label" htmlFor="fname">First Name*</label> 
-                            <input type="text" className="inp" name="fname" placeholder="Please Enter FirstName"/> 
+                            <label className="label" htmlFor="fname">First Name*</label>
+                            <input type="text" className="inp" name="fname" placeholder="Please Enter FirstName"/>
                         </div>
 
                         <div className="col label-input">
-                            <label className="label" htmlFor="lname">Last Name*</label> 
-                            <input type="text" className="inp" name="lname" placeholder="Please Enter LastName"  /> 
+                            <label className="label" htmlFor="lname">Last Name*</label>
+                            <input type="text" className="inp" name="lname" placeholder="Please Enter LastName"  />
                         </div>
-    
+
                         <div className="col label-input">
-                            <label className="label" htmlFor="email">Email*</label> 
+                            <label className="label" htmlFor="email">Email*</label>
                             <input type="email" className="inp" name="email" placeholder="Please Enter Email"  />
                         </div>
-    
+
                         <div className="col label-input">
-                            <label className="label" htmlFor="password">Password*</label> 
+                            <label className="label" htmlFor="password">Password*</label>
                             <input type="password" className="inp" name="password" placeholder="Please Enter Password"  />
                         </div>
 
                         <div className="col label-input">
-                            <label className="label" htmlFor="cpassword">Confirme Password*</label> 
+                            <label className="label" htmlFor="cpassword">Confirme Password*</label>
                             <input type="password" className="inp" name="cpassword" placeholder="Please Enter Confirm Password"  />
                         </div>
 
                         <div className="col label-input">
-                            <label className="label" htmlFor="lname">Phone Number*</label> 
-                            <input type="text" className="inp" name="lname" placeholder="Please Enter Number"  /> 
+                            <label className="label" htmlFor="lname">Phone Number*</label>
+                            <input type="text" className="inp" name="lname" placeholder="Please Enter Number"  />
                         </div>
 
                         <div className="col label-input">
-                            <label className="label">Sex*</label> 
+                            <label className="label">Sex*</label>
                             <select className="inp">
                                 <option value="Afghanistan">Male</option>
                                 <option value="Albania">Femal</option>
@@ -72,8 +70,12 @@ export class AddUser extends Component {
                             <input className="inp" type="date" name="dateofbirth" id="dateofbirth" />
                         </div>   
         
+                            <label className="label">Date Birthday*</label>
+                            <input className="inp" type="date"  />
+                        </div>
+
                         <div className="col label-input">
-                            <label className="label">Country*</label> 
+                            <label className="label">Country*</label>
                             <select className="inp">
                                 <option value="Afghanistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
@@ -254,12 +256,12 @@ export class AddUser extends Component {
                                 <option value="Romania">Romania</option>
                                 <option value="Russia">Russian Federation</option>
                                 <option value="Rwanda">Rwanda</option>
-                                <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option> 
+                                <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
                                 <option value="Saint LUCIA">Saint LUCIA</option>
                                 <option value="Saint Vincent">Saint Vincent and the Grenadines</option>
                                 <option value="Samoa">Samoa</option>
                                 <option value="San Marino">San Marino</option>
-                                <option value="Sao Tome and Principe">Sao Tome and Principe</option> 
+                                <option value="Sao Tome and Principe">Sao Tome and Principe</option>
                                 <option value="Saudi Arabia">Saudi Arabia</option>
                                 <option value="Senegal">Senegal</option>
                                 <option value="Seychelles">Seychelles</option>
@@ -317,7 +319,7 @@ export class AddUser extends Component {
                                 </select>
                         </div>
                         <div className="col label-input">
-                            <label className="label">City*</label> 
+                            <label className="label">City*</label>
                             <select className="inp">
                                 <option value="Tanger">Tanger</option>
                                 <option value="Asila">Asila</option>
@@ -337,14 +339,13 @@ export class AddUser extends Component {
                             </select>
                         </div>
                         <div className="col label-input">
-                            <label className="label">Role*</label> 
+                            <label className="label">Role*</label>
                             <select className="inp">
                                 <option value="Admin">Admin</option>
                                 <option value="User">User</option>
                             </select>
                         </div>
                     </div>
-                </div>
                 <input type="submit" value="Add User" className="btn btn-assoc" />
             </form>
         </div>

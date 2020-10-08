@@ -6,7 +6,7 @@ const Dashboard = () => {
     return (
         <div className='container'>
 
-          <h1>Dashboard</h1>
+          <h1>Dashboard Ecommerce</h1>
 
           <div className="bar">Ecommerce Overview</div>
 
