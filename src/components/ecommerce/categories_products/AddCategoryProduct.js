@@ -35,13 +35,9 @@ const AddCategoryProduct = () => {
                         <input placeholder="Meta keywords..." type="text" className="data-form-lar" />
                     </div>
 
-                    <div className="description-element label-input">
+                    <div className="field-lar label-input">
                         <label className="label">Meta Description Category*</label>
-                        <CKEditor
-                                    editor={ClassicEditor}
-                                    onInit={editor=>{
-                                    }}
-                        />
+                        <input placeholder="Meta Description..." type="text" className="data-form-lar" />
                     </div>
 
                     <button className="btn">Add Category</button>
