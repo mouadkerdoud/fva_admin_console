@@ -15,8 +15,7 @@ const Sidebar = () => {
                 <SidebarItems title="Home" icon={<i className="fas fa-home"></i>} link="home" />
 
 
-                    <SidebarItems title="Association" icon={ <i className="fas fa-id-badge"></i>} drop={<i className="fas fa-caret-down"></i>} >
-                        
+                    <SidebarItems title="Association" icon={ <i className="fas fa-id-badge"></i>} drop={<i className="fas fa-caret-down"></i>} >                        
                         <DropDown title=" Event" icon={<i className="fa fa-wpforms"></i>} link="Event" />
                         <DropDown title="Users" icon={<i className="fas fa-users"></i>} link="User" />
                         <DropDown title="Add User" icon={<i className="fas fa-user"></i>} link="AddUser" /> 
