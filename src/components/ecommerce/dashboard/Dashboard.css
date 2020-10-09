@@ -18,6 +18,10 @@
 
 }
 
+.bar-first{
+  margin-top: 0rem;
+  margin-bottom: 2rem;
+}
 
 .overview{
   display: flex;
