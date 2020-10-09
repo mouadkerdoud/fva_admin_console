@@ -94,3 +94,11 @@ background-color: #eeeeee;
   margin-top: 3rem;
 }
 
+.ck-editor__editable_inline{
+  min-height: 7rem;
+  margin-bottom: 1rem;
+}
+
+.first-input{
+  margin-bottom: -1rem;
+}
