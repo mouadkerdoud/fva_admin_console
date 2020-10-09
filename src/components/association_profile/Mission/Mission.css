@@ -3,6 +3,22 @@
     top: -2rem;
     margin-right: 0 !important;
     margin-left: 6rem;
+    position: relative;
+}
+.assoc .upload-options {
+    width: 8rem !important;
+    margin-top: -40px;
+    margin-left: 50px;
+    height: 3rem;
+    border-radius: 30px;
+    box-shadow: 4px 2px 3px 2px #594f8d;
+
+}
+.assoc .upload-options:hover{
+    border: 1px solid #594f8d;
+    color:#594f8d !important;
+    background-color: #fff;
+    font-weight: 800;
 }
 .avatar .assoc-wrapper input {
     width: 12rem;
@@ -70,7 +86,7 @@
     height: 100%;
     width: 100%;
 }
-.upload-button .fa ,.fas{
+.upload-button .fa{
     margin-top: 20px;
 }
 .fa-arrow-circle-up{

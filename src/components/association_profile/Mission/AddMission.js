@@ -43,11 +43,13 @@ export class AddMission extends React.Component {
                             <div class="avatar-wrapper">
                                 <img class="profile-pic" src={this.state.profileImg} /> 
                             </div>
-                            <input class="file-upload"  type="file" accept="image/*" onChange={this.imageHandler} />                                                             
-
-                        </div>
+                             <input class="file-upload"  type="file" accept="image/*" onChange={this.imageHandler} />                                                             
+                         </div>
                     </div>    
+                    <input type="submit" value="Add Mission" className="btn btn-assoc" />
+
                 </form>
+                
             </div>    
             
         )

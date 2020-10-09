@@ -20,6 +20,9 @@
 .timer .inp{
     margin-right: 5px;
 }
+.mys{
+    width: 33rem !important;
+}
 input[type=time] {
     border: none;
     color: #2a2c2d;

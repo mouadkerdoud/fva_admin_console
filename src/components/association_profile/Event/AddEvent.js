@@ -37,7 +37,7 @@ const AddEvent = () => {
                     
                     <div className="category-element label-input">
                         <label className="label">Is Paid*</label>
-                        <select className="moy-selec">
+                        <select className="moy-selec mys">
                             <option value="" disabled selected>Select Is_Paid...</option>
                             <option>True</option>
                             <option>Flase</option>
