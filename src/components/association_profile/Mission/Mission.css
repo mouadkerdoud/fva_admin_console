@@ -1,3 +1,19 @@
+/* Avatar */
+.avatar .picture-assoc{
+    top: -2rem;
+    margin-right: 0 !important;
+    margin-left: 6rem;
+}
+.avatar .assoc-wrapper input {
+    width: 12rem;
+    padding: 0.8rem;
+}
+.assoc .file-upload{
+    margin-left: 10px;
+    background-color: transparent;
+    color: aliceblue;
+    border: none;
+}
 .forms5{
     margin: 0 auto;
     text-align: center;
@@ -6,4 +22,67 @@
  .forms5 .add-post{
      width: 30.9rem !important;
  }
- 
+ .assoc-form .ck.ck-editor {
+    position: relative;
+    width: 33rem;
+}
+/* Avatar Image */
+.avatar-wrapper{
+	position: relative;
+	height: 240px;
+	width: 240px;
+	margin: 55px auto;
+	border-radius: 50%;
+	overflow: hidden;
+	box-shadow: 1px 1px 15px -5px black;
+    transition: all .3s ease;
+}
+.avatar-wrapper:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+.avatar-wrapper:hover .profile-pic{
+    opacity: .5;
+}
+.profile-pic {
+    height: 100%;
+    width: 100%;
+    transition: all .3s ease;
+}
+.profile-pic:after{
+    font-family: "Font Awesome 5 Free";
+    content: "\f007";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    font-size: 199px;
+    background: #ecf0f1;
+    color: #34495e;
+    text-align: center;
+    font-weight: 900;
+}
+	
+.upload-button {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    width: 100%;
+}
+.upload-button .fa ,.fas{
+    margin-top: 20px;
+}
+.fa-arrow-circle-up{
+    position: absolute;
+    font-size: 260px;
+    top: -34px;
+    left: -5px;
+    text-align: center;
+    opacity: 0;
+    transition: all .3s ease;
+    color: #34495e;
+}
+.upload-button:hover .fa-arrow-circle-up{
+    opacity: .9;
+}
