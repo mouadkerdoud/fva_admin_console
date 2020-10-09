@@ -31,8 +31,10 @@ class Products extends Component {
                             <h2 class="active"><i class="fa fa-shopping-bag"></i>Products List</h2>     
                         </div>
         
-                        <div className="meta-table-field metatable">
-                            <input placeholder="Seach Post..." />
+                        <div className="meta-table-field metatable col-3 input-effect">
+                            <input  className="effect-16" />
+                            <label>Search</label>
+                            <span class="focus-border"></span>
                             <i className="fas fa-search search-icon"></i>
                         </div>
     

@@ -1,7 +1,7 @@
 import React from 'react'
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
-
+import "./Category.css"
 const AddCategoryProduct = () => {
     return (
         <div className="container">
@@ -10,7 +10,7 @@ const AddCategoryProduct = () => {
         <form className="addcategory-page-container">
 
 
-                <div className="inner-container">
+                <div className="inner-container catego">
                     <div className="field-lar label-input">
                         <label className="label">Category Name*</label>
                         <input placeholder="Name..." type="text" className="data-form-lar" />

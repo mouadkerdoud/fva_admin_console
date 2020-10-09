@@ -3,7 +3,7 @@ import "./User.css"
 
 
 class User extends Component {
-   
+
     state = {
         isLoading: true,
         users: null
@@ -28,24 +28,24 @@ class User extends Component {
         else{
             return (
                 <div className="container">
-        
+
                     <h1>Users</h1>
                     <div className="meta-table">
-        
+
                         <div class="main-menu">
-                            <h2 class="active"><i class="fa fa-file-users"></i>User List</h2>     
+                            <h2 class="active"><i class="fa fa-file-users"></i>User List</h2>
                         </div>
                         <div className="meta-table-field metatable">
                             <input placeholder="Seach User..." />
                             <i className="fas fa-search search-icon"></i>
                         </div>
-        
+
                     </div>
-        
-                    
-        
+
+
+
                     <table className="table-User">
-         
+
                             <thead>
                                 <tr>
                                     <th>Id</th>
@@ -67,7 +67,7 @@ class User extends Component {
                                             <td>{user.email}</td>
                                             <td>{user.phone}</td>
                                             <td>{user.address.city}</td>
-                                            <td>{user.id % 2 ==0 ? "Admin": "User"}</td>
+                                            <td>{user.id % 2 === 0 ? "Admin": "User"}</td>
                                             <td className="actions-table">
                                                 <i className="fas fa-edit"></i>
                                                 <i className="fas fa-trash"></i>
@@ -77,15 +77,15 @@ class User extends Component {
 
                             )
                         })}
-                        
-                        
+
+
                     </ table>
                 </div>
             )
         }
-        
+
     }
-   
+
 }
 
 export default User

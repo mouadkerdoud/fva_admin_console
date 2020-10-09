@@ -18,3 +18,10 @@
     width: 30.9rem;
     padding: 0.5rem;
 }
+
+.categP input{
+    width: 32rem;
+}
+.categP textarea{
+    width: 32rem;
+}

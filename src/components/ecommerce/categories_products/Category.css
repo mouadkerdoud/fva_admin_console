@@ -16,7 +16,9 @@
     justify-content: space-between;
 }
 
-
+.catego input {
+    width: 33rem !important;
+}
 
 .category-element{
     width: 30rem;
