@@ -33,21 +33,21 @@
 }
 
 .add-cat-btn{
-    padding: 0rem 0.9rem;
+    position: relative;
+    margin-top: 0.5rem;
+    left: 5rem;
+    width: 18rem;
     color: white;
     background: #594f8d;
+    padding: 0.9rem;
     border-radius: 0.18rem;
     border: none;
     outline: none;
     cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0,0, 0, 0.12) 0px 3px 1px -2px
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0,0, 0, 0.12) 0px 3px 1px -2px;
 }
 
-.add-subcat-btn{
-    padding: 0.9rem;
-    margin-top: 3rem;
-    margin-left: 25rem;
-}
+
 
 .catsform{
     padding-top: 2rem;
@@ -67,3 +67,4 @@
     width: 10rem;
     padding: 0.5rem;
 }
+

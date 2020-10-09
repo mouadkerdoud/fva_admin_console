@@ -1,7 +1,7 @@
 .categ{
     width: 51% !important;
 }
-.formPost{
+.flexy-columns{
     display: flex;
     overflow: hidden;
 }
@@ -27,7 +27,7 @@
 .formsbtn .btn{
 	width: 10rem;
 }
-.formPost .moy-selec{
+.flexy-columns .moy-selec{
 	width: 33rem;
 	padding: 0.5rem;
   }
@@ -159,6 +159,21 @@
     box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0,0, 0, 0.12) 0px 3px 1px -2px
 
   }
+  .add-btn-form{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 18rem;
+    position: relative;
+    left: 25rem;
+    color: white;
+    background: #594f8d;
+    padding: 0.9rem;
+    border-radius: 0.18rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0,0, 0, 0.12) 0px 3px 1px -2px
+  }
 
 
 .label-input .lbl{
@@ -220,10 +235,7 @@
 }
 /*  */
 
-/* necessary to give position: relative to parent. */
-.input-effect .effect-16{
- 
-}
+
 :focus{outline: none;}
 .effect-16{font: 15px/24px 'Muli', sans-serif; color: #333; width: 50%; box-sizing: border-box; letter-spacing: 1px;}
 
