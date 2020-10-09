@@ -94,7 +94,7 @@ export default class DashBlog extends Component {
         
             </div>
         
-            <div className="bar">Posts Data</div>
+            <div className="bar">General Data</div>
         
                 <Chart chartData={this.state.chartData}  legendPosition="bottom"/>
 
