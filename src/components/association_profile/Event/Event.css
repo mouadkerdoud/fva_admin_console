@@ -1,0 +1,29 @@
+.mt{
+    margin-top: 14px;
+}
+/* input number */
+.number{
+    width: 33rem !important;
+    height: 42px !important;
+    font-weight: lighter !important;
+}
+  
+.number:focus {
+    outline: 0;
+}
+
+
+/* Timer */
+.timer{
+    display: flex;
+}
+.timer .inp{
+    margin-right: 5px;
+}
+input[type=time] {
+    border: none;
+    color: #2a2c2d;
+    font-size: 14px;
+    font-family: helvetica;
+    width: 160px;
+  }

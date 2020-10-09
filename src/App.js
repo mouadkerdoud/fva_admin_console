@@ -16,6 +16,8 @@ import AddCategoryPost from "./components/blog/categories_posts/AddCategoryPost"
 import Association from "./components/association_profile/Association"
 import User from "./components/association_profile/User"
 import AddUser from "./components/association_profile/AddUser"
+import Event from "./components/association_profile/Event/Event"
+import AddEvent from './components/association_profile/Event/AddEvent';
 
 
 
@@ -47,6 +49,8 @@ function App() {
         <Route path="/User" component={User} />
         <Route path="/AddUser" component={AddUser} />
         <Route path="/dashblog" component={DashBlog} />
+        <Route path="/Event" component={Event} />
+        <Route path="/AddEvent" component={AddEvent} />
 
 
 

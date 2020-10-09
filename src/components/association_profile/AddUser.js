@@ -80,10 +80,7 @@ export class AddUser extends Component {
                         <div className="col label-input">
                             <label className="label">Date Birthday*</label> 
                             <input className="inp" type="date" name="dateofbirth" id="dateofbirth" />
-                        </div>   
-        
-                            
-                       
+                        </div>      
 
                         <div className="col label-input">
                             <label className="label">Country*</label>
