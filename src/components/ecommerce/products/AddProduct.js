@@ -4,6 +4,8 @@ import React from 'react'
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
 
+import ImageUploader from "../../layout/ImageUploader"
+
 const AddProduct = () => {
      
   return (
@@ -17,6 +19,11 @@ const AddProduct = () => {
                 <div className="field label-input">
                     <label className="label">Product Name*</label>
                     <input placeholder="Name..." type="text" className="inp-prod data-form" />
+                </div>
+
+                <div className="field label-input">
+                    <label className="label">Select Images*</label>
+                    <ImageUploader />
                 </div>
 
                 <div className="category-element label-input">
@@ -65,14 +72,6 @@ const AddProduct = () => {
             </div>
 
            
-
-            <div className="field label-input field-pd">
-                <label className="lbl">Image*</label>
-                <div className="upload">
-                    <label className="btng uploadselect" htmlFor="image">Select Image </label>                               
-                    <input type="file" hidden id="image" name="image" required/>                          
-                </div>
-            </div>
             <div className="description-element label-input">
                 <label className="label">Short description*</label>
                 <CKEditor

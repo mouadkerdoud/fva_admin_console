@@ -1,10 +1,12 @@
 import React from 'react'
 import "./Posts.css"
 
-// import TagsInput from "../../layout/TagsInput"
 /* CKEditor */
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
+
+import ImageUploader from "../../layout/ImageUploader"
+
 
 const AddPost = () => {
     
@@ -23,6 +25,11 @@ const AddPost = () => {
                     <div className="field label-input">
                         <label className="label">Post Title*</label>
                         <input placeholder="Title..." type="text" className="data-form add-post" />
+                    </div>
+
+                    <div className="field label-input">
+                        <label className="label">Select Images*</label>
+                        <ImageUploader />
                     </div>
                     <div className="category-element label-input">
                             <label className="label">Select Category Product</label>
