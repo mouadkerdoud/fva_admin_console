@@ -58,11 +58,23 @@ export class AddUser extends Component {
                         </div>
 
                         <div className="col label-input">
-                            <label className="label">Sex*</label>
-                            <select className="inp">
-                                <option value="Afghanistan">Male</option>
-                                <option value="Albania">Femal</option>
-                            </select>
+                            <label className="label">Gender*</label>
+                            <div class="form-item">
+                                <div class="form-gender">
+                                    <label class="gender">
+                                        <input type="radio" name="gender" />
+                                        <span class="male">Male</span>
+                                    </label>
+                                    <label class="gender">
+                                        <input type="radio" name="gender" />
+                                        <span class="female">Female</span>
+                                    </label>
+                                    <label class="gender">
+                                        <input type="radio" name="gender" />
+                                        <span class="other">Other</span>
+                                    </label>
+                                </div>   
+                            </div>
                         </div>
 
                         <div className="col label-input">

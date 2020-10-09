@@ -30,6 +30,58 @@ input ,select,textarea{
     box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
     width: 190px;
 }
+/** Gender **/
+.form-gender {
+	display: flex;
+	justify-content: space-around;
+	width: 70%;
+}
 
- 
+input[type="radio"] {
+	opacity: 0;
+	position: fixed;
+	width: 0;
+}
 
+.gender {
+	width: calc(100% / 3);
+	height: 60px;
+	position: relative;
+    text-align: center;
+}
+.gender span {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.gender span::before {
+    font-family: "Font Awesome 5 Free";
+    font-style: normal;
+    font-variant-caps: normal;
+    font-variant-ligatures: normal;
+    font-weight: 900;
+    height: 40px;
+    width: 40px;
+    text-rendering: auto;
+    display: inline-block;
+    font-size: 25px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    -webkit-font-smoothing: antialiased;
+}
+.male::before {
+    content: "\f222";
+}
+.female::before {
+    content: "\f221";
+}
+.other::before {
+    content: "\f228";
+}
+input[type="radio"]:checked ~ span:before {
+    background-color: #594f8d;
+    color: white;
+}
