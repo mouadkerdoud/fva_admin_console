@@ -1,0 +1,12 @@
+
+
+.myChart{
+
+    margin-top: 2rem;    
+} 
+
+canvas{
+
+    width: 98% !important;
+    height:600px !important;
+}  

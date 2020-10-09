@@ -8,7 +8,7 @@ const Dashboard = () => {
 
           <h1>Dashboard Ecommerce</h1>
 
-          <div className="bar">Ecommerce Overview</div>
+          <div className="bar bar-first">Ecommerce Overview</div>
 
           <div className="overview">
 

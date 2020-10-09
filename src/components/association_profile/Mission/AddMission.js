@@ -44,19 +44,8 @@ export class AddMission extends React.Component {
                             />
                         </div>
                         <div className="category-element label-input">
-                            <label className="label">Avatar Image*</label>
-
-                            {/* Upload Image*/}
-                            <form id="file-upload-form" class="uploader">
-                                <input id="file-upload" type="file" name="fileUpload" onChange={this.imageHandler} accept="image/*" />
-                                
-                                <label for="file-upload" id="file-drag">
-                                    <img id="file-image" src={this.state.profileImg} alt="Preview" className="hidden" />
-                                    <div id="start">
-                                        <i class="fa fa-download" aria-hidden="true"></i>
-                                    </div>
-                                </label>
-                            </form>
+                            
+                            
                         </div>
                 </form>
                  <form class="add-product-form formsbtn">
