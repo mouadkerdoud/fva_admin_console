@@ -36,7 +36,7 @@ export class AddNews extends React.Component {
                 <h1>Add News</h1>
     
                 <div className="formPost">
-                <form class="add-product-form forms">
+                <form class="add-product-form forms3">
                     
                     <div className="form-flex-items">
                         <div class="main-menu">
@@ -71,7 +71,7 @@ export class AddNews extends React.Component {
                             </form>
                         </div>
                 </form>
-                <form class="add-product-form forms2">
+                <form class="add-product-form forms4">
                     <div className="category-element label-input">
                             <label className="label">Thumbnail Image*</label> 
                             <div class="wrapper">

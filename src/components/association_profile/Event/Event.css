@@ -27,3 +27,13 @@ input[type=time] {
     font-family: helvetica;
     width: 160px;
   }
+  .formPost{
+      display: flex;
+  }
+  .forms3{
+    width: 36rem !important;
+    margin-right: 1.2rem;
+}
+.forms4{
+    width: 33rem !important;
+}

@@ -103,10 +103,6 @@ class News extends Component {
                             <i className="fas fa-trash"></i>
                         </td>
                     </tr>
-    
-                    
-    
-    
                 </ table>
             </div>
         )

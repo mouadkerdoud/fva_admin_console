@@ -12,7 +12,7 @@ function ImageUploader() {
 
   
   return (
-        <div className="container" style={{ width: '500px' }} className="positioning">
+        <div  >
         <MultiImageInput
             images={images}
             setImages={setImages}
