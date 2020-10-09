@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
 import "./User.css"
 
 
@@ -30,6 +31,8 @@ class User extends Component {
                 <div className="container">
 
                     <h1>Users</h1>
+                    <Link to='/AddUser'><button className="btn">Add New</button></Link>
+
                     <div className="meta-table">
 
                         <div class="main-menu">

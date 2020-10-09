@@ -14,10 +14,12 @@ import CategoryPost from "./components/blog/categories_posts/CategoryPost"
 import AddCategoryPost from "./components/blog/categories_posts/AddCategoryPost"
 
 import Association from "./components/association_profile/Association"
-import User from "./components/association_profile/User"
-import AddUser from "./components/association_profile/AddUser"
+import User from "./components/association_profile/User/User"
+import AddUser from "./components/association_profile/User/AddUser"
 import Event from "./components/association_profile/Event/Event"
 import AddEvent from './components/association_profile/Event/AddEvent';
+import News from "./components/association_profile/News/News"
+import AddNews from "./components/association_profile/News/AddNews"
 
 
 
@@ -52,8 +54,8 @@ function App() {
         <Route path="/dashblog" component={DashBlog} />
         <Route path="/Event" component={Event} />
         <Route path="/AddEvent" component={AddEvent} />
-
-
+        <Route path="/News" component={News} />
+        <Route path="/AddNews" component={AddNews} />
         
       </Switch>
     </Router>

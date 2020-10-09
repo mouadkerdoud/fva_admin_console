@@ -12,7 +12,7 @@ const AddEvent = () => {
     
     return (
         <div className="container">
-            <h1>Add Post</h1>
+            <h1>Add Event</h1>
 
             <div className="formPost">
             <form class="add-product-form forms">
