@@ -103,8 +103,9 @@ export class AddNews extends React.Component {
                 </form>
     
                 </div>
-                <form class="add-product-form formsbtn">
-                    <button className="btn btn-add-prod">Add News</button>
+                <form class="form-event">
+                    <button type="submit"className="btn-assoc" ><span>Add News</span></button>
+
                 </form>
     
             </div>

@@ -93,8 +93,8 @@ const AddEvent = () => {
             </form>
 
             </div>
-            <form class="add-product-form formsbtn">
-                <button className="btn btn-add-prod">Add Event</button>
+            <form class="form-event">
+                <button type="submit" className="btn-assoc"><span>Add Event</span></button>
             </form>
 
         </div>

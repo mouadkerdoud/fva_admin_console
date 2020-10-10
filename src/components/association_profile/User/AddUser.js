@@ -360,7 +360,7 @@ export class AddUser extends Component {
                         </div>
                         </div>
                     </div>
-                <input type="submit" value="Add User" className="btn btn-assoc" />
+                <button type="submit"className="btn-assoc" ><span>Add User</span></button>
             </form>
         </div>
     )

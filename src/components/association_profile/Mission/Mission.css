@@ -48,9 +48,9 @@
   text-transform:uppercase;
   font-size:12px;
   border-radius: 10px;
+  border: 1px solid #594f8d;
 }
 .button-wrapper span.label:hover {
-    border: 1px solid #594f8d;
     color: #594f8d;
     background-color: #fff;
     transition: all .25s ease-in-out;
@@ -116,7 +116,7 @@
 /* Button Mission */
 .btn-mission{
     width: 12rem;
-    position: relative;
+    position: relative ;
     left: 12rem;
-    BOTTOM: 44px;
+    top: -40px;
 }

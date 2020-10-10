@@ -51,7 +51,7 @@ export class AddMission extends React.Component {
                             </div>    
                         </div>
                     </div>    
-                    <input type="submit" value="Add Mission" className="btn btn-mission" />
+                    <button type="submit" className="btn-mission btn-assoc" ><span>Add Mission</span></button>
 
                 </form>
                 
