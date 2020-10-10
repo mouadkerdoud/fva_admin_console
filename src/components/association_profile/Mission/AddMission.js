@@ -22,7 +22,7 @@ export class AddMission extends React.Component {
     render(){
         return (
             <div className="container">
-                <h1>Add User</h1>
+                <h1>Add Mission</h1>
                 <form className="assoc-form avatar">
                     <div className="assoc-wrapper">
                         <div className="row">
@@ -43,10 +43,15 @@ export class AddMission extends React.Component {
                             <div class="avatar-wrapper">
                                 <img class="profile-pic" src={this.state.profileImg} /> 
                             </div>
-                             <input class="file-upload"  type="file" accept="image/*" onChange={this.imageHandler} />                                                             
-                         </div>
+                            <div class="button-wrapper">
+                                <span class="label">
+                                    Upload Photo
+                                </span>
+                                    <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
+                            </div>    
+                        </div>
                     </div>    
-                    <input type="submit" value="Add Mission" className="btn btn-assoc" />
+                    <input type="submit" value="Add Mission" className="btn btn-mission" />
 
                 </form>
                 

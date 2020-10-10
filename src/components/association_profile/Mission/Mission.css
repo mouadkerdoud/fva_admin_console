@@ -1,3 +1,17 @@
+/* Forms */
+.forms5{
+    margin: 0 auto;
+    text-align: center;
+    width: 540px;
+ }
+.forms5 .add-post{
+    width: 30.9rem !important;
+}
+/* Edit Ckeditor */
+.assoc-form .ck.ck-editor {
+   position: relative;
+   width: 33rem;
+}
 /* Avatar */
 .avatar .picture-assoc{
     top: -2rem;
@@ -5,42 +19,52 @@
     margin-left: 6rem;
     position: relative;
 }
-.assoc .upload-options {
-    width: 8rem !important;
-    margin-top: -40px;
-    margin-left: 50px;
-    height: 3rem;
-    border-radius: 30px;
-    box-shadow: 4px 2px 3px 2px #594f8d;
-
-}
-.assoc .upload-options:hover{
-    border: 1px solid #594f8d;
-    color:#594f8d !important;
-    background-color: #fff;
-    font-weight: 800;
-}
 .avatar .assoc-wrapper input {
     width: 12rem;
     padding: 0.8rem;
 }
-.assoc .file-upload{
-    margin-left: 10px;
-    background-color: transparent;
-    color: aliceblue;
-    border: none;
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+
+
+
+.button-wrapper {
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+  width: 150px;
+  text-align: center;
+  margin: 20% auto;
 }
-.forms5{
-    margin: 0 auto;
-    text-align: center;
-    width: 540px;
- }
- .forms5 .add-post{
-     width: 30.9rem !important;
- }
- .assoc-form .ck.ck-editor {
-    position: relative;
-    width: 33rem;
+
+.button-wrapper span.label {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  width: 100%;
+  background: #594f8d;
+  cursor: pointer;
+  color: #fff;
+  padding: 10px 0;
+  text-transform:uppercase;
+  font-size:12px;
+  border-radius: 10px;
+}
+.button-wrapper span.label:hover {
+    border: 1px solid #594f8d;
+    color: #594f8d;
+    background-color: #fff;
+    transition: all .25s ease-in-out;
+}
+#upload {
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 50px;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
 }
 /* Avatar Image */
 .avatar-wrapper{
@@ -89,16 +113,10 @@
 .upload-button .fa{
     margin-top: 20px;
 }
-.fa-arrow-circle-up{
-    position: absolute;
-    font-size: 260px;
-    top: -34px;
-    left: -5px;
-    text-align: center;
-    opacity: 0;
-    transition: all .3s ease;
-    color: #34495e;
-}
-.upload-button:hover .fa-arrow-circle-up{
-    opacity: .9;
+/* Button Mission */
+.btn-mission{
+    width: 12rem;
+    position: relative;
+    left: 12rem;
+    BOTTOM: 44px;
 }
