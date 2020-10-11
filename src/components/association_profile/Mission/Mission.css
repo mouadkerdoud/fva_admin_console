@@ -119,14 +119,14 @@
     margin: 50px auto;
 }
 .avatar-edit {
-        position: absolute;
-        right: 0px;
-        left: 120px;
-        z-index: 1;
-        top: 10px;
+    position: absolute;
+    right: 0px;
+    left: 120px;
+    z-index: 1;
+    top: 10px;
 }
 .avatar-edit input {
-            display: none;
+    display: none;
 }
 .avatar-edit  label {
     display: inline-block;
@@ -143,7 +143,7 @@
 }
 .avatar-edit  label:hover {
     background: #f1f1f1;
-    border-color: #d6d6d6;
+    border-color: #bbbbbb;
 }
 .avatar-edit  label:after {
     font-family: "Font Awesome 5 Free";
@@ -158,7 +158,6 @@
     text-align: center;
     margin: auto;
 }
-
 /* Button Mission */
 .btn-mission{
     width: 12rem;
