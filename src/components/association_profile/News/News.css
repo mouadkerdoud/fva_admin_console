@@ -261,18 +261,25 @@ i.material-icons {
   display: block;
 }
 
-.drop {
-  display: block;
-  position: absolute;
-  background: transparentize(#594f8d, .8);
-  border-radius: 100%;
-  transform:scale(0);
-}
-
-.animate {
-  animation: ripple 0.4s linear;
-}
-
 @keyframes ripple {
     100% {opacity: 0; transform: scale(2.5);}
+}
+.btn-rmv1 {
+  display: none;
+}
+.rmv {
+  cursor: pointer;
+  color: #fff;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  display: inline-block;
+  background: rgba(255, 0, 0, 1);
+  margin: -5px 0px;
+  width: 50px;
+  POSITION: relative;
+  WIDTH: 40px;
+  bottom: 166px;}
+
+.rmv:hover {
+  background: rgba(255, 0, 0, 0.5);
 }

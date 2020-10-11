@@ -21,8 +21,11 @@ export class AddNews extends React.Component {
     }
     reader.readAsDataURL(e.target.files[0])
   };
+  
   imageHandler2 = (e) => {
     const reader = new FileReader();
+    let btnremove=document.getElementById("removeImage1");
+    btnremove.classList.add("rmv");
     reader.onload = () =>{
       if(reader.readyState === 2){
         this.setState({profileImg2: reader.result})
@@ -30,6 +33,13 @@ export class AddNews extends React.Component {
     }
     reader.readAsDataURL(e.target.files[0])
   };
+  removeImage = (e) => {
+    e.preventDefault();
+    let imageReview=document.getElementById("preview");
+    imageReview.setAttribute("src",src);
+    console.log(imageReview);
+     e.target.classList.remove("rmv");
+   }
     render(){
         return (
             <div className="container">
@@ -76,7 +86,8 @@ export class AddNews extends React.Component {
                             <label className="label">Thumbnail Image*</label> 
                             <div class="wrapper">
                                 <div class="box">
-                                    <img class="js--image-preview" src={this.state.profileImg2}/>
+                                    <img class="js--image-preview" id="preview" src={this.state.profileImg2}/>
+                                    <input type="button" id="removeImage1" onClick={this.removeImage} value="x" class="btn-rmv1" />
                                     <div class="upload-options">
                                     <label>
                                         <input type="file" class="image-upload" accept="image/*" onChange={this.imageHandler2}/>
