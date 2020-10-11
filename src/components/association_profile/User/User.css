@@ -24,7 +24,6 @@
 .user-edit label:after{
     font-size: 26px !important;
     top: 7px;
-
 }
 /* Date */
 [type="date"] {

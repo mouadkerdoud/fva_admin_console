@@ -76,3 +76,16 @@
     color: #594f8d;
     transition: color .2s;
 }
+.assoc-edit{
+    left: 5rem !important;
+    top: -25rem !important;
+}
+.assoc-edit label {
+    display: inline-block;
+    width: 44px !important;
+    height: 44px !important;
+}
+.assoc-edit label:after{
+    font-size: 26px !important;
+    top: 7px;
+}

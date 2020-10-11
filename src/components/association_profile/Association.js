@@ -27,9 +27,10 @@ export class Association extends Component {
                     <div className="picture-assoc">
                         <img id="profile-pic-assoc" src={profileImg} alt="Profile" />
                         <div class="button-wrapper">
-                            <span class="label">
-                                Upload Photo
-                            </span>
+                            <div class="button-wrapper avatar-edit assoc-edit">
+                                <label for="imageUpload"></label>
+                                <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
+                            </div> 
                             <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
                         </div> 
 
