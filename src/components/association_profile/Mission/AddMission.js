@@ -43,11 +43,9 @@ export class AddMission extends React.Component {
                             <div class="avatar-wrapper">
                                 <img class="profile-pic" src={this.state.profileImg} /> 
                             </div>
-                            <div class="button-wrapper">
-                                <span class="label">
-                                    Upload Photo
-                                </span>
-                                    <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
+                            <div class="button-wrapper avatar-edit">
+                                <label for="imageUpload"></label>
+                                <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
                             </div>    
                         </div>
                     </div>    
