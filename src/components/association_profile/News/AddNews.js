@@ -105,7 +105,6 @@ export class AddNews extends React.Component {
                 </div>
                 <form class="form-event">
                     <button type="submit"className="btn-assoc" ><span>Add News</span></button>
-
                 </form>
     
             </div>

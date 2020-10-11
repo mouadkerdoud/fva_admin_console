@@ -27,7 +27,7 @@ export class AddUser extends Component {
                                 <span class="label">
                                     Upload Photo
                                 </span>
-                                    <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
+                                <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
                             </div> 
                          </div>
 
