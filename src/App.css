@@ -80,7 +80,7 @@ background-color: #eeeeee;
 .label-input{
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 
 }
 
@@ -103,3 +103,6 @@ background-color: #eeeeee;
   margin-bottom: -1rem;
 }
 
+.larg-selec{
+  padding:0.8rem
+}

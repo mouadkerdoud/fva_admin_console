@@ -1,19 +1,38 @@
 import React from 'react'
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
+import TextField from '@material-ui/core/TextField';
+import { withStyles } from "@material-ui/core/styles";
+
 import "./Category.css"
-const AddCategoryProduct = () => {
+
+
+const styles = theme => ({
+    input: {
+      height: 90
+    },
+  });
+
+
+const AddCategoryProduct = withStyles(styles)(props => {
+    const { classes } = props;
+  
     return (
         <div className="container">
          <h1>Add Product Category </h1>
 
-        <form className="addcategory-page-container">
+        <form >
+            <div className="addcategory-page-container">
+                <div className="side">
 
-
-                <div className="inner-container catego">
-                    <div className="field-lar label-input">
+                    <div className="field label-input">
                         <label className="label">Category Name*</label>
-                        <input placeholder="Name..." type="text" className="data-form-lar" />
+                            <TextField
+                                id="standard-multiline-flexible"
+                                placeholder="Category Name"
+                                multiline
+                                rowsMax={4}
+                            />
                     </div>
 
                     <div className="description-element label-input">
@@ -25,27 +44,55 @@ const AddCategoryProduct = () => {
                         />
                     </div>
 
-                    <div className="field-lar label-input">
+                    <div className=" label-input">
                         <label className="label">Meta name Category*</label>
-                        <input placeholder="Meta name..." type="text" className="data-form-lar" />
+                            <TextField
+                                id="standard-multiline-flexible"
+                                placeholder="Meta name Category"
+                                multiline
+                                rowsMax={4}
+                            />
+                    </div>
+                    
+                </div>
+
+                <div className="side">
+                    <div style={{marginBottom:"3rem"}} className="label-input">
+                        <label  className="label">Meta Keywords:  *</label>
+                        <TextField
+                            id="outlined-textarea"
+                            placeholder="Meta Keywords"
+                            multiline
+                            variant="outlined"
+                            rowsMax={4}
+                            InputProps={{
+                                className: classes.input
+                            }}
+                        />                
                     </div>
 
-                    <div className="field label-input">
-                        <label className="label">Meta Keywords:  *</label>
-                        <textarea placeholder="Meta Keywords..." rows="8" className="add-meta" />
-                    </div>
-
-                    <div className="field label-input">
+                    <div className="label-input">
                         <label className="label">Meta Description:  *</label>
-                        <textarea placeholder="Meta Description..." rows="8" className="add-meta" />
+                        <TextField
+                            id="outlined-textarea"
+                            placeholder="Meta Description"
+                            multiline
+                            variant="outlined"
+                            rowsMax={4}
+                            InputProps={{
+                                className: classes.input
+                            }}
+                        />            
                     </div>
-
-                    <button className="add-cat-btn">Add Category</button>
+                </div>
+                
             </div>
-            
+            <button style={{marginTop:"2rem"}} className="add-btn-form">Add Category</button>
+
         </form>
     </div>
     )
-}
+})
 
 export default AddCategoryProduct
+

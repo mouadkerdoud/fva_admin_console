@@ -38,8 +38,8 @@ class Post extends Component {
                             <h2 class="active"><i class="fa fa-clipboard"></i>Post List</h2>     
                         </div>
         
-                        <div className="meta-table-field metatable col-3 input-effect">
-                            <input  className="effect-16" />
+                        <div className="meta-table-field metatable col-3 ">
+                            <input  />
                             <label>Search</label>
                             <span class="focus-border"></span>
                             <i className="fas fa-search search-icon"></i>
