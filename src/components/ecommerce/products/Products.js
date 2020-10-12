@@ -12,9 +12,10 @@ class Products extends Component {
 
 
     async componentDidMount(){
-        const url = ""
+        const url = "http://fva-backend-dev.herokuapp.com/api/shop/Product/"
         const response = await fetch(url)
         const data = await response.json()
+        console.log(data)
         this.setState({products:data, isLoading:false})
     }
 

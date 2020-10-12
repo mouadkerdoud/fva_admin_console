@@ -5,6 +5,7 @@ import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
 
 import ImageUploader from "../../layout/ImageUploader"
+import TagsProducts from "./TagsProducts"
 
 const AddProduct = () => {
      
@@ -51,6 +52,11 @@ const AddProduct = () => {
                                     <option>Lacoste</option>
                                     <option>Rolex</option>
                                 </select>
+                    </div>
+
+                    <div className="field label-input">
+                        <label className="label">Product Tags*</label>
+                        <TagsProducts />
                     </div>
 
                     <div className="field label-input">

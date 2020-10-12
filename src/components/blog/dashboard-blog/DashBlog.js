@@ -6,7 +6,8 @@ export default class DashBlog extends Component {
      constructor(){
         super();
         this.state = {
-          chartData:{}
+          reactionsChartData:{},
+          newBloggersChartData: {}
         }
       }
     
@@ -15,13 +16,14 @@ export default class DashBlog extends Component {
       }
     
       getChartData(){
-        // Ajax calls here
+        // Async call here to API
+
         this.setState({
-          chartData:{
+            reactionsChartData:{
             labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', "Sunday"],
             datasets:[
               {
-                label:'Days Of The week',
+                label:'Reactions',
                 data:[
                   15,
                   8,
@@ -31,6 +33,41 @@ export default class DashBlog extends Component {
                   12,
                   16
                 ],
+                backgroundColor:[
+                  'rgba(255, 99, 132, 0.6)',
+                  'rgba(54, 162, 235, 0.6)',
+                  'rgba(255, 206, 86, 0.6)',
+                  'rgba(75, 192, 192, 0.6)',
+                  'rgba(153, 102, 255, 0.6)',
+                  'rgba(255, 159, 64, 0.6)',
+                  'rgba(255, 99, 132, 0.6)'
+                ]
+              }
+            ]
+          },
+
+          newBloggersChartData:{
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            datasets:[
+              {
+                label:'Users',
+                data:[
+                  15,
+                  20,
+                  35,
+                  50,
+                  55,
+                  40,
+                  30,
+                  20,
+                  35,
+                  50,
+                  55,
+                  40,
+                  30,
+                ],
+                fill: false,
+                borderColor: "#594f8d",
                 backgroundColor:[
                   'rgba(255, 99, 132, 0.6)',
                   'rgba(54, 162, 235, 0.6)',
@@ -94,9 +131,13 @@ export default class DashBlog extends Component {
         
             </div>
         
-            <div className="bar">Posts Data</div>
+            <div className="bar">General Data</div>
         
-                <Chart chartData={this.state.chartData}  legendPosition="bottom"/>
+                <Chart 
+                    reactionsChartData={this.state.reactionsChartData}  
+                    newBloggersChartData={this.state.newBloggersChartData}
+                    legendPosition="bottom"
+                />
 
         
             <p className="table-title">Recent Posts</p>

@@ -2,6 +2,8 @@ import React from 'react';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Sidebar from "./components/layout/Sidebar"
 import Dashboard from "./components/ecommerce/dashboard/Dashboard"
+
+
 import Products from "./components/ecommerce/products/Products"
 import AddProduct from "./components/ecommerce/products/AddProduct"
 import CategoriesProducts from "./components/ecommerce/categories_products/CategoriesProducts"
@@ -59,6 +61,7 @@ function App() {
         <Route path="/AddNews" component={AddNews} />
         <Route path="/Mission" component={Mission} />
         <Route path="/AddMission" component={AddMission} />
+
 
       </Switch>
     </Router>
