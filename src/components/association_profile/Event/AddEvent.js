@@ -50,22 +50,19 @@ const AddEvent = () => {
                     <div className="category-element label-input">
                         <label className="label">Start Event*</label> 
                         <div className="timer">
-                            <input className="inp" type="date" name="startEvent" id="startEvent" />
-                            <input type="time" value="13:30"/>
+                            <input id="date" className="inp date" type="datetime-local" />
                         </div>
                     </div>
                     <div className="category-element label-input">
                         <label className="label">End Event*</label> 
                         <div className="timer">
-                            <input className="inp" type="date" name="startEvent" id="startEvent" />
-                            <input type="time" value="13:30"/>
+                            <input id="date" className="inp date" type="datetime-local" />
                         </div>
                     </div>   
                     <div className="category-element label-input">
                         <label className="label">Reserve Before*</label> 
                         <div className="timer">
-                            <input className="inp" type="date" name="startEvent" id="startEvent" />
-                            <input type="time" value="13:30"/>
+                            <input id="date" className="inp date" type="datetime-local"  />
                         </div>
                     </div>                     
             </form>

@@ -1,29 +1,76 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import "./User.css"
-
+import axios from 'axios';
+import ReactPaginate from 'react-paginate';
 
 class User extends Component {
 
-    state = {
-        isLoading: true,
-        users: null
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+            offset: 0,
+            Users: [],
+            isLoading:true,
+            orgUsers: [],
+            perPage: 5,
+            currentPage: 0
+        }
+    } 
+
+    handlePageClick = (e) => {
+        const selectedPage = e.selected;
+        const offset = selectedPage * this.state.perPage;
+
+        this.setState({
+            currentPage: selectedPage,
+            offset: offset
+        }, () => {
+            this.loadMoreData()
+        });
+
+    };
+
+    loadMoreData() {
+		const data = this.state.orgUsers;
+		
+		const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
+		this.setState({
+			pageCount: Math.ceil(data.length / this.state.perPage),
+			Users:slice
+		})
+	
     }
 
-
-    async componentDidMount(){
-        const url = "https://jsonplaceholder.typicode.com/users"
-        const response = await fetch(url)
-        const data = await response.json()
-        console.log(data)
-        this.setState({users:data, isLoading:false})
+    componentDidMount(){
+        this.getUser();
     }
 
+    getUser() {
+        axios
+            .get("https://jsonplaceholder.typicode.com/users")
+            .then(res => {
 
+                var data = res.data;
+				
+                var slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
+                
+
+                this.setState({
+                    pageCount: Math.ceil(data.length / this.state.perPage),
+                    orgUsers :res.data,
+                    Users:slice,
+                    isLoading:false
+                })
+            });
+    }
+
+    
     render(){
-        const {users, isLoading} = this.state
+        const {Users,isLoading} = this.state;
 
-        if( isLoading || !users ){
+        if(!Users || isLoading){
             return <div className="container">Loading ... </div>
         }
         else{
@@ -60,29 +107,38 @@ class User extends Component {
                                     <th>Actions</th>
                                 </tr>
                             </thead>
-                        {users.slice(0, 7).map(user=>{
-                            return (
-                                    <tbody key={user.id}>
-
-                                        <tr>
-                                            <td>{user.id}</td>
-                                            <td>{user.name}</td>
-                                            <td>{user.email}</td>
-                                            <td>{user.phone}</td>
-                                            <td>{user.address.city}</td>
-                                            <td>{user.id % 2 === 0 ? "Admin": "User"}</td>
-                                            <td className="actions-table">
-                                                <i className="fas fa-edit"></i>
-                                                <i className="fas fa-trash"></i>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-
-                            )
-                        })}
+                            {
+                          this.state.Users.map((user, i) => (
+                                <tr>
+                                    <td>{user.id}</td>
+                                    <td>{user.name}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.phone}</td>
+                                    <td>{user.address.city}</td>
+                                    <td>{user.id % 2 === 0 ? "Admin": "User"}</td>
+                                    <td className="actions-table">
+                                        <i className="fas fa-edit"></i>
+                                        <i className="fas fa-trash"></i>
+                                    </td>
+                                </tr>
+                            
+                          ))
+                        }
 
 
                     </ table>
+                    <ReactPaginate
+                    previousLabel={"prev"}
+                    nextLabel={"next"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={this.state.pageCount}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    onPageChange={this.handlePageClick.bind(this)}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"active"}/>
                 </div>
             )
         }

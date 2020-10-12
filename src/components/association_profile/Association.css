@@ -28,8 +28,8 @@
     width: 18rem;
 }
 
-.assoc-wrapper input{
-    width: 12rem;
+.assoc-wrapper input,.assoc-wrapper select{
+    width: 14rem;
     padding: 0.3rem;
 }
 
@@ -48,7 +48,7 @@
 }
 /* Animation for button */
 .btn-assoc{
-    width: 12rem;
+    width: 14rem;
     position: relative;
     top: 2rem;
     height: 50px;
