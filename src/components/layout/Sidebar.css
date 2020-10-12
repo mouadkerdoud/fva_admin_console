@@ -16,25 +16,7 @@
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 30px;
-}
-
-  /* Style for Header */
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
-      .text {
-    position: relative;
-    right: 36.2rem;
-    font-family: 'Playfair Display', serif;
-    top: 2rem; 
-    color: #594f8d !important;
-    transform: translate(50%,-50%);
-    text-transform: uppercase;
-    font-family: verdana;
-    font-size: 2em;
-    font-weight: 700;
-  
-}
-
-/*  */
+  }
   
   .wrapper .sidebar ul li{
     padding: 15px;
