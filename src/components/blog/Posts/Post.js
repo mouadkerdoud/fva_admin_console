@@ -38,12 +38,11 @@ class Post extends Component {
                             <h2 class="active"><i class="fa fa-clipboard"></i>Post List</h2>     
                         </div>
         
-                        <div className="meta-table-field metatable col-3 ">
-                            <input  />
-                            <label>Search</label>
-                            <span class="focus-border"></span>
+                        <div className="search-bar">
+                            <input placeholder="Search Post..." />
                             <i className="fas fa-search search-icon"></i>
-                        </div>
+                       </div>
+    
         
                     </div>
         

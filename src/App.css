@@ -106,3 +106,12 @@ background-color: #eeeeee;
 .larg-selec{
   padding:0.8rem
 }
+
+.search-bar{
+  position: relative;
+  right: 5rem;
+}
+
+.search-bar input{
+  padding: 0.4rem;
+}

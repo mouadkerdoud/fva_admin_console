@@ -31,12 +31,11 @@ class Mission extends Component {
                             <h2 class="active" style={{width: '13rem'}}><i class="fa fa fa-black-tie"></i>Missions List</h2>     
                         </div>
         
-                        <div className="meta-table-field metatable col-3 input-effect">
-                            <input  className="effect-16" />
-                            <label>Search</label>
-                            <span class="focus-border"></span>
+                        <div className="search-bar">
+                            <input placeholder="Search Mission..." />
                             <i className="fas fa-search search-icon"></i>
                         </div>
+    
     
                 </div>
     
