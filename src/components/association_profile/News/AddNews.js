@@ -1,6 +1,8 @@
 import React from 'react'
 import "./News.css"
 import src from "./placeholder4.png"
+import IconButton from '@material-ui/core/IconButton';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
 // import TagsInput from "../../layout/TagsInput"
 /* CKEditor */
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
@@ -83,8 +85,9 @@ export class AddNews extends React.Component {
                             {/* Upload Image*/}
                             <main>
                                 <form className="formUpload">
-                                    <label for="captureimage">Upload image</label>
+                                    <label for="captureimage"> Upload Image <PhotoCamera /></label>
                                     <input type="file" accept="image/*" capture="camera" id="captureimage" onChange={this.imageHandler} caption style={{display:'none'}}/>
+                                     
                                 </form>
                                 <div id="imagewrapper">
                                     <input type="button" id="removeImage" onClick={this.removeImage} value="x" class="btn-rmv1" />

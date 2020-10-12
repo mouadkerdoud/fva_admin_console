@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import "./User.css"
+
 import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 
@@ -85,8 +86,10 @@ class User extends Component {
                         <div class="main-menu">
                             <h2 class="active" style={{width:"12rem"}}><i class="fa fa-users"></i>User List</h2>
                         </div>
-                        <div className="meta-table-field metatable">
-                            <input placeholder="Seach User..." />
+                        <div className="meta-table-field metatable col-3 input-effect">
+                            <input  className="effect-16" />
+                            <label>Search</label>
+                            <span class="focus-border"></span>
                             <i className="fas fa-search search-icon"></i>
                         </div>
 
@@ -128,8 +131,8 @@ class User extends Component {
 
                     </ table>
                     <ReactPaginate
-                    previousLabel={"prev"}
-                    nextLabel={"next"}
+                    previousLabel={"<"}
+                    nextLabel={">"}
                     breakLabel={"..."}
                     breakClassName={"break-me"}
                     pageCount={this.state.pageCount}

@@ -19,11 +19,11 @@ main{
   position: relative;
   left: 2rem !important;
 }
-
 .formUpload label {
   margin-bottom: 1em;
   display:block;
-  padding: 15px 0;
+  padding-top: 8px;
+  padding-bottom: 16px;
   text-align: center;
   background: #594f8d;
   color:white;

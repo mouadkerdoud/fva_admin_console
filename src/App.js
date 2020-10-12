@@ -15,7 +15,7 @@ import AddPost from "./components/blog/Posts/AddPost"
 import CategoryPost from "./components/blog/categories_posts/CategoryPost"
 import AddCategoryPost from "./components/blog/categories_posts/AddCategoryPost"
 
-import Association from "./components/association_profile/Association"
+import Association from "./components/association_profile/Settings/Association"
 import User from "./components/association_profile/User/User"
 import AddUser from "./components/association_profile/User/AddUser"
 import Event from "./components/association_profile/Event/Event"
@@ -24,8 +24,8 @@ import News from "./components/association_profile/News/News"
 import AddNews from "./components/association_profile/News/AddNews"
 import Mission from './components/association_profile/Mission/Mission';
 import AddMission from './components/association_profile/Mission/AddMission';
-
-
+import Realisation from './components/association_profile/Realisation/Realisation';
+import AddRealisation from './components/association_profile/Realisation/AddRealisation';
 
 
 import Home from "./components/Home"
@@ -61,6 +61,7 @@ function App() {
         <Route path="/AddNews" component={AddNews} />
         <Route path="/Mission" component={Mission} />
         <Route path="/AddMission" component={AddMission} />
+        <Route path="/Realisation" component={Realisation} />
 
 
       </Switch>

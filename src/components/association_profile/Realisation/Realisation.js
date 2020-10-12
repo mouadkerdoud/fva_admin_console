@@ -1,12 +1,16 @@
 import React, {Component} from 'react'
 import {Link} from "react-router-dom"
 
-
 import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 
 
-class Mission extends Component {
+class Realisation extends Component {
+
+    state = {
+        isLoading: true,
+        products: null
+    } 
 
     constructor(props) {
         super(props)
@@ -49,13 +53,13 @@ class Mission extends Component {
         return (
             <div className="container">
     
-                <h1>Missions</h1>
-                <Link to='/AddMission'><button className="btn">Add New</button></Link>
+                <h1>Realisation</h1>
+                <Link to='/AddRealisation'><button className="btn">Add New</button></Link>
     
                 <div className="meta-table">
     
                         <div class="main-menu">
-                            <h2 class="active" style={{width: '13rem'}}><i class="fa fa fa-black-tie"></i>Missions List</h2>     
+                            <h2 class="active" style={{width: '16rem'}}><i class="fa fa-trophy"></i>Realisation List</h2>     
                         </div>
         
                         <div className="meta-table-field metatable col-3 input-effect">
@@ -74,8 +78,11 @@ class Mission extends Component {
                     <tr>
                         <th>Id</th>
                         <th>Title</th>
-                        <th>Content</th>
-                        <th>Avatar Image</th>
+                        <th>Description</th>
+                        <th>Start Realisation</th>
+                        <th>End Realisation </th>
+                        <th>Place</th>
+                        <th>Partners</th>
                         <th>Actions</th>
                     </tr>
     
@@ -83,9 +90,12 @@ class Mission extends Component {
     
                     <tr>
                         <td>1</td>
-                        <td>Hallowen</td>
-                        <td>vent is a tech conference for copywriters, you can follow the thought pattern</td>
-                        <td>Image</td>
+                        <td>EXPERTISE IMMOBILIERE</td>
+                        <td>Étant agréé par la RICS (Royal Institution of Chartered Surveyors) nos rapports.</td>
+                        <td>09/01/2019 12:22</td>
+                        <td>08/02/2019 14:22</td>
+                        <td>Rabat</td>
+                        <td>la RICS</td>
                         <td className="actions-table">
                             <i class="fas fa-edit"></i>
                             <i class="fas fa-trash"></i>
@@ -94,9 +104,12 @@ class Mission extends Component {
     
                     <tr>
                         <td>2</td>
-                        <td>business </td>
-                        <td>There are two main types of event name tools you can use to derive inspiration from.</td>
-                        <td>Image</td>
+                        <td>COMMERCIALISATION</td>
+                        <td>vent is a tech conference for copywriters, you can follow the thought pattern</td>
+                        <td>09/01/2019 12:22</td>
+                        <td>08/02/2019 14:22</td>
+                        <td>Casa</td>
+                        <td>REA PARTNERS</td>
                         <td className="actions-table">
                             <i class="fas fa-edit"></i>
                             <i class="fas fa-trash"></i>
@@ -106,9 +119,12 @@ class Mission extends Component {
     
                     <tr>
                         <td>3 </td>
-                        <td>packet </td>
-                        <td>be fooled by the term Party – this website also offers</td>
-                        <td>Image</td>
+                        <td>INVESTMENT</td>
+                        <td>Dotée d’une expertise confirmée et d’un large éventail de services</td>
+                        <td>09/01/2019 12:22</td>
+                        <td>08/02/2019 14:22</td>
+                        <td>Asfi</td>
+                        <td>REA INVESTMENT</td>
                         <td className="actions-table">
                             <i class="fas fa-edit"></i>
                             <i class="fas fa-trash"></i>
@@ -117,14 +133,19 @@ class Mission extends Component {
     
                     <tr>
                         <td>4</td>
-                        <td>packet </td>
-                        <td>ike their idea you can also check out their event details to get even more inspiration.</td>
-                        <td>Image</td>
+                        <td>CONSEIL</td>
+                        <td>Etant notre principal métier, nous avons consacré la majeure partie de notre expérience</td>
+                        <td>09/01/2019 12:22</td>
+                        <td>08/02/2019 14:22</td>
+                        <td>Taza</td>
+                        <td>REA CONSEIL</td>
                         <td className="actions-table">
                             <i className="fas fa-edit"></i>
                             <i className="fas fa-trash"></i>
                         </td>
                     </tr>
+    
+                
                 </ table>
                 <ReactPaginate
                     previousLabel={"<"}
@@ -142,6 +163,7 @@ class Mission extends Component {
         )
     }
 
+    
 }
 
-export default Mission
+export default Realisation
