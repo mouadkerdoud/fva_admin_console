@@ -23,7 +23,10 @@ export class AddUser extends Component {
                 <div className="assoc-wrapper">
                     <div className="picture-assoc">
                         <img id="profile-pic-assoc" src={profileImg} alt="Profile" />
-                        <input type="file" accept="image/*" name="image-upload" id="input" onChange={this.imageHandler} />
+                        <div class="button-wrapper avatar-edit user-edit">
+                            <label for="imageUpload"></label>
+                            <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
+                        </div> 
                     </div>
 
                     <div className="row">
@@ -355,7 +358,7 @@ export class AddUser extends Component {
                         </div>
                         </div>
                     </div>
-                <input type="submit" value="Add User" className="btn btn-assoc" />
+                <button type="submit"className="btn-assoc" ><span>Add User</span></button>
             </form>
         </div>
     )

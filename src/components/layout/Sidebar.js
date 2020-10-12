@@ -9,7 +9,7 @@ const Sidebar = () => {
     return (
         <div className="wrapper">
             <div className="sidebar">
-                <h2>FVA Admin</h2>
+                <h2 className="stroke">FVA Admin</h2>
                 <ul>
 
                 <SidebarItems title="Home" icon={<i className="fas fa-home"></i>} link="home" />
@@ -45,7 +45,7 @@ const Sidebar = () => {
                 </ul> 
             </div>
             <div className="main_content">
-                <div className="header">Future Vision Association Admin Console</div>  
+                <div className="header text">Future Vision Association Admin Console</div>  
             </div>
         </div>
     )

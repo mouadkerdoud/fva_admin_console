@@ -21,6 +21,7 @@ import AddEvent from './components/association_profile/Event/AddEvent';
 import News from "./components/association_profile/News/News"
 import AddNews from "./components/association_profile/News/AddNews"
 import Mission from './components/association_profile/Mission/Mission';
+import AddMission from './components/association_profile/Mission/AddMission';
 
 
 
@@ -57,7 +58,8 @@ function App() {
         <Route path="/News" component={News} />
         <Route path="/AddNews" component={AddNews} />
         <Route path="/Mission" component={Mission} />
-        
+        <Route path="/AddMission" component={AddMission} />
+
       </Switch>
     </Router>
   );

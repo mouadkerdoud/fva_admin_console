@@ -36,7 +36,7 @@ class User extends Component {
                     <div className="meta-table">
 
                         <div class="main-menu">
-                            <h2 class="active"><i class="fa fa-file-users"></i>User List</h2>
+                            <h2 class="active" style={{width:"12rem"}}><i class="fa fa-users"></i>User List</h2>
                         </div>
                         <div className="meta-table-field metatable">
                             <input placeholder="Seach User..." />

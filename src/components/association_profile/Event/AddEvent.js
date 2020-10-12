@@ -37,7 +37,7 @@ const AddEvent = () => {
                     
                     <div className="category-element label-input">
                         <label className="label">Is Paid*</label>
-                        <select className="moy-selec">
+                        <select className="moy-selec mys">
                             <option value="" disabled selected>Select Is_Paid...</option>
                             <option>True</option>
                             <option>Flase</option>
@@ -93,8 +93,8 @@ const AddEvent = () => {
             </form>
 
             </div>
-            <form class="add-product-form formsbtn">
-                <button className="btn btn-add-prod">Add Event</button>
+            <form class="form-event">
+                <button type="submit" className="btn-assoc"><span>Add Event</span></button>
             </form>
 
         </div>

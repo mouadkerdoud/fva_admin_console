@@ -26,7 +26,14 @@ export class Association extends Component {
 
                     <div className="picture-assoc">
                         <img id="profile-pic-assoc" src={profileImg} alt="Profile" />
-                        <input type="file" accept="image/*" name="image-upload" id="input" onChange={this.imageHandler} />
+                        <div class="button-wrapper">
+                            <div class="button-wrapper avatar-edit assoc-edit">
+                                <label for="imageUpload"></label>
+                                <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
+                            </div> 
+                            <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
+                        </div> 
+
                     </div>
 
                     <div className="row">
@@ -332,7 +339,7 @@ export class Association extends Component {
 
                     </div>
                 </div>
-                <input type="submit" value="Update" className="btn btn-assoc" />
+                <button type="submit"className="btn-assoc" ><span>Update</span></button>
             </form>
         </div>
     )

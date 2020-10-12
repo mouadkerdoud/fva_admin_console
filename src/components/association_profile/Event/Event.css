@@ -11,6 +11,16 @@
 .number:focus {
     outline: 0;
 }
+/* button event */
+.form-event {
+    position: relative;
+}
+.form-event .btn-assoc{
+    top: 20px;
+    margin-bottom: 40px;
+    right: 0;
+    left: 30rem;
+}
 
 
 /* Timer */
@@ -19,6 +29,9 @@
 }
 .timer .inp{
     margin-right: 5px;
+}
+.mys{
+    width: 33rem !important;
 }
 input[type=time] {
     border: none;

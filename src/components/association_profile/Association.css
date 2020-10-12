@@ -46,10 +46,46 @@
     position: relative;
     top: 4rem;
 }
-
+/* Animation for button */
 .btn-assoc{
     width: 12rem;
     position: relative;
     top: 2rem;
+    height: 50px;
+    border:1px solid #594f8d;
+    outline: none;
+    font-family:  Helvetica,Arial, sans-serif;
     left: 25rem;
+    box-shadow: 0 0 0 25px #594f8d inset;
+    transition: box-shadow .2s;
+}
+.btn-assoc > span {
+    color: white;
+    z-index: 2;
+    transition: color .2s;
+}
+.btn-assoc:hover{
+    cursor: pointer;
+    box-shadow: 0 0 0 0 #594f8d inset;
+    transition: box-shadow .2s;
+    border: 1px solid #594f8d;
+    background-color: white;
+    transition: all .25s ease-in-out;
+}
+.btn-assoc:hover> span {
+    color: #594f8d;
+    transition: color .2s;
+}
+.assoc-edit{
+    left: 5rem !important;
+    top: -25rem !important;
+}
+.assoc-edit label {
+    display: inline-block;
+    width: 44px !important;
+    height: 44px !important;
+}
+.assoc-edit label:after{
+    font-size: 26px !important;
+    top: 7px;
 }
