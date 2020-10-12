@@ -1,12 +1,13 @@
 import React from 'react'
 import "./Posts.css"
 
+
 /* CKEditor */
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
 
 import ImageUploader from "../../layout/ImageUploader"
-
+import TagsPost from "./TagsPost"
 
 const AddPost = () => {
     
@@ -39,30 +40,17 @@ const AddPost = () => {
                         
                         <div className="form-flex-items">
                             
+                           
 
                             <div className="field label-input">
                                 <label className="label">Select Images*</label>
                                 <ImageUploader />
                             </div>
-                            <div className="category-element label-input">
-                                    <label className="label">Select Category Post</label>
-                                    <select className="moy-selec">
-                                        <option value="" disabled selected>Select Category Post...</option>
-                                        <option>Tech</option>
-                                        <option>Humanity</option>
-                                        <option>Culture</option>
-                                    </select>
-                        </div>
-            
-                            <div className="category-element label-input">
-                                <label className="label">Post Status*</label>
-                                <select className="moy-selec">
-                                    <option value="" disabled selected>Select Status...</option>
-                                    <option>Active</option>
-                                    <option>Disabled</option>
-                                </select>
+
+                            <div className="field label-input first-input">
+                                <label className="label">Post Tags*</label>
+                                <TagsPost />
                             </div>
-            
             
                         </div>  
             
@@ -72,6 +60,26 @@ const AddPost = () => {
                     <div class="add-product-form forms2">
                             
                             <div className="form-flex-items">
+
+
+                            <div className="category-element label-input">
+                                    <label className="label">Select Category Post</label>
+                                    <select >
+                                        <option value="" disabled selected>Select Category Post...</option>
+                                        <option>Tech</option>
+                                        <option>Humanity</option>
+                                        <option>Culture</option>
+                                    </select>
+                            </div>
+                            
+                            <div className="category-element label-input">
+                                <label className="label">Post Status*</label>
+                                <select>
+                                    <option value="" disabled selected>Select Status...</option>
+                                    <option>Active</option>
+                                    <option>Disabled</option>
+                                </select>
+                            </div>
                         
                                 <div className="field label-input first-input">
                                     <label className="label">Meta Title*</label>
