@@ -16,31 +16,7 @@
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 30px;
-}
-
-  /* Style for Header */
-  .text {
-    position: relative;
-    right: 36.2rem;
-
-    top: 2rem; 
-    color: #594f8d !important;
-    transform: translate(50%,-50%);
-    text-transform: uppercase;
-    font-family: verdana;
-    font-size: 2em;
-    font-weight: 700;
-    text-shadow: 1px 1px 1px #919191,
-        1px 2px 1px #919191,
-        1px 2px 1px #919191,
-
-        1px 18px 6px rgba(16,16,16,0.4),
-    1px 22px 10px rgba(16,16,16,0.2),
-    1px 25px 35px rgba(16,16,16,0.2),
-    1px 30px 60px rgba(16,16,16,0.4);
-}
-
-/*  */
+  }
   
   .wrapper .sidebar ul li{
     padding: 15px;
