@@ -92,6 +92,7 @@ class User extends Component {
                             <span class="focus-border"></span>
                             <i className="fas fa-search search-icon"></i>
                         </div>
+    
 
                     </div>
 

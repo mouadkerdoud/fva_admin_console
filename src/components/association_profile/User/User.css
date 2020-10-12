@@ -26,6 +26,7 @@
     top: 7px;
 }
 /* Date */
+<<<<<<< HEAD
  
 input ,select,textarea{
     border: 1px solid #c4c4c4;
@@ -35,6 +36,18 @@ input ,select,textarea{
     box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
     width: 190px;
 }
+=======
+[type="date"] {
+    background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+}
+[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
+
+>>>>>>> a73c7ce40b0353efd4ae6c765bc29837c686ffe7
 /** Gender **/
 .form-gender {
 	display: flex;

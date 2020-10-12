@@ -95,9 +95,7 @@ export class AddNews extends React.Component {
                                 </div>
                             </main>
                         </div>
-                </form>
-                <form class="add-product-form forms4">
-                    <div className="category-element label-input">
+                        <div className="category-element label-input">
                             <label className="label">Thumbnail Image*</label> 
                             <div class="wrapper">
                                 <div class="box">
@@ -110,7 +108,9 @@ export class AddNews extends React.Component {
                                     </div>
                                 </div>
                                 </div>
-                        </div>        
+                        </div>
+                </form>
+                <form class="add-product-form forms4">        
                     <div className="form-flex-items formeta">
                     <div class="main-menu">
                         <h2 class="active"><i class="fa fa-briefcase"></i>Meta</h2>     
