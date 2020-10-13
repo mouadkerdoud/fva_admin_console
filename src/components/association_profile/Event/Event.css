@@ -29,7 +29,6 @@
   ::-webkit-calendar-picker-indicator { background-color:white}
   input[type="datetime-local"]{
     font-size: 17px;
-    width: 20rem !important; 
     padding: 8px;
     font-weight: lighter;
 }

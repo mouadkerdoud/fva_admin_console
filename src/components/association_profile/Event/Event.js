@@ -17,7 +17,7 @@ class Event extends Component {
       const data = await response.json()
       this.setState({ todos: data, isLoading: false });
       $(function () {
-          var table = $('#example').DataTable({
+          $('#example').DataTable({
               "pagingType": "full_numbers",
               "lengthMenu": [[5, 10, 20, -1], [5, 10, 25, "All"]]
           });
@@ -41,15 +41,10 @@ class Event extends Component {
     
                 <div className="meta-table">
     
-                        <div class="main-menu">
-                            <h2 class="active" style={{width: '12rem'}}><i class="fa fa-table"></i>Event List</h2>     
+                        <div className="main-menu">
+                            <h2 className="active" style={{width: '12rem'}}><i className="fa fa-table"></i>Event List</h2>     
                         </div>
         
-                        <div className="search-bar">
-                            <input placeholder="Search Event..." />
-                            <i className="fas fa-search search-icon"></i>
-                        </div>
-    
     
                 </div>
     
@@ -65,29 +60,25 @@ class Event extends Component {
                         <th>Reserve Befor</th>
                         <th>Actions</th>
                     </tr>
-    
-                   
                     </thead>
-                    <tbody>
-                    {
-                        
-                    this.state.todos.slice(0,5).map((todo, i) => (
-                        <tr>
-                            <td>{todo.id}</td>
-                            <td>700 DH</td>
-                            <td>09/01/2019 12:22</td>
-                            <td>08/02/2019 14:22</td>
-                            <td>08/10/2019 13:22</td>
-                            <td className="actions-table">
-                                <i class="fas fa-edit"></i>
-                                <i class="fas fa-trash"></i>
-                            </td>
-
-                        </tr>
- 
-                    ))
-                }
-                </tbody>   
+                    {this.state.todos.map(todo => {
+                        return (
+                                <tbody key={todo.id}>
+                                    <tr>
+                                        <td>{todo.id}</td>
+                                        <td>700 DH</td>
+                                        <td>09/01/2019 12:22</td>
+                                        <td>08/02/2019 14:22</td>
+                                        <td>08/10/2019 13:22</td>
+                                        <td className="actions-table">
+                                            <i className="fas fa-edit"></i>
+                                            <i className="fas fa-trash"></i>
+                                        </td>
+            
+                                    </tr>
+                                </tbody>
+                            )        
+                        })}
                 </table>
             </div>
         )

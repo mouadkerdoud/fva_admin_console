@@ -40,12 +40,12 @@ export class AddMission extends React.Component {
                             </div>
                         </div>
                         <div className="picture-assoc assoc">
-                            <div class="avatar-wrapper">
-                                <img class="profile-pic" src={this.state.profileImg} /> 
+                            <div className="avatar-wrapper">
+                                <img className="profile-pic" src={this.state.profileImg} alt="" /> 
                             </div>
-                            <div class="button-wrapper avatar-edit">
-                                <label for="imageUpload"></label>
-                                <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
+                            <div className="button-wrapper avatar-edit">
+                                <label ></label>
+                                <input type="file" name="upload" id="upload" className="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
                             </div>    
                         </div>
                     </div>    

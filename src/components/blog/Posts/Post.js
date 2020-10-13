@@ -34,8 +34,8 @@ class Post extends Component {
         
                     <div className="meta-table">
         
-                        <div class="main-menu">
-                            <h2 class="active"><i class="fa fa-clipboard"></i>Post List</h2>     
+                        <div className="main-menu">
+                            <h2 className="active"><i className="fa fa-clipboard"></i>Post List</h2>     
                         </div>
         
                         <div className="search-bar">

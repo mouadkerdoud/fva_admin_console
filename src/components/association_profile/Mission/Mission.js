@@ -17,7 +17,7 @@ class Mission extends Component {
       const data = await response.json()
       this.setState({ photos: data, isLoading: false });
       $(function () {
-          var table = $('#example').DataTable({
+          $('#example').DataTable({
               "pagingType": "full_numbers",
               "lengthMenu": [[5, 10, 20, -1], [5, 10, 25, "All"]]
           });
@@ -41,8 +41,8 @@ class Mission extends Component {
     
                 <div className="meta-table">
     
-                        <div class="main-menu">
-                            <h2 class="active" style={{width: '13rem'}}><i class="fa fa fa-black-tie"></i>Missions List</h2>     
+                        <div className="main-menu">
+                            <h2 className="active" style={{width: '13rem'}}><i className="fa fa fa-black-tie"></i>Missions List</h2>     
                         </div>
         
     
@@ -71,8 +71,8 @@ class Mission extends Component {
                             <td>{photo.title}</td>
                             <td>{photo.url}</td>
                             <td className="actions-table">
-                                <i class="fas fa-edit"></i>
-                                <i class="fas fa-trash"></i>
+                                <i className="fas fa-edit"></i>
+                                <i className="fas fa-trash"></i>
                             </td>
                         </tr>
                     ))

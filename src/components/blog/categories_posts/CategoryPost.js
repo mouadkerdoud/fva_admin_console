@@ -9,12 +9,12 @@ class CategoryPost extends Component {
     } 
 
 
-    async componentDidMount(){
-        const url = ""
-        const response = await fetch(url)
-        const data = await response.json()
-        this.setState({post_categories:data, isLoading:false})
-    }
+    // async componentDidMount(){
+    //     const url = ""
+    //     const response = await fetch(url)
+    //     const data = await response.json()
+    //     this.setState({post_categories:data, isLoading:false})
+    // }
 
     render(){
         return (
@@ -24,8 +24,8 @@ class CategoryPost extends Component {
     
                 <div className="meta-table">
     
-                        <div class="main-menu">
-                            <h2 class="active" style={{width: '16rem'}}><i class="fa fa-list-ul"></i>Categories List</h2>     
+                        <div className="main-menu">
+                            <h2 className="active" style={{width: '16rem'}}><i className="fa fa-list-ul"></i>Categories List</h2>     
                         </div>
         
                         <div className="search-bar">
@@ -38,40 +38,23 @@ class CategoryPost extends Component {
     
                 <table className="table-prod">
      
-                    <tr>
-                        <th>Category Post</th>
-                        <th>Number Of Posts</th>
-                        <th>Number Of Reactions</th>
-                        <th>Actions</th>
-                    </tr>
-    
+                    <thead>
+                        <tr>
+                            <th>Category Post</th>
+                            <th>Number Of Posts</th>
+                            <th>Number Of Reactions</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
                     <tr>
                         <td>Web development</td>
                         <td>14</td>
                         <td>144</td>
                         <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>Humanity</td>
-                        <td>8</td>
-                        <td>55</td>
-                        <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>Tech</td>
-                        <td>15</td>
-                        <td>65</td>
-                        <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
+                            <i className="fas fa-edit"></i>
+                            <i className="fas fa-trash"></i>
                         </td>
                     </tr>
     
@@ -80,11 +63,11 @@ class CategoryPost extends Component {
                         <td>3</td>
                         <td>10</td>
                         <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
+                            <i className="fas fa-edit"></i>
+                            <i className="fas fa-trash"></i>
                         </td>
                     </tr>
-                
+                    </tbody>
                 </table>
             </div>
         )

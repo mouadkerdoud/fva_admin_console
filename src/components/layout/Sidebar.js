@@ -12,10 +12,10 @@ const Sidebar = () => {
                 <h2>FVA Admin</h2>
                 <ul>
 
-                <SidebarItems title="Home" icon={<i className="fas fa-home"></i>} link="home" />
+                <SidebarItems title="Home" icon={<i className="fas fa-home"></i>} link="/" />
 
 
-                    <SidebarItems title="Association" icon={ <i className="fas fa-id-badge"></i>} drop={<i className="fas fa-caret-down"></i>} >                        
+                    <SidebarItems title=" Association" icon={ <i className="fas fa-id-badge"></i>} drop={<i className="fas fa-caret-down"></i>} >                        
                         <DropDown title=" Event" icon={<i className="fa fa-calendar"></i>} link="Event" />
                         <DropDown title=" News" icon={<i className="fa fa-newspaper-o"></i>} link="News" />
                         <DropDown title=" Missions" icon={<i className="fa fa-black-tie"></i>} link="Mission" />
@@ -35,9 +35,9 @@ const Sidebar = () => {
                     </SidebarItems>
 
                     <SidebarItems title="Blog" icon={<i className="fas fa-address-card"></i>} drop={<i className="fas fa-caret-down"></i>}>
-                        <DropDown title="Dashboard Blog" icon={<i class="fas fa-chart-bar"></i>} link="dashblog" />
+                        <DropDown title="Dashboard Blog" icon={<i className="fas fa-chart-bar"></i>} link="dashblog" />
                         <DropDown title="Posts" icon={<i className="fas fa-clipboard"></i>} link="post" />
-                        <DropDown title="Post Categories" icon={<i class="fas fa-list-ul"></i>} link="categoriesPost" />
+                        <DropDown title="Post Categories" icon={<i className="fas fa-list-ul"></i>} link="categoriesPost" />
                     </SidebarItems>
 
                     <SidebarItems title="Messages" icon={<i className="fas fa-envelope"></i>} link="messages" />

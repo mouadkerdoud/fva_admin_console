@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from "react-router-dom"
 
-import ReactPaginate from 'react-paginate';
-
 
 class News extends Component {
 
@@ -42,12 +40,12 @@ class News extends Component {
 		})
 	
     }
-    async componentDidMount(){
-        const url = ""
-        const response = await fetch(url)
-        const data = await response.json()
-        this.setState({products:data, isLoading:false})
-    }
+    // async componentDidMount(){
+    //     const url = ""
+    //     const response = await fetch(url)
+    //     const data = await response.json()
+    //     this.setState({products:data, isLoading:false})
+    // }
 
     render(){
         return (
@@ -58,8 +56,8 @@ class News extends Component {
     
                 <div className="meta-table">
     
-                        <div class="main-menu">
-                            <h2 class="active" style={{width: '12rem'}}><i class="fa fa-newspaper-o"></i>News List</h2>     
+                        <div className="main-menu">
+                            <h2 className="active" style={{width: '12rem'}}><i className="fa fa-newspaper-o"></i>News List</h2>     
                         </div>
         
                         <div className="search-bar">
@@ -73,17 +71,20 @@ class News extends Component {
     
                 <table className="table-prod">
      
-                    <tr>
-                        <th>Id</th>
-                        <th>Title</th>
-                        <th>Content</th>
-                        <th>Main Image</th>
-                        <th>Thumbnail Image</th>
-                        <th>Actions</th>
-                    </tr>
-    
+
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Content</th>
+                            <th>Main Image</th>
+                            <th>Thumbnail Image</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
                    
-    
+                    <tbody>
                     <tr>
                         <td>1</td>
                         <td>Hallowen</td>
@@ -91,8 +92,8 @@ class News extends Component {
                         <td>Image</td>
                         <td>Image</td>
                         <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
+                            <i className="fas fa-edit"></i>
+                            <i className="fas fa-trash"></i>
                         </td>
                     </tr>
     
@@ -103,8 +104,8 @@ class News extends Component {
                         <td>Image</td>
                         <td>Image</td>
                         <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
+                            <i className="fas fa-edit"></i>
+                            <i className="fas fa-trash"></i>
                         </td>
                     </tr>
     
@@ -116,8 +117,8 @@ class News extends Component {
                         <td>Image</td>
                         <td>Image</td>
                         <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
+                            <i className="fas fa-edit"></i>
+                            <i className="fas fa-trash"></i>
                         </td>
                     </tr>
     
@@ -132,6 +133,7 @@ class News extends Component {
                             <i className="fas fa-trash"></i>
                         </td>
                     </tr>
+                </tbody>
                 </ table>
             </div>
         )

@@ -79,29 +79,29 @@ export default class AddNews extends React.Component {
                                 </div>
 
 
-                                <div className="category-element label-input">
+                                <div className="field label-input">
                                     <main>
                                         <div className="formUpload">
-                                            <label for="captureimage">Main Image</label>
-                                            <input type="file" accept="image/*" capture="camera" id="captureimage" onChange={this.imageHandler} caption style={{display:'none'}}/>
+                                            <label>Main Image</label>
+                                            <input type="file" accept="image/*" capture="camera" id="captureimage" onChange={this.imageHandler}  caption="true"  style={{display:'none'}}/>
                                         </div>
                                         <div id="imagewrapper">
-                                            <input type="button" id="removeImage" onClick={this.removeImage} value="x" class="btn-rmv1" />
-                                            <img id="showimage" class="image-frame"  src={this.state.profileImg} />
+                                            <input type="button" id="removeImage" alt="" onClick={this.removeImage} value="x" className="btn-rmv1" />
+                                            <img id="showimage" className="image-frame"  src={this.state.profileImg} alt="" />
                                         </div>
                                     </main>
                                 </div>
 
 
-                                <div className="category-element label-input">
+                                <div className=" field label-input">
                                     <label className="label">Thumbnail Image*</label> 
-                                    <div class="wrapper">
-                                        <div class="box">
-                                            <img class="js--image-preview" id="preview" src={this.state.profileImg2}/>
-                                            <input type="button" id="removeImage1" onClick={this.removeImage2} value="x" class="btn-rmv1" />
-                                            <div class="upload-options">
+                                    <div className="wrapper">
+                                        <div className="box">
+                                            <img className="js--image-preview" id="preview" src={this.state.profileImg2} alt="" />
+                                            <input type="button" id="removeImage1" onClick={this.removeImage2} value="x" className="btn-rmv1" />
+                                            <div className="upload-options">
                                                 <label>
-                                                    <input type="file" class="image-upload" accept="image/*" onChange={this.imageHandler2}/>
+                                                    <input type="file" className="image-upload" accept="image/*" onChange={this.imageHandler2}/>
                                                 </label>
                                             </div>
                                         </div>
