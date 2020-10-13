@@ -62,10 +62,8 @@ class Mission extends Component {
                 </thead>     
 
                 <tbody>
-                    {
-                        
-                    this.state.photos.slice(0,5).map((photo, i) => (
-                        <tr>
+                    {this.state.photos.slice(0,5).map((photo, i) => (
+                        <tr key={i}>
                             <td>{photo.id}</td>
                             <td>business</td>
                             <td>{photo.title}</td>
