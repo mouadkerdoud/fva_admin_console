@@ -57,8 +57,8 @@ class Event extends Component {
     
                 <div className="meta-table">
     
-                        <div class="main-menu">
-                            <h2 class="active" style={{width: '12rem'}}><i class="fa fa-table"></i>Event List</h2>     
+                        <div className="main-menu">
+                            <h2 className="active" style={{width: '12rem'}}><i className="fa fa-table"></i>Event List</h2>     
                         </div>
         
                         <div className="search-bar">
@@ -73,6 +73,7 @@ class Event extends Component {
     
                 <table className="table-prod">
      
+                <thead>
                     <tr>
                         <th>Id</th>
                         <th>Title</th>
@@ -84,9 +85,9 @@ class Event extends Component {
                         <th>Reserve Befor</th>
                         <th>Actions</th>
                     </tr>
-    
+                    </thead>
                    
-    
+                    <tbody>
                     <tr>
                         <td>1</td>
                         <td>Hallowen</td>
@@ -97,8 +98,8 @@ class Event extends Component {
                         <td>08/02/2019 14:22</td>
                         <td>08/10/2019 13:22</td>
                         <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
+                            <i className="fas fa-edit"></i>
+                            <i className="fas fa-trash"></i>
                         </td>
                     </tr>
     
@@ -112,8 +113,8 @@ class Event extends Component {
                         <td>08/02/2018 14:22</td>
                         <td>08/10/2018 13:22</td>
                         <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
+                            <i className="fas fa-edit"></i>
+                            <i className="fas fa-trash"></i>
                         </td>
                     </tr>
     
@@ -128,8 +129,8 @@ class Event extends Component {
                         <td>28/07/2018 14:22</td>
                         <td>02/07/2018 13:22</td>
                         <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
+                            <i className="fas fa-edit"></i>
+                            <i className="fas fa-trash"></i>
                         </td>
                     </tr>
     
@@ -147,7 +148,7 @@ class Event extends Component {
                             <i className="fas fa-trash"></i>
                         </td>
                     </tr>
-    
+                    </tbody>
                 
                 </ table>
                 <ReactPaginate

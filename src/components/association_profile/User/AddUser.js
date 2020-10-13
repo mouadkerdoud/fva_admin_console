@@ -23,9 +23,9 @@ export class AddUser extends Component {
                 <div className="assoc-wrapper">
                     <div className="picture-assoc">
                         <img id="profile-pic-assoc" src={profileImg} alt="Profile" />
-                        <div class="button-wrapper avatar-edit user-edit">
-                            <label for="imageUpload"></label>
-                            <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
+                        <div className="button-wrapper avatar-edit user-edit">
+                            <label ></label>
+                            <input type="file" name="upload" id="upload" className="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
                         </div> 
                     </div>
 
@@ -62,19 +62,19 @@ export class AddUser extends Component {
 
                         <div className="col label-input">
                             <label className="label">Gender*</label>
-                            <div class="form-item">
-                                <div class="form-gender">
-                                    <label class="gender">
+                            <div className="form-item">
+                                <div className="form-gender">
+                                    <label className="gender">
                                         <input type="radio" name="gender" />
-                                        <span class="male">Male</span>
+                                        <span className="male">Male</span>
                                     </label>
-                                    <label class="gender">
+                                    <label className="gender">
                                         <input type="radio" name="gender" />
-                                        <span class="female">Female</span>
+                                        <span className="female">Female</span>
                                     </label>
-                                    <label class="gender">
+                                    <label className="gender">
                                         <input type="radio" name="gender" />
-                                        <span class="other">Other</span>
+                                        <span className="other">Other</span>
                                     </label>
                                 </div>   
                             </div>
@@ -207,7 +207,7 @@ export class AddUser extends Component {
                                 <option value="Kyrgyzstan">Kyrgyzstan</option>
                                 <option value="Lao">Lao People's Democratic Republic</option>
                                 <option value="Latvia">Latvia</option>
-                                <option value="Lebanon" selected>Lebanon</option>
+                                <option value="Lebanon" >Lebanon</option>
                                 <option value="Lesotho">Lesotho</option>
                                 <option value="Liberia">Liberia</option>
                                 <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
@@ -233,7 +233,7 @@ export class AddUser extends Component {
                                 <option value="Monaco">Monaco</option>
                                 <option value="Mongolia">Mongolia</option>
                                 <option value="Montserrat">Montserrat</option>
-                                <option value="Morocco" selected>Morocco</option>
+                                <option value="Morocco" defaultValue>Morocco</option>
                                 <option value="Mozambique">Mozambique</option>
                                 <option value="Myanmar">Myanmar</option>
                                 <option value="Namibia">Namibia</option>

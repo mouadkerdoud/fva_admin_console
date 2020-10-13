@@ -26,12 +26,11 @@ export class Association extends Component {
 
                     <div className="picture-assoc">
                         <img id="profile-pic-assoc" src={profileImg} alt="Profile" />
-                        <div class="button-wrapper">
-                            <div class="button-wrapper avatar-edit assoc-edit">
-                                <label for="imageUpload"></label>
-                                <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
+                        <div className="button-wrapper">
+                            <div className="button-wrapper avatar-edit assoc-edit">
+                                <input type="file" name="upload" id="upload" className="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
                             </div> 
-                            <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
+                            <input type="file" name="upload" id="upload" className="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
                         </div> 
 
                     </div>
@@ -39,32 +38,32 @@ export class Association extends Component {
                     <div className="row">
                         <div className="col label-input">
                             <label className="label" >Association Name*</label>
-                            <input type="text" value="Future Vision Association" />
+                            <input type="text" value="Future Vision Association" onChange={()=>{}}/>
                         </div>
 
                         <div className="col label-input">
                             <label className="label">Email*</label>
-                            <input type="text" value="fva@gmail.com" />
+                            <input type="text" value="fva@gmail.com" onChange={()=>{}}/>
                         </div>
 
                         <div className="col label-input">
                             <label className="label">Phone Number*</label>
-                            <input type="text" value="0537849143" />
+                            <input type="text" value="0537849143" onChange={()=>{}}/>
                         </div>
 
                         <div className="col label-input">
                             <label className="label">Fax*</label>
-                            <input type="text" value="55487910" />
+                            <input type="text" value="55487910"onChange={()=>{}} />
                         </div>
 
                         <div className="col label-input">
                             <label className="label">Address*</label>
-                            <input type="text" value="Rue something, somewhere" />
+                            <input type="text" value="Rue something, somewhere"onChange={()=>{}} />
                         </div>
 
                         <div className="col label-input">
                             <label className="label">City*</label>
-                            <input type="text" value="Rabat" />
+                            <input type="text" value="Rabat" onChange={()=>{}}/>
                         </div>
 
                         <div className="col label-input">
@@ -189,7 +188,7 @@ export class Association extends Component {
                                 <option value="Kyrgyzstan">Kyrgyzstan</option>
                                 <option value="Lao">Lao People's Democratic Republic</option>
                                 <option value="Latvia">Latvia</option>
-                                <option value="Lebanon" selected>Lebanon</option>
+                                <option value="Lebanon" defaultValue>Lebanon</option>
                                 <option value="Lesotho">Lesotho</option>
                                 <option value="Liberia">Liberia</option>
                                 <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
@@ -215,7 +214,7 @@ export class Association extends Component {
                                 <option value="Monaco">Monaco</option>
                                 <option value="Mongolia">Mongolia</option>
                                 <option value="Montserrat">Montserrat</option>
-                                <option value="Morocco" selected>Morocco</option>
+                                <option value="Morocco">Morocco</option>
                                 <option value="Mozambique">Mozambique</option>
                                 <option value="Myanmar">Myanmar</option>
                                 <option value="Namibia">Namibia</option>
@@ -314,27 +313,27 @@ export class Association extends Component {
 
                         <div className="col label-input">
                             <label className="label">Facebook Link*</label>
-                            <input type="text" value="ig/someassociation.com" />
+                            <input type="text" value="ig/someassociation.com" onChange={()=>{}} />
                         </div>
 
                         <div className="col label-input">
                             <label className="label">Instagram Link*</label>
-                            <input type="text" value="fb/someassociation.com" />
+                            <input type="text" value="fb/someassociation.com" onChange={()=>{}}/>
                         </div>
 
                         <div className="col label-input">
                             <label className="label">Linkedin Link*</label>
-                            <input type="text" value="lkdin/someassociation.com" />
+                            <input type="text" value="lkdin/someassociation.com" onChange={()=>{}}/>
                         </div>
 
                         <div className="col label-input">
                             <label className="label">Association Description*</label>
-                            <textarea type="text" value="blah blah blah" />
+                            <textarea type="text" value="blah blah blah" onChange={()=>{}}/>
                         </div>
 
                         <div className="col label-input">
                             <label className="label">About us*</label>
-                            <textarea type="text" value="blah blah blah" />
+                            <textarea type="text" value="blah blah blah" onChange={()=>{}} />
                         </div>
 
                     </div>

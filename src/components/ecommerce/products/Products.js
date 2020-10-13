@@ -11,13 +11,13 @@ class Products extends Component {
     } 
 
 
-    async componentDidMount(){
-        const url = "http://fva-backend-dev.herokuapp.com/api/shop/Product/"
-        const response = await fetch(url)
-        const data = await response.json()
-        console.log(data)
-        this.setState({products:data, isLoading:false})
-    }
+    // async componentDidMount(){
+    //     const url = "http://fva-backend-dev.herokuapp.com/api/shop/Product/"
+    //     const response = await fetch(url)
+    //     const data = await response.json()
+    //     console.log(data)
+    //     this.setState({products:data, isLoading:false})
+    // }
 
     render(){
         return (
@@ -28,8 +28,8 @@ class Products extends Component {
     
                 <div className="meta-table">
     
-                        <div class="main-menu">
-                            <h2 class="active"><i class="fa fa-shopping-bag"></i>Products List</h2>     
+                        <div className="main-menu">
+                            <h2 className="active"><i className="fa fa-shopping-bag"></i>Products List</h2>     
                         </div>
         
                         <div className="search-bar">
@@ -43,6 +43,7 @@ class Products extends Component {
     
                 <table className="table-prod">
      
+                    <thead>
                     <tr>
                         <th>Product Id</th>
                         <th>Product Name</th>
@@ -53,9 +54,9 @@ class Products extends Component {
                         <th>Quantity</th>
                         <th>Actions</th>
                     </tr>
+                    </thead>
     
-                   
-    
+                    <tbody>
                     <tr>
                         <td>8852</td>
                         <td>Sneakers</td>
@@ -65,22 +66,8 @@ class Products extends Component {
                         <td>700 DH</td>
                         <td>15</td>
                         <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>8852</td>
-                        <td>Sneakers</td>
-                        <td>image</td>
-                        <td>Clothes</td>
-                        <td>Alver</td>
-                        <td>700 DH</td>
-                        <td>15</td>
-                        <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
+                            <i className="fas fa-edit"></i>
+                            <i className="fas fa-trash"></i>
                         </td>
                     </tr>
     
@@ -94,8 +81,8 @@ class Products extends Component {
                         <td>700 DH</td>
                         <td>15</td>
                         <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
+                            <i className="fas fa-edit"></i>
+                            <i className="fas fa-trash"></i>
                         </td>
                     </tr>
     
@@ -112,7 +99,7 @@ class Products extends Component {
                             <i className="fas fa-trash"></i>
                         </td>
                     </tr>
-    
+                    </tbody>
                     
     
     

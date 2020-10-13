@@ -53,18 +53,18 @@ class Realisation extends Component {
             <div className="container">
     
                 <h1>Realisation</h1>
-                <Link to='/AddRealisation'><button className="btn">Add New</button></Link>
+                <Link to='/AddRealisation'><button className="add-new-button">Add New</button></Link>
     
                 <div className="meta-table">
     
-                        <div class="main-menu">
-                            <h2 class="active" style={{width: '16rem'}}><i class="fa fa-trophy"></i>Realisation List</h2>     
+                        <div className="main-menu">
+                            <h2 className="active" style={{width: '16rem'}}><i className="fa fa-trophy"></i>Realisation List</h2>     
                         </div>
         
                         <div className="meta-table-field metatable col-3 input-effect">
                             <input  className="effect-16" />
                             <label>Search</label>
-                            <span class="focus-border"></span>
+                            <span className="focus-border"></span>
                             <i className="fas fa-search search-icon"></i>
                         </div>
     
@@ -74,76 +74,78 @@ class Realisation extends Component {
     
                 <table className="table-prod">
      
-                    <tr>
-                        <th>Id</th>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Start Realisation</th>
-                        <th>End Realisation </th>
-                        <th>Place</th>
-                        <th>Partners</th>
-                        <th>Actions</th>
-                    </tr>
-    
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Start Realisation</th>
+                            <th>End Realisation </th>
+                            <th>Place</th>
+                            <th>Partners</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
                    
     
-                    <tr>
-                        <td>1</td>
-                        <td>EXPERTISE IMMOBILIERE</td>
-                        <td>Étant agréé par la RICS (Royal Institution of Chartered Surveyors) nos rapports.</td>
-                        <td>09/01/2019 12:22</td>
-                        <td>08/02/2019 14:22</td>
-                        <td>Rabat</td>
-                        <td>la RICS</td>
-                        <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>2</td>
-                        <td>COMMERCIALISATION</td>
-                        <td>vent is a tech conference for copywriters, you can follow the thought pattern</td>
-                        <td>09/01/2019 12:22</td>
-                        <td>08/02/2019 14:22</td>
-                        <td>Casa</td>
-                        <td>REA PARTNERS</td>
-                        <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
-                        </td>
-                    </tr>
-    
-    
-                    <tr>
-                        <td>3 </td>
-                        <td>INVESTMENT</td>
-                        <td>Dotée d’une expertise confirmée et d’un large éventail de services</td>
-                        <td>09/01/2019 12:22</td>
-                        <td>08/02/2019 14:22</td>
-                        <td>Asfi</td>
-                        <td>REA INVESTMENT</td>
-                        <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>4</td>
-                        <td>CONSEIL</td>
-                        <td>Etant notre principal métier, nous avons consacré la majeure partie de notre expérience</td>
-                        <td>09/01/2019 12:22</td>
-                        <td>08/02/2019 14:22</td>
-                        <td>Taza</td>
-                        <td>REA CONSEIL</td>
-                        <td className="actions-table">
-                            <i className="fas fa-edit"></i>
-                            <i className="fas fa-trash"></i>
-                        </td>
-                    </tr>
-    
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>EXPERTISE IMMOBILIERE</td>
+                            <td>Étant agréé par la RICS (Royal Institution of Chartered Surveyors) nos rapports.</td>
+                            <td>09/01/2019 12:22</td>
+                            <td>08/02/2019 14:22</td>
+                            <td>Rabat</td>
+                            <td>la RICS</td>
+                            <td className="actions-table">
+                                <i className="fas fa-edit"></i>
+                                <i className="fas fa-trash"></i>
+                            </td>
+                        </tr>
+        
+                        <tr>
+                            <td>2</td>
+                            <td>COMMERCIALISATION</td>
+                            <td>vent is a tech conference for copywriters, you can follow the thought pattern</td>
+                            <td>09/01/2019 12:22</td>
+                            <td>08/02/2019 14:22</td>
+                            <td>Casa</td>
+                            <td>REA PARTNERS</td>
+                            <td className="actions-table">
+                                <i className="fas fa-edit"></i>
+                                <i className="fas fa-trash"></i>
+                            </td>
+                        </tr>
+        
+        
+                        <tr>
+                            <td>3 </td>
+                            <td>INVESTMENT</td>
+                            <td>Dotée d’une expertise confirmée et d’un large éventail de services</td>
+                            <td>09/01/2019 12:22</td>
+                            <td>08/02/2019 14:22</td>
+                            <td>Asfi</td>
+                            <td>REA INVESTMENT</td>
+                            <td className="actions-table">
+                                <i className="fas fa-edit"></i>
+                                <i className="fas fa-trash"></i>
+                            </td>
+                        </tr>
+        
+                        <tr>
+                            <td>4</td>
+                            <td>CONSEIL</td>
+                            <td>Etant notre principal métier, nous avons consacré la majeure partie de notre expérience</td>
+                            <td>09/01/2019 12:22</td>
+                            <td>08/02/2019 14:22</td>
+                            <td>Taza</td>
+                            <td>REA CONSEIL</td>
+                            <td className="actions-table">
+                                <i className="fas fa-edit"></i>
+                                <i className="fas fa-trash"></i>
+                            </td>
+                        </tr>
+                    </tbody>
                 
                 </ table>
                 <ReactPaginate

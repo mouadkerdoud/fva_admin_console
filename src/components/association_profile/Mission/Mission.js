@@ -53,8 +53,8 @@ class Mission extends Component {
     
                 <div className="meta-table">
     
-                        <div class="main-menu">
-                            <h2 class="active" style={{width: '13rem'}}><i class="fa fa fa-black-tie"></i>Missions List</h2>     
+                        <div className="main-menu">
+                            <h2 className="active" style={{width: '13rem'}}><i className="fa fa fa-black-tie"></i>Missions List</h2>     
                         </div>
         
                         <div className="search-bar">
@@ -69,24 +69,27 @@ class Mission extends Component {
     
                 <table className="table-prod">
      
-                    <tr>
-                        <th>Id</th>
-                        <th>Title</th>
-                        <th>Content</th>
-                        <th>Avatar Image</th>
-                        <th>Actions</th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Content</th>
+                            <th>Avatar Image</th>
+                            <th>Actions</th>
+                        </tr>
     
-                   
+                    </thead>
     
+
+                    <tbody>
                     <tr>
                         <td>1</td>
                         <td>Hallowen</td>
                         <td>vent is a tech conference for copywriters, you can follow the thought pattern</td>
                         <td>Image</td>
                         <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
+                            <i className="fas fa-edit"></i>
+                            <i className="fas fa-trash"></i>
                         </td>
                     </tr>
     
@@ -96,8 +99,8 @@ class Mission extends Component {
                         <td>There are two main types of event name tools you can use to derive inspiration from.</td>
                         <td>Image</td>
                         <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
+                            <i className="fas fa-edit"></i>
+                            <i className="fas fa-trash"></i>
                         </td>
                     </tr>
     
@@ -108,8 +111,8 @@ class Mission extends Component {
                         <td>be fooled by the term Party – this website also offers</td>
                         <td>Image</td>
                         <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
+                            <i className="fas fa-edit"></i>
+                            <i className="fas fa-trash"></i>
                         </td>
                     </tr>
     
@@ -123,6 +126,7 @@ class Mission extends Component {
                             <i className="fas fa-trash"></i>
                         </td>
                     </tr>
+                    </tbody>
                 </ table>
                 <ReactPaginate
                     previousLabel={"<"}

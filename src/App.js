@@ -25,7 +25,6 @@ import AddNews from "./components/association_profile/News/AddNews"
 import Mission from './components/association_profile/Mission/Mission';
 import AddMission from './components/association_profile/Mission/AddMission';
 import Realisation from './components/association_profile/Realisation/Realisation';
-import AddRealisation from './components/association_profile/Realisation/AddRealisation';
 
 
 import Home from "./components/Home"
@@ -62,7 +61,6 @@ function App() {
         <Route path="/Mission" component={Mission} />
         <Route path="/AddMission" component={AddMission} />
         <Route path="/Realisation" component={Realisation} />
-        <Route path="/AddRealisation" component={AddRealisation} />
 
       </Switch>
     </Router>

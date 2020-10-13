@@ -18,7 +18,7 @@ class User extends Component {
       const data = await response.json()
       this.setState({ users: data, isLoading: false });
       $(function () {
-          var table = $('#example').DataTable({
+           $('#example').DataTable({
               "pagingType": "full_numbers",
               "lengthMenu": [[5, 10, 20, -1], [5, 10, 25, "All"]]
           });
@@ -43,8 +43,8 @@ class User extends Component {
 
                     <div className="meta-table">
 
-                        <div class="main-menu">
-                            <h2 class="active" style={{width:"12rem"}}><i class="fa fa-users"></i>User List</h2>
+                        <div className="main-menu">
+                            <h2 className="active" style={{width:"12rem"}}><i className="fa fa-users"></i>User List</h2>
                         </div>
                         
 
@@ -53,7 +53,8 @@ class User extends Component {
 
 
                     <table id="example" className="hover display compact row-border hover order-column" style={{ width: '100%' }}>
-                <thead>
+                    
+                    <thead>
                         <tr>
                             <th>Id</th>
                             <th>Name</th>
@@ -68,7 +69,7 @@ class User extends Component {
                     {
                     this.state.users.map((user, i) => (
                        
-                            <tr>
+                            <tr key={i}>
                                 <td>{user.id}</td>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>

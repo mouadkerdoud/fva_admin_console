@@ -1,15 +1,4 @@
-/* form meta */
-.formeta{
-    margin-top: 10px;
-}
-.fields{
-    margin-top: 14px;
-}
-.desc{
-    margin-top: 5px;
-}
-/* Main Image */ 
-@import url(https://fonts.googleapis.com/css?family=Roboto);
+
 
 body{
   font-family: roboto,sans-serif;
@@ -141,7 +130,6 @@ main{
   width: 20rem;
   position: relative;
   overflow: hidden;
-  background-image: url('');
   background-color: white;
   background-position: center center;
   background-repeat: no-repeat;
@@ -160,9 +148,6 @@ main{
   }
   .js--image-preview.js--no-default::after {
     display: none;
-  }
-  .js--image-preview:nth-child(2) {
-    background-image: url('http://bastianandre.at/giphy.gif');
   }
 
 

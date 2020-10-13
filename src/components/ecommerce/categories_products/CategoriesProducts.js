@@ -9,12 +9,12 @@ class CategoriesProducts extends Component {
     } 
 
 
-    async componentDidMount(){
-        const url = ""
-        const response = await fetch(url)
-        const data = await response.json()
-        this.setState({products_categories:data, isLoading:false})
-    }
+    // async componentDidMount(){
+    //     const url = ""
+    //     const response = await fetch(url)
+    //     const data = await response.json()
+    //     this.setState({products_categories:data, isLoading:false})
+    // }
 
     render(){
         return (
@@ -24,8 +24,8 @@ class CategoriesProducts extends Component {
     
                 <div className="meta-table">
     
-                    <div class="main-menu">
-                        <h2 class="active" style={{width: '16rem'}}><i class="fa fa-list-ul"></i>Categories List</h2>     
+                    <div className="main-menu">
+                        <h2 className="active" style={{width: '16rem'}}><i className="fa fa-list-ul"></i>Categories List</h2>     
                     </div>
         
                     <div className="search-bar">
@@ -37,22 +37,24 @@ class CategoriesProducts extends Component {
     
                 <table className="table-prod">
      
-                    <tr>
-                        <th>Category</th>
-                        <th>Subcategory</th>
-                        <th>Number Of Products</th>
-                        <th>Actions</th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Subcategory</th>
+                            <th>Number Of Products</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
     
     
-    
+                    <tbody>
                     <tr>
                         <td>Food</td>
                         <td>Vegan Food</td>
                         <td>5</td>
                         <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
+                            <i className="fas fa-edit"></i>
+                            <i className="fas fa-trash"></i>
                         </td>
                     </tr>
     
@@ -61,8 +63,8 @@ class CategoriesProducts extends Component {
                         <td>Spanish Food</td>
                         <td>35</td>
                         <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
+                            <i className="fas fa-edit"></i>
+                            <i className="fas fa-trash"></i>
                         </td>
                     </tr>
     
@@ -71,31 +73,13 @@ class CategoriesProducts extends Component {
                         <td>Women Clothes</td>
                         <td>65</td>
                         <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
+                            <i className="fas fa-edit"></i>
+                            <i className="fas fa-trash"></i>
                         </td>
                     </tr>
     
-                    <tr>
-                        <td>Clothes</td>
-                        <td>Men Clothes</td>
-                        <td>51</td>
-                        <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>Jewelery</td>
-                        <td>Watches</td>
-                        <td>24</td>
-                        <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
-                        </td>
-                    </tr>
                    
+                   </tbody>
     
                 </ table>
     

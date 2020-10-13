@@ -6,82 +6,66 @@ export default class DashBlog extends Component {
      constructor(){
         super();
         this.state = {
-          reactionsChartData:{},
-          newBloggersChartData: {}
+          reactionsChartData:{labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', "Sunday"],
+          datasets:[
+            {
+              label:'Reactions',
+              data:[
+                15,
+                8,
+                6,
+                5,
+                4,
+                12,
+                16
+              ],
+              backgroundColor:[
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 255, 0.6)',
+                'rgba(255, 159, 64, 0.6)',
+                'rgba(255, 99, 132, 0.6)'
+              ]
+            }
+          ]},
+          newBloggersChartData: {            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          datasets:[
+            {
+              label:'Users',
+              data:[
+                15,
+                20,
+                35,
+                50,
+                55,
+                40,
+                30,
+                20,
+                35,
+                50,
+                55,
+                40,
+                30,
+              ],
+              fill: false,
+              borderColor: "#594f8d",
+              backgroundColor:[
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 255, 0.6)',
+                'rgba(255, 159, 64, 0.6)',
+                'rgba(255, 99, 132, 0.6)'
+              ]
+            }
+          ]}
         }
       }
     
-      componentWillMount(){
-        this.getChartData();
-      }
-    
-      getChartData(){
-        // Async call here to API
 
-        this.setState({
-            reactionsChartData:{
-            labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', "Sunday"],
-            datasets:[
-              {
-                label:'Reactions',
-                data:[
-                  15,
-                  8,
-                  6,
-                  5,
-                  4,
-                  12,
-                  16
-                ],
-                backgroundColor:[
-                  'rgba(255, 99, 132, 0.6)',
-                  'rgba(54, 162, 235, 0.6)',
-                  'rgba(255, 206, 86, 0.6)',
-                  'rgba(75, 192, 192, 0.6)',
-                  'rgba(153, 102, 255, 0.6)',
-                  'rgba(255, 159, 64, 0.6)',
-                  'rgba(255, 99, 132, 0.6)'
-                ]
-              }
-            ]
-          },
-
-          newBloggersChartData:{
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-            datasets:[
-              {
-                label:'Users',
-                data:[
-                  15,
-                  20,
-                  35,
-                  50,
-                  55,
-                  40,
-                  30,
-                  20,
-                  35,
-                  50,
-                  55,
-                  40,
-                  30,
-                ],
-                fill: false,
-                borderColor: "#594f8d",
-                backgroundColor:[
-                  'rgba(255, 99, 132, 0.6)',
-                  'rgba(54, 162, 235, 0.6)',
-                  'rgba(255, 206, 86, 0.6)',
-                  'rgba(75, 192, 192, 0.6)',
-                  'rgba(153, 102, 255, 0.6)',
-                  'rgba(255, 159, 64, 0.6)',
-                  'rgba(255, 99, 132, 0.6)'
-                ]
-              }
-            ]
-          }
-        });
-      }
     
 
     render(){
