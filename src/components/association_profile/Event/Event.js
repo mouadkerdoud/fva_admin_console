@@ -61,10 +61,10 @@ class Event extends Component {
                         <th>Actions</th>
                     </tr>
                     </thead>
-                    {this.state.todos.map(todo => {
+                    <tbody>
+                    {this.state.todos.map((todo,i) => {
                         return (
-                                <tbody key={todo.id}>
-                                    <tr>
+                                    <tr key={i}>
                                         <td>{todo.id}</td>
                                         <td>700 DH</td>
                                         <td>09/01/2019 12:22</td>
@@ -76,9 +76,9 @@ class Event extends Component {
                                         </td>
             
                                     </tr>
-                                </tbody>
                             )        
                         })}
+                        </tbody>
                 </table>
             </div>
         )
