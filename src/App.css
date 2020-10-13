@@ -84,15 +84,10 @@ background-color: #eeeeee;
 
 }
 
-.label{
-  margin-bottom: 0.5rem;
-  font-size:0.9rem;
-  font-weight: bolder;
+.field{
+  margin-bottom: 2.5rem;
 }
 
-.two-forms{
-  margin-top: 3rem;
-}
 
 .ck-editor__editable_inline{
   min-height: 7rem;
