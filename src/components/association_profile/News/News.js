@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from "react-router-dom"
 
-import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 
 
@@ -55,7 +54,7 @@ class News extends Component {
             <div className="container">
     
                 <h1>News</h1>
-                <Link to='/AddNews'><button className="btn">Add New</button></Link>
+                <Link to='/AddNews'><button className="add-new-button">Add New</button></Link>
     
                 <div className="meta-table">
     
@@ -134,18 +133,6 @@ class News extends Component {
                         </td>
                     </tr>
                 </ table>
-                <ReactPaginate
-                    previousLabel={"<"}
-                    nextLabel={">"}
-                    breakLabel={"..."}
-                    breakClassName={"break-me"}
-                    pageCount={this.state.pageCount}
-                    marginPagesDisplayed={2}
-                    pageRangeDisplayed={5}
-                    onPageChange={this.handlePageClick.bind(this)}
-                    containerClassName={"pagination"}
-                    subContainerClassName={"pages pagination"}
-                    activeClassName={"active"}/>
             </div>
         )
     }

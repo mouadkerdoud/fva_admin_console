@@ -1,15 +1,15 @@
 import React from 'react'
 import "./News.css"
 import src from "./placeholder4.png"
-import IconButton from '@material-ui/core/IconButton';
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
-// import TagsInput from "../../layout/TagsInput"
 /* CKEditor */
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
- 
 
-export class AddNews extends React.Component {
+ // MATERIAL UI
+import {NewsTitle} from "../MaterialUIComponents/index"
+import {MetaName, MetaKeyword, MetaDescription } from "../MaterialUIComponents/index"
+
+export default class AddNews extends React.Component {
     state={
         profileImg:src,
         profileImg2:src,
@@ -58,85 +58,89 @@ export class AddNews extends React.Component {
         return (
             <div className="container">
                 <h1>Add News</h1>
-    
-                <div className="formPost">
-                <form class="add-product-form forms3">
-                    
-                    <div className="form-flex-items">
-                        <div class="main-menu">
-                            <h2 class="active"><i class="fa fa-table"></i>News</h2>     
-                        </div>
-                    </div> 
-                    <div className="field label-input mt">
-                            <label className="label">News Title*</label>
-                            <input placeholder="Title..." type="text" className="data-form add-post" />
-                        </div> 
-                    <div className="description-element label-input">
-                            <label className="label">Content*</label>
-                            <CKEditor
-                                        editor={ClassicEditor}
-                                        onInit={editor=>{
-                                        }}
-                            />
-                        </div>
-                        <div className="category-element label-input">
-                            <label className="label">Main Image*</label>
 
-                            {/* Upload Image*/}
-                            <main>
-                                <form className="formUpload">
-                                    <label for="captureimage"> Upload Image <PhotoCamera /></label>
-                                    <input type="file" accept="image/*" capture="camera" id="captureimage" onChange={this.imageHandler} caption style={{display:'none'}}/>
-                                     
-                                </form>
-                                <div id="imagewrapper">
-                                    <input type="button" id="removeImage" onClick={this.removeImage} value="x" class="btn-rmv1" />
-                                    <img id="showimage" class="image-frame"  src={this.state.profileImg} />
+
+                <form >
+                    <div className="addcategory-page-container">
+
+                            <div className="side">
+
+                                <div className="field label-input">
+                                    <NewsTitle />
+                                </div> 
+
+                                <div className="label-input">
+                                    <CKEditor
+                                                config={{placeholder: "News Content"}} 
+                                                editor={ClassicEditor}
+                                                onInit={editor=>{
+                                                }}
+                                    />
                                 </div>
-                            </main>
-                        </div>
-                        <div className="category-element label-input">
-                            <label className="label">Thumbnail Image*</label> 
-                            <div class="wrapper">
-                                <div class="box">
-                                    <img class="js--image-preview" id="preview" src={this.state.profileImg2}/>
-                                    <input type="button" id="removeImage1" onClick={this.removeImage2} value="x" class="btn-rmv1" />
-                                    <div class="upload-options">
-                                    <label>
-                                        <input type="file" class="image-upload" accept="image/*" onChange={this.imageHandler2}/>
-                                    </label>
+
+
+                                <div className="category-element label-input">
+                                    <main>
+                                        <div className="formUpload">
+                                            <label for="captureimage">Main Image</label>
+                                            <input type="file" accept="image/*" capture="camera" id="captureimage" onChange={this.imageHandler} caption style={{display:'none'}}/>
+                                        </div>
+                                        <div id="imagewrapper">
+                                            <input type="button" id="removeImage" onClick={this.removeImage} value="x" class="btn-rmv1" />
+                                            <img id="showimage" class="image-frame"  src={this.state.profileImg} />
+                                        </div>
+                                    </main>
+                                </div>
+
+
+                                <div className="category-element label-input">
+                                    <label className="label">Thumbnail Image*</label> 
+                                    <div class="wrapper">
+                                        <div class="box">
+                                            <img class="js--image-preview" id="preview" src={this.state.profileImg2}/>
+                                            <input type="button" id="removeImage1" onClick={this.removeImage2} value="x" class="btn-rmv1" />
+                                            <div class="upload-options">
+                                                <label>
+                                                    <input type="file" class="image-upload" accept="image/*" onChange={this.imageHandler2}/>
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                </div>
-                        </div>
-                </form>
-                <form class="add-product-form forms4">        
-                    <div className="form-flex-items formeta">
-                    <div class="main-menu">
-                        <h2 class="active"><i class="fa fa-briefcase"></i>Meta</h2>     
-                    </div>
-                    </div>
-                    <div className="field label-input fields">
-                        <label className="label">Meta Title*</label>
-                        <input placeholder="Title..." type="text" className="data-form add-meta" />
-                    </div>
+                                </div>      
+
+
+
+                            </div>
+
+
+                            <div className="side side-second">
                     
-                    <div className="description-element label-input desc">
-                        <label className="label">Meta Keywords:  *</label>
-                        <textarea placeholder="Meta Keywords..." rows="10" className="add-meta" />
+                                <div style={{marginBottom:"3rem"}} className="label-input">
+                                    <MetaName />
+                                </div>
+
+                                <div style={{marginBottom:"3rem"}} className="label-input">
+                                    <MetaKeyword />
+                                </div>
+
+                                <div style={{marginBottom:"3rem"}} className="label-input">
+                                    <MetaDescription /> 
+                                </div>
+
+                                <button className="btn">Add News</button>
+
+                            </div>
+                                
+
                     </div>
-                                           
+
+
+
+
                 </form>
-    
-                </div>
-                <form class="form-event">
-                    <button type="submit"className="btn-assoc" ><span>Add News</span></button>
-                </form>
-    
             </div>
         )
     
     }    
 }
 
-export default AddNews

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./User.css"
+import {Emails, FirstName, Password,LastName,ConfirmPassword,PhoneNumber} from "../MaterialUIComponents/index"
 
 export class AddUser extends Component {
     state={
@@ -31,33 +32,27 @@ export class AddUser extends Component {
 
                     <div className="row">
                         <div className="col label-input">
-                            <label className="label" htmlFor="fname">First Name*</label>
-                            <input type="text" className="inp" name="fname" placeholder="Please Enter FirstName"/>
+                            <FirstName />
                         </div>
 
                         <div className="col label-input">
-                            <label className="label" htmlFor="lname">Last Name*</label>
-                            <input type="text" className="inp" name="lname" placeholder="Please Enter LastName"  />
+                            <LastName />
                         </div>
 
                         <div className="col label-input">
-                            <label className="label" htmlFor="email">Email*</label>
-                            <input type="email" className="inp" name="email" placeholder="Please Enter Email"  />
+                            <Emails />
                         </div>
 
                         <div className="col label-input">
-                            <label className="label" htmlFor="password">Password*</label>
-                            <input type="password" className="inp" name="password" placeholder="Please Enter Password"  />
+                            <Password />
                         </div>
 
                         <div className="col label-input">
-                            <label className="label" htmlFor="cpassword">Confirme Password*</label>
-                            <input type="password" className="inp" name="cpassword" placeholder="Please Enter Confirm Password"  />
+                            <ConfirmPassword />
                         </div>
 
                         <div className="col label-input">
-                            <label className="label" htmlFor="lname">Phone Number*</label>
-                            <input type="text" className="inp" name="lname" placeholder="Please Enter Number"  />
+                            <PhoneNumber />
                         </div>
 
                         <div className="col label-input">

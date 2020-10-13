@@ -37,7 +37,7 @@ class Mission extends Component {
             <div className="container">
     
                 <h1>Missions</h1>
-                <Link to='/AddMission'><button className="btn">Add New</button></Link>
+                <Link to='/AddMission'><button className="add-new-button">Add New</button></Link>
     
                 <div className="meta-table">
     

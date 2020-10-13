@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from "react-router-dom"
 
-import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 
 
@@ -147,18 +146,7 @@ class Realisation extends Component {
     
                 
                 </ table>
-                <ReactPaginate
-                    previousLabel={"<"}
-                    nextLabel={">"}
-                    breakLabel={"..."}
-                    breakClassName={"break-me"}
-                    pageCount={this.state.pageCount}
-                    marginPagesDisplayed={2}
-                    pageRangeDisplayed={5}
-                    onPageChange={this.handlePageClick.bind(this)}
-                    containerClassName={"pagination"}
-                    subContainerClassName={"pages pagination"}
-                    activeClassName={"active"}/>
+               
             </div>
         )
     }

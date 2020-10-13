@@ -1,36 +1,11 @@
 
 .side-second{
   align-self: flex-start;  
+  padding-bottom: 2.5rem !important;
+  padding-top: 2.5rem !important;
 
 }
 
-
-.categP{
-  width: 48% !important;
-}
-.forms3 .moy-selec{
-  width: 30.9rem;
-  padding: 0.5rem;
-}
-.formProduct{
-    display: flex;
-    overflow: hidden;
-}
-.forms3{
-  width: 34rem !important;
-  margin-right: 1.2rem;
-}
-.forms4{
-  width: 34rem !important;
-}
-.inp-prod{
-  width: 30.9rem !important;
-}
-
-.field-pd .upload{
-  width: 30.9rem !important;
-}
-  
 .meta-table{
   margin-top: 1.8rem;
   display: flex;
@@ -50,15 +25,6 @@
   padding-left: 0.2rem;
 }
 
-.search-icon{
-  background: #594f8d;
-  padding: 0.5rem;
-  color:white;
-  border-radius: 0.18rem;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0,0, 0, 0.12) 0px 3px 1px -2px;
-  margin-left: 0.2rem;
-  cursor: pointer;
-}
 
 .table-prod{
     margin-top: 1.5rem;
@@ -66,92 +32,6 @@
 
  
 
-                                              /* FORM */
-
-.categories{
-  display: flex;
-  justify-content: left;
-  position: relative;
-  bottom: 0.5rem;
-}
-
-.product-category-element{
-  background: white;
-  width: 34rem;
-  padding: 1.5rem;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0,0, 0, 0.12) 0px 3px 1px -2px
-}
-
-.product-category-element select{
-    padding: 0.5rem;
-}
-
-.product-category-element select:focus{
-  border: 2px solid #594f8d;
-  border-radius: 2px;
-  outline: #594f8d;
-}
-
-
-
-.sub-category{
-  margin-left: 1.2rem;
-}
-
-.add-product-form{
-  background: white;
-  margin-top: 1rem;
-  padding: 1.5rem;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0,0, 0, 0.12) 0px 3px 1px -2px;
-  width: 69.2rem;
-}
-
-.form-flex-items{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.field{
-  margin-right: 1rem;
-}
-
-.field select{
-  width: 9rem;
-  padding: 0.2rem 0rem;
-}
-
-
-
-
-
-.description-element{
-  margin-top: 2rem;
-}
-
-.description-element textarea{
-  padding-left: 0.5rem;
-  padding-top: 0.6rem;
-}
-
-.description-element textarea:focus{
-  outline: none;
-  border: 1px solid #594f8d;
-}
-
-
-.btn-add-prod{
-  color: white;
-  background: #594f8d;
-  padding: 0.9rem;
-  border-radius: 0.18rem;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0,0, 0, 0.12) 0px 3px 1px -2px;
-  margin-top: 1rem;
-  
-}
 
 
 /* Input "File" */
@@ -171,17 +51,5 @@
     margin-bottom: 5px;
     padding: 10px !important;
     font-weight: 400;
-}
-
-.btng{
-    padding: 18px;  
-    margin-right: 5px; 
-    color: #fff !important;  
-    background-color: #594f8d !important;
-}
-
-.label-input .lbl{
-  font-weight: bold !important;
-  font-size: 1rem !important;
 }
 

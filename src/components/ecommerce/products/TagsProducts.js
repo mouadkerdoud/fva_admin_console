@@ -32,7 +32,7 @@ export default function TagsProducts() {
             getOptionLabel={(option) => option.title}
             filterSelectedOptions
             renderInput={(params) => (
-            <TextField {...params} variant="outlined"  />
+            <TextField {...params} label="Choose Tags" variant="outlined"  />
             )}
         />
         </div>

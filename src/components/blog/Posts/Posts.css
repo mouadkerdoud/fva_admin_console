@@ -3,6 +3,7 @@
 
 
 .btn{
+    width: 30.9rem;
     color: white;
     background: #594f8d;
     padding: 0.9rem;
@@ -10,30 +11,12 @@
     border: none;
     outline: none;
     cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0,0, 0, 0.12) 0px 3px 1px -2px
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0,0, 0, 0.12) 0px 3px 1px -2px;
 
-  }
-  .add-btn-form{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    width: 18rem;
-    position: relative;
-    left: 25rem;
-    color: white;
-    background: #594f8d;
-    padding: 0.9rem;
-    border-radius: 0.18rem;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 5px 0px, rgba(0, 0, 0, 0.14) 0px 2px 2px 0px, rgba(0,0, 0, 0.12) 0px 3px 1px -2px
   }
 
 
-.label-input .lbl{
-    font-weight: bold;
-    font-size: 1rem;
-  }
+
 
 /* Shape Post/ Meta */
   body {

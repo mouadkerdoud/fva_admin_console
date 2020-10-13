@@ -2,25 +2,23 @@ import React from 'react'
 
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
-import TextField from '@material-ui/core/TextField';
-import { withStyles } from "@material-ui/core/styles";
 
 
 import ImageUploader from "../../layout/ImageUploader"
 import TagsPost from "./TagsPost"
 
+// Material UI
+import {CategoryPost, StatusPost, PostTitle} from "../MaterialUIComponents/index"
+import {MetaTitle, MetaKeyword, MetaDescription } from "../MaterialUIComponents/index"
+
+
 import "./Posts.css"
 
 
 
-const styles = theme => ({
-    input: {
-      height: 90
-    },
-  });
 
-const AddPost = withStyles(styles)(props => {
-    const { classes } = props;
+
+const AddPost = ()=>{
 
 
     return (
@@ -32,107 +30,63 @@ const AddPost = withStyles(styles)(props => {
                 <div className="side">
 
                     <div className="field label-input">
-                        <label className="label">Post Title*</label>
-                            <TextField
-                                id="standard-multiline-flexible"
-                                placeholder="Post Title"
-                                multiline
-                                rowsMax={4}
-                            />
+                           <PostTitle />
                     </div>
 
-                    <div className="description-element label-input">
-                        <label className="label">Post Content*</label>
+                    <div className="field label-input">
                         <CKEditor
                                     editor={ClassicEditor}
                                     onInit={editor=>{
                                     }}
+                                    config={{placeholder: "Post Content..."}} 
                         />
                     </div>
 
-                    <div className=" label-input">
-                        <label className="label">Post Tags*</label>
+                    <div className=" field label-input">
                         <TagsPost />
                     </div>
 
-                    <div className="category-element label-input">
-                        <label className="label">Select Category Post</label>
-                        <select className="larg-selec" >
-                            <option value="" disabled selected>Select Category Post...</option>
-                            <option>Tech</option>
-                            <option>Humanity</option>
-                            <option>Culture</option>
-                        </select>
+                    <div className="field label-input">
+                        <CategoryPost />
                     </div>
-
-                    <div className="category-element label-input">
-                        <label className="label">Post Status*</label>
-                        <select className="larg-selec">
-                            <option value="" disabled selected>Select Status...</option>
-                            <option>Active</option>
-                            <option>Disabled</option>
-                        </select>
-                    </div>
-            
-                    
-                </div>
-
-                <div className="side">
 
                     <div className="field label-input">
-                        <label className="label">Select Images*</label>
+                        <StatusPost />
+                    </div>
+
+                    <div className="field label-input">
                         <ImageUploader />
                     </div>
 
-                    <div className=" label-input">
-                        <label className="label">Meta Title Post*</label>
-                            <TextField
-                                id="standard-multiline-flexible"
-                                placeholder="Meta name Category"
-                                multiline
-                                rowsMax={4}
-                            />
+                    
+                </div>
+
+                <div className="side side-second">
+
+                    <div style={{marginBottom:"3rem"}} className="label-input">
+                        <MetaTitle />
                     </div>
 
-                    <div className="label-input">
-                        <label  className="label">Meta Keywords:  *</label>
-                        <TextField
-                            id="outlined-textarea"
-                            placeholder="Meta Keywords"
-                            multiline
-                            variant="outlined"
-                            rowsMax={4}
-                            InputProps={{
-                                className: classes.input
-                            }}
-                        />                
+                    <div style={{marginBottom:"3rem"}} className="label-input">
+                        <MetaKeyword />
                     </div>
 
-                    <div className="label-input">
-                        <label className="label">Meta Description:  *</label>
-                        <TextField
-                            id="outlined-textarea"
-                            placeholder="Meta Description"
-                            multiline
-                            variant="outlined"
-                            rowsMax={4}
-                            InputProps={{
-                                className: classes.input
-                            }}
-                        />            
+                    <div style={{marginBottom:"3rem"}} className="label-input">
+                        <MetaDescription /> 
                     </div>
+
+                    <button className="btn">Add Post</button>
 
 
                 </div>
                 
             </div>
-            <button style={{marginTop:"2rem"}} className="add-btn-form">Add Post</button>
 
         </form>
     </div>
 
     )
-})
+}
 
 export default AddPost
 
