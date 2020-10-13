@@ -1,80 +1,40 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import "./User.css"
+import "./datatables.css"
 
-import axios from 'axios';
-import ReactPaginate from 'react-paginate';
+import "./User.css"
+const $ = require("jquery");
+$.DataTable = require("datatables.net");
 
 class User extends Component {
 
-    constructor(props) {
-        super(props)
+    state = {
+        isLoading: true,
+        users: null
+    }
+    async componentDidMount() {
+      const url = "https://jsonplaceholder.typicode.com/users"
+      const response = await fetch(url)
+      const data = await response.json()
+      this.setState({ users: data, isLoading: false });
+      $(function () {
+          var table = $('#example').DataTable({
+              "pagingType": "full_numbers",
+              "lengthMenu": [[5, 10, 20, -1], [5, 10, 25, "All"]]
+          });
     
-        this.state = {
-            offset: 0,
-            Users: [],
-            isLoading:true,
-            orgUsers: [],
-            perPage: 5,
-            currentPage: 0
-        }
-    } 
-
-    handlePageClick = (e) => {
-        const selectedPage = e.selected;
-        const offset = selectedPage * this.state.perPage;
-
-        this.setState({
-            currentPage: selectedPage,
-            offset: offset
-        }, () => {
-            this.loadMoreData()
-        });
-
-    };
-
-    loadMoreData() {
-		const data = this.state.orgUsers;
-		
-		const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
-		this.setState({
-			pageCount: Math.ceil(data.length / this.state.perPage),
-			Users:slice
-		})
-	
+          
+      });
+      
     }
-
-    componentDidMount(){
-        this.getUser();
-    }
-
-    getUser() {
-        axios
-            .get("https://jsonplaceholder.typicode.com/users")
-            .then(res => {
-
-                var data = res.data;
-				
-                var slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
-                
-
-                this.setState({
-                    pageCount: Math.ceil(data.length / this.state.perPage),
-                    orgUsers :res.data,
-                    Users:slice,
-                    isLoading:false
-                })
-            });
-    }
-
     
     render(){
-        const {Users,isLoading} = this.state;
+        const { users, isLoading } = this.state
 
-        if(!Users || isLoading){
-            return <div className="container">Loading ... </div>
-        }
-        else{
+    if (isLoading || !users) {
+        return <div className="container">Loading ... </div>
+    }
+    else {
             return (
                 <div className="container">
 
@@ -86,63 +46,46 @@ class User extends Component {
                         <div class="main-menu">
                             <h2 class="active" style={{width:"12rem"}}><i class="fa fa-users"></i>User List</h2>
                         </div>
-                        <div className="meta-table-field metatable col-3 input-effect">
-                            <input  className="effect-16" />
-                            <label>Search</label>
-                            <span class="focus-border"></span>
-                            <i className="fas fa-search search-icon"></i>
-                        </div>
-    
+                        
 
                     </div>
 
 
 
-                    <table className="table-User">
+                    <table id="example" className="hover display compact row-border hover order-column" style={{ width: '100%' }}>
+                <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>City</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {
+                    this.state.users.map((user, i) => (
+                       
+                            <tr>
+                                <td>{user.id}</td>
+                                <td>{user.name}</td>
+                                <td>{user.email}</td>
+                                <td>{user.phone}</td>
+                                <td>{user.address.city}</td>
+                                <td>{user.id % 2 === 0 ? "Admin" : "User"}</td>
+                                <td className="actions-table">
+                                    <i className="fas fa-edit"></i>
+                                    <i className="fas fa-trash"></i>
+                                </td>
+                            </tr>
+                      
+                    ))
+                    }
+                      </tbody>
+            </table>
 
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>City</th>
-                                    <th>Role</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            {
-                          this.state.Users.map((user, i) => (
-                                <tr>
-                                    <td>{user.id}</td>
-                                    <td>{user.name}</td>
-                                    <td>{user.email}</td>
-                                    <td>{user.phone}</td>
-                                    <td>{user.address.city}</td>
-                                    <td>{user.id % 2 === 0 ? "Admin": "User"}</td>
-                                    <td className="actions-table">
-                                        <i className="fas fa-edit"></i>
-                                        <i className="fas fa-trash"></i>
-                                    </td>
-                                </tr>
-                            
-                          ))
-                        }
-
-
-                    </ table>
-                    <ReactPaginate
-                    previousLabel={"<"}
-                    nextLabel={">"}
-                    breakLabel={"..."}
-                    breakClassName={"break-me"}
-                    pageCount={this.state.pageCount}
-                    marginPagesDisplayed={2}
-                    pageRangeDisplayed={5}
-                    onPageChange={this.handlePageClick.bind(this)}
-                    containerClassName={"pagination"}
-                    subContainerClassName={"pages pagination"}
-                    activeClassName={"active"}/>
                 </div>
             )
         }

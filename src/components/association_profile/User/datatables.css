@@ -1,0 +1,38 @@
+@import 'https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css';
+
+th{
+    background: #594f8d;
+    color: white;
+}
+td.highlight {
+    background-color: whitesmoke !important;
+}
+table{
+    position: relative;
+    top: 20px;
+}
+.dataTables_wrapper .dataTables_info{
+    padding-top: 1.95em !important;
+}
+.dataTables_wrapper .dataTables_paginate {
+    padding-top: 1.6em !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+ }
+ .dataTables_length{
+     display: inline-block ;
+ }
+ th{
+    background: #594f8d;
+    color: white;
+}
+th,td{
+    padding: 15px 20px !important;
+    text-align: left !important;
+}
+.dataTables_wrapper{
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    margin-right: 10px;
+}
