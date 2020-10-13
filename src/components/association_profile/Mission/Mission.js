@@ -1,51 +1,38 @@
 import React, {Component} from 'react'
 import {Link} from "react-router-dom"
 
-
-import axios from 'axios';
-import ReactPaginate from 'react-paginate';
+const $ = require("jquery");
+$.DataTable = require("datatables.net");
 
 
 class Mission extends Component {
 
-    constructor(props) {
-        super(props)
+    state = {
+        isLoading: true,
+        photos: null
+    }
+    async componentDidMount() {
+      const url = "https://jsonplaceholder.typicode.com/photos"
+      const response = await fetch(url)
+      const data = await response.json()
+      this.setState({ photos: data, isLoading: false });
+      $(function () {
+          var table = $('#example').DataTable({
+              "pagingType": "full_numbers",
+              "lengthMenu": [[5, 10, 20, -1], [5, 10, 25, "All"]]
+          });
     
-        this.state = {
-            offset: 0,
-            Users: [],
-            isLoading:true,
-            orgUsers: [],
-            perPage: 5,
-            currentPage: 0
-        }
+          
+      });
+      
     }
-
-    handlePageClick = (e) => {
-        const selectedPage = e.selected;
-        const offset = selectedPage * this.state.perPage;
-
-        this.setState({
-            currentPage: selectedPage,
-            offset: offset
-        }, () => {
-            this.loadMoreData()
-        });
-
-    };
-
-    loadMoreData() {
-		const data = this.state.orgUsers;
-		
-		const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
-		this.setState({
-			pageCount: Math.ceil(data.length / this.state.perPage),
-			Users:slice
-		})
-	
-    }
-
     render(){
+        const { photos, isLoading } = this.state;
+
+        if (isLoading || !photos) {
+            return <div className="container">Loading ... </div>
+        }
+        else {
         return (
             <div className="container">
     
@@ -58,18 +45,13 @@ class Mission extends Component {
                             <h2 class="active" style={{width: '13rem'}}><i class="fa fa fa-black-tie"></i>Missions List</h2>     
                         </div>
         
-                        <div className="search-bar">
-                            <input placeholder="Search Mission..." />
-                            <i className="fas fa-search search-icon"></i>
-                        </div>
-    
     
                 </div>
     
                 
     
-                <table className="table-prod">
-     
+                <table id="example" className="table-User hover display compact row-border hover order-column" style={{ width: '100%' }}>
+                <thead>     
                     <tr>
                         <th>Id</th>
                         <th>Title</th>
@@ -77,68 +59,31 @@ class Mission extends Component {
                         <th>Avatar Image</th>
                         <th>Actions</th>
                     </tr>
+                </thead>     
+
+                <tbody>
+                    {
+                        
+                    this.state.photos.slice(0,5).map((photo, i) => (
+                        <tr>
+                            <td>{photo.id}</td>
+                            <td>business</td>
+                            <td>{photo.title}</td>
+                            <td>{photo.url}</td>
+                            <td className="actions-table">
+                                <i class="fas fa-edit"></i>
+                                <i class="fas fa-trash"></i>
+                            </td>
+                        </tr>
+                    ))
+                    }
+                </tbody>    
     
-                   
-    
-                    <tr>
-                        <td>1</td>
-                        <td>Hallowen</td>
-                        <td>vent is a tech conference for copywriters, you can follow the thought pattern</td>
-                        <td>Image</td>
-                        <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>2</td>
-                        <td>business </td>
-                        <td>There are two main types of event name tools you can use to derive inspiration from.</td>
-                        <td>Image</td>
-                        <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
-                        </td>
-                    </tr>
-    
-    
-                    <tr>
-                        <td>3 </td>
-                        <td>packet </td>
-                        <td>be fooled by the term Party – this website also offers</td>
-                        <td>Image</td>
-                        <td className="actions-table">
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td>4</td>
-                        <td>packet </td>
-                        <td>ike their idea you can also check out their event details to get even more inspiration.</td>
-                        <td>Image</td>
-                        <td className="actions-table">
-                            <i className="fas fa-edit"></i>
-                            <i className="fas fa-trash"></i>
-                        </td>
-                    </tr>
                 </ table>
-                <ReactPaginate
-                    previousLabel={"<"}
-                    nextLabel={">"}
-                    breakLabel={"..."}
-                    breakClassName={"break-me"}
-                    pageCount={this.state.pageCount}
-                    marginPagesDisplayed={2}
-                    pageRangeDisplayed={5}
-                    onPageChange={this.handlePageClick.bind(this)}
-                    containerClassName={"pagination"}
-                    subContainerClassName={"pages pagination"}
-                    activeClassName={"active"}/>
+               
             </div>
         )
+    }
     }
 
 }

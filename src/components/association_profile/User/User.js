@@ -52,7 +52,7 @@ class User extends Component {
 
 
 
-                    <table id="example" className="hover display compact row-border hover order-column" style={{ width: '100%' }}>
+                <table id="example" className="table-User hover display compact row-border hover order-column" style={{ width: '100%' }}>
                 <thead>
                         <tr>
                             <th>Id</th>
