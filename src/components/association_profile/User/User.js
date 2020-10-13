@@ -31,7 +31,7 @@ class User extends Component {
                 <div className="container">
 
                     <h1>Users</h1>
-                    <Link to='/AddUser'><button className="btn">Add New</button></Link>
+                    <Link to='/AddUser'><button className="add-new-button">Add New</button></Link>
 
                     <div className="meta-table">
 

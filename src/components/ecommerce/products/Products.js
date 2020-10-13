@@ -24,7 +24,7 @@ class Products extends Component {
             <div className="container">
     
                 <h1>Products</h1>
-                <Link to='/AddProduct'><button className="btn">Add New</button></Link>
+                <Link to='/AddProduct'><button className="add-new-button">Add New</button></Link>
     
                 <div className="meta-table">
     

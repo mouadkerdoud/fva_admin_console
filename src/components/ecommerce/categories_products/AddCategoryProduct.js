@@ -1,98 +1,71 @@
 import React from 'react'
+
+// CKEDITOR
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
-import TextField from '@material-ui/core/TextField';
-import { withStyles } from "@material-ui/core/styles";
+
+import ImageUploader from "../../layout/ImageUploader"
+
+// MaterialUI
+import {CategoryName, MetaName, MetaKeyword, MetaDescription } from "../MaterialUIComponents/index"
 
 import "./Category.css"
 
 
-const styles = theme => ({
-    input: {
-      height: 90
-    },
-  });
 
 
-const AddCategoryProduct = withStyles(styles)(props => {
-    const { classes } = props;
+const AddCategoryProduct = () => {
   
     return (
         <div className="container">
-         <h1>Add Product Category </h1>
+         <h1>Add Category Product </h1>
 
         <form >
             <div className="addcategory-page-container">
+
                 <div className="side">
 
-                    <div className="field label-input">
-                        <label className="label">Category Name*</label>
-                            <TextField
-                                id="standard-multiline-flexible"
-                                placeholder="Category Name"
-                                multiline
-                                rowsMax={4}
-                            />
+                    <div style={{marginBottom:"3rem"}} className="field label-input">
+                        <CategoryName />
                     </div>
 
-                    <div className="description-element label-input">
-                        <label className="label">Category Description*</label>
+                    <div className="field label-input">
                         <CKEditor
+                                    config={{placeholder: "Category Description"}} 
                                     editor={ClassicEditor}
                                     onInit={editor=>{
                                     }}
                         />
                     </div>
 
-                    <div className=" label-input">
-                        <label className="label">Meta name Category*</label>
-                            <TextField
-                                id="standard-multiline-flexible"
-                                placeholder="Meta name Category"
-                                multiline
-                                rowsMax={4}
-                            />
+                    <div className="field label-input">
+                        <ImageUploader />
                     </div>
                     
                 </div>
 
-                <div className="side">
+                <div className="side side-second">
+                    
                     <div style={{marginBottom:"3rem"}} className="label-input">
-                        <label  className="label">Meta Keywords:  *</label>
-                        <TextField
-                            id="outlined-textarea"
-                            placeholder="Meta Keywords"
-                            multiline
-                            variant="outlined"
-                            rowsMax={4}
-                            InputProps={{
-                                className: classes.input
-                            }}
-                        />                
+                        <MetaName />
                     </div>
 
-                    <div className="label-input">
-                        <label className="label">Meta Description:  *</label>
-                        <TextField
-                            id="outlined-textarea"
-                            placeholder="Meta Description"
-                            multiline
-                            variant="outlined"
-                            rowsMax={4}
-                            InputProps={{
-                                className: classes.input
-                            }}
-                        />            
+                    <div style={{marginBottom:"3rem"}} className="label-input">
+                        <MetaKeyword />
                     </div>
+
+                    <div style={{marginBottom:"3rem"}} className="label-input">
+                        <MetaDescription /> 
+                    </div>
+
+                    <button className="btn">Add Category Product</button>
                 </div>
-                
-            </div>
-            <button style={{marginTop:"2rem"}} className="add-btn-form">Add Category</button>
 
+            </div>
         </form>
     </div>
     )
-})
+}
 
 export default AddCategoryProduct
 

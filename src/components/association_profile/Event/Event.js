@@ -23,7 +23,7 @@ class Event extends Component {
             <div className="container">
     
                 <h1>Event</h1>
-                <Link to='/AddEvent'><button className="btn">Add New</button></Link>
+                <Link to='/AddEvent'><button className="add-new-button">Add New</button></Link>
     
                 <div className="meta-table">
     

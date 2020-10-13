@@ -20,7 +20,7 @@ class CategoriesProducts extends Component {
         return (
             <div className="container">
                 <h1>Categories</h1>
-                <Link to='/AddCategoryProduct'><button className="btn">Add New</button></Link>
+                <Link to='/AddCategoryProduct'><button className="add-new-button">Add New</button></Link>
     
                 <div className="meta-table">
     

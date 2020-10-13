@@ -23,7 +23,7 @@ class News extends Component {
             <div className="container">
     
                 <h1>News</h1>
-                <Link to='/AddNews'><button className="btn">Add New</button></Link>
+                <Link to='/AddNews'><button className="add-new-button">Add New</button></Link>
     
                 <div className="meta-table">
     

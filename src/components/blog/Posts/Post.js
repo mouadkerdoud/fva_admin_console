@@ -30,7 +30,7 @@ class Post extends Component {
                 <div className="container">
         
                     <h1>Posts</h1>
-                    <Link to='/AddPost'><button className="btn">Add New</button></Link>
+                    <Link to='/AddPost'><button className="add-new-button">Add New</button></Link>
         
                     <div className="meta-table">
         
