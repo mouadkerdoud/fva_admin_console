@@ -1,11 +1,15 @@
 import React from 'react'
 import "./Event.css"
 
-// import TagsInput from "../../layout/TagsInput"
 /* CKEditor */
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
  
+
+// MATERIAL UI
+import {EventTitle, IsPaid, PriceEvent, StartDate, EndDate, ReserveDate} from "../MaterialUIComponents/index"
+import {MetaName, MetaKeyword, MetaDescription } from "../MaterialUIComponents/index"
+
 
 const AddEvent = () => {
     
@@ -14,89 +18,73 @@ const AddEvent = () => {
         <div className="container">
             <h1>Add Event</h1>
 
-            <div className="formPost">
-            <form class="add-product-form forms3">
-                
-                <div className="form-flex-items">
-                    <div class="main-menu">
-                        <h2 class="active"><i class="fa fa-table"></i>Event</h2>     
-                    </div>
-                </div> 
-                <div className="field label-input mt">
-                        <label className="label">Event Title*</label>
-                        <input placeholder="Title..." type="text" className="data-form add-post" />
-                    </div> 
-                <div className="description-element label-input">
-                        <label className="label">Short Description*</label>
-                        <CKEditor
-                                    editor={ClassicEditor}
-                                    onInit={editor=>{
-                                    }}
-                        />
-                    </div>
-                    
-                    <div className="category-element label-input">
-                        <label className="label">Is Paid*</label>
-                        <select className="moy-selec mys">
-                            <option value="" disabled selected>Select Is_Paid...</option>
-                            <option>True</option>
-                            <option>Flase</option>
-                        </select>
-                    </div>
-                    <div className="category-element label-input">
-                        <label className="label">Price*</label>
-                        <input class="number" type="number" min="0" max="1000000" step="1"  />
-                    </div>
-                    <div className="category-element label-input">
-                        <label className="label">Start Event*</label> 
-                        <div className="timer">
-                            <input className="inp" type="date" name="startEvent" id="startEvent" />
-                            <input type="time" value="13:30"/>
-                        </div>
-                    </div>
-                    <div className="category-element label-input">
-                        <label className="label">End Event*</label> 
-                        <div className="timer">
-                            <input className="inp" type="date" name="startEvent" id="startEvent" />
-                            <input type="time" value="13:30"/>
-                        </div>
-                    </div>   
-                    <div className="category-element label-input">
-                        <label className="label">Reserve Before*</label> 
-                        <div className="timer">
-                            <input className="inp" type="date" name="startEvent" id="startEvent" />
-                            <input type="time" value="13:30"/>
-                        </div>
-                    </div>                     
-            </form>
-            <form class="add-product-form forms4">
-                    
-                    <div className="form-flex-items">
-                        <div class="main-menu">
-                            <h2 class="active"><i class="fa fa-briefcase"></i>Meta</h2>     
-                        </div>
+            <form >
+                <div className="addcategory-page-container">
+
+
+                    <div className="side">
+
                         <div className="field label-input">
-                            <label className="label">Meta Title*</label>
-                            <input placeholder="Title..." type="text" className="data-form add-meta" />
+                            <EventTitle />
                         </div>
-                        </div>
-                        <div className="description-element label-input">
-                            <label className="label">Meta Keywords:  *</label>
-                            <textarea placeholder="Meta Keywords..." rows="10" className="add-meta" />
 
+                        <div className="label-input">
+                            <CKEditor
+                                        config={{placeholder: "Description"}} 
+                                        editor={ClassicEditor}
+                                        onInit={editor=>{
+                                        }}
+                            />
                         </div>
-                        <div className="description-element label-input">
-                            <label className="label">Meta Description:  *</label>
-                            <textarea placeholder="Meta description..." rows="10" className="add-meta" />
+
+
+                        <div className="field label-input">
+                            <IsPaid />
                         </div>
-                                          
+
+                        <div  className="field label-input">
+                            <PriceEvent />
+                        </div>
+
+
+                        <div className="field label-input">
+                            <StartDate />
+                        </div>
+
+                        <div className="field label-input">
+                            <EndDate />
+                        </div>   
+                        
+                        <div className="field label-input">
+                           <ReserveDate />
+                        </div>        
+
+
+                    </div>
+
+
+                     <div className="side side-second">
+                    
+                        <div style={{marginBottom:"3rem"}} className="label-input">
+                            <MetaName />
+                        </div>
+
+                        <div style={{marginBottom:"3rem"}} className="label-input">
+                            <MetaKeyword />
+                        </div>
+
+                        <div style={{marginBottom:"3rem"}} className="label-input">
+                            <MetaDescription /> 
+                        </div>
+
+                        <button className="btn">Add Event</button>
+
+                    </div>
+
+
+
+                </div>
             </form>
-
-            </div>
-            <form class="form-event">
-                <button type="submit" className="btn-assoc"><span>Add Event</span></button>
-            </form>
-
         </div>
     )
 }
