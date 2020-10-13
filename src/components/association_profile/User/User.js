@@ -1,7 +1,10 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import "./User.css"
+import "./datatables.css"
 
+import "./User.css"
+const $ = require("jquery");
+$.DataTable = require("datatables.net");
 
 class User extends Component {
 
@@ -9,24 +12,29 @@ class User extends Component {
         isLoading: true,
         users: null
     }
-
-
-    async componentDidMount(){
-        const url = "https://jsonplaceholder.typicode.com/users"
-        const response = await fetch(url)
-        const data = await response.json()
-        console.log(data)
-        this.setState({users:data, isLoading:false})
+    async componentDidMount() {
+      const url = "https://jsonplaceholder.typicode.com/users"
+      const response = await fetch(url)
+      const data = await response.json()
+      this.setState({ users: data, isLoading: false });
+      $(function () {
+          var table = $('#example').DataTable({
+              "pagingType": "full_numbers",
+              "lengthMenu": [[5, 10, 20, -1], [5, 10, 25, "All"]]
+          });
+    
+          
+      });
+      
     }
-
-
+    
     render(){
-        const {users, isLoading} = this.state
+        const { users, isLoading } = this.state
 
-        if( isLoading || !users ){
-            return <div className="container">Loading ... </div>
-        }
-        else{
+    if (isLoading || !users) {
+        return <div className="container">Loading ... </div>
+    }
+    else {
             return (
                 <div className="container">
 
@@ -38,52 +46,46 @@ class User extends Component {
                         <div class="main-menu">
                             <h2 class="active" style={{width:"12rem"}}><i class="fa fa-users"></i>User List</h2>
                         </div>
-                        <div className="search-bar">
-                            <input placeholder="Search User..." />
-                            <i className="fas fa-search search-icon"></i>
-                        </div>
-    
+                        
 
                     </div>
 
 
 
-                    <table className="table-User">
+                    <table id="example" className="hover display compact row-border hover order-column" style={{ width: '100%' }}>
+                <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>City</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {
+                    this.state.users.map((user, i) => (
+                       
+                            <tr>
+                                <td>{user.id}</td>
+                                <td>{user.name}</td>
+                                <td>{user.email}</td>
+                                <td>{user.phone}</td>
+                                <td>{user.address.city}</td>
+                                <td>{user.id % 2 === 0 ? "Admin" : "User"}</td>
+                                <td className="actions-table">
+                                    <i className="fas fa-edit"></i>
+                                    <i className="fas fa-trash"></i>
+                                </td>
+                            </tr>
+                      
+                    ))
+                    }
+                      </tbody>
+            </table>
 
-                            <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>City</th>
-                                    <th>Role</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                        {users.slice(0, 7).map(user=>{
-                            return (
-                                    <tbody key={user.id}>
-
-                                        <tr>
-                                            <td>{user.id}</td>
-                                            <td>{user.name}</td>
-                                            <td>{user.email}</td>
-                                            <td>{user.phone}</td>
-                                            <td>{user.address.city}</td>
-                                            <td>{user.id % 2 === 0 ? "Admin": "User"}</td>
-                                            <td className="actions-table">
-                                                <i className="fas fa-edit"></i>
-                                                <i className="fas fa-trash"></i>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-
-                            )
-                        })}
-
-
-                    </ table>
                 </div>
             )
         }
