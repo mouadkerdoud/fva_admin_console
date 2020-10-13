@@ -133,6 +133,8 @@ input[type="radio"]:checked ~ span:before {
 }
 .row .label-input .label{
     margin-top: 20px !important;
+    font-weight: lighter;
+    color: gray;
 }
 .form-item{
     margin-top: 20px;
