@@ -8,6 +8,8 @@ import CKEditor from "@ckeditor/ckeditor5-react"
  // MATERIAL UI
 import {NewsTitle} from "../MaterialUIComponents/index"
 import {MetaName, MetaKeyword, MetaDescription } from "../MaterialUIComponents/index"
+import IconButton from '@material-ui/core/IconButton';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
 
 export default class AddNews extends React.Component {
     state={
@@ -82,8 +84,12 @@ export default class AddNews extends React.Component {
                                 <div className="field label-input">
                                     <main>
                                         <div className="formUpload">
-                                            <label>Main Image</label>
-                                            <input type="file" accept="image/*" capture="camera" id="captureimage" onChange={this.imageHandler}  caption="true"  style={{display:'none'}}/>
+                                            <label><span>Main Image</span>
+                                            <IconButton color="primary" aria-label="upload picture" component="span">
+                                                <PhotoCamera />
+                                            </IconButton>
+                                            <input type="file" accept="image/*" capture="camera" id="captureimage" onChange={this.imageHandler}  caption="true" style={{display:"none"}}  />
+                                            </label>
                                         </div>
                                         <div id="imagewrapper">
                                             <input type="button" id="removeImage" alt="" onClick={this.removeImage} value="x" className="btn-rmv1" />

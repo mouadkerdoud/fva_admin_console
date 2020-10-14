@@ -3,6 +3,7 @@
 body{
   font-family: roboto,sans-serif;
 }
+/* Main Image */
 main{
   width: 60%;
   position: relative;
@@ -11,12 +12,23 @@ main{
 .formUpload label {
   margin-bottom: 1em;
   display:block;
-  padding-top: 8px;
-  padding-bottom: 16px;
+  padding-top: 9px;
+  padding-bottom: 18px;
   text-align: center;
   background: #594f8d;
   color:white;
   border-radius: 10px;
+  height: 50px; 
+
+}
+.formUpload label span{
+  position: relative;
+  bottom: 5px;
+}
+.MuiIconButton-colorPrimary{
+  position: relative;
+  bottom: 10px;
+  color: white !important;
 }
 .image-frame  {
   position:relative;
@@ -41,13 +53,13 @@ main{
   display: inline-block;
   background: rgba(255, 0, 0, 1);
   margin: 0px;
-  width: 50px !important;
   position: relative;
-  WIDTH: 40px !important;
+  width: 40px !important;
   bottom: 0px;
-  top: 1.5rem;
+  top: 1.28rem;
+  height: 20px;
   z-index: 2;
-  left: 15.5rem;
+  left: 16rem;
   display: inline-block !important;
 }
 

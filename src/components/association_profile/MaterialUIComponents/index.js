@@ -8,17 +8,8 @@ import { withStyles } from "@material-ui/core/styles";
                                 //EVENTS FORM
 
     //REGULAR
-    export const EventTitle = () => {
 
-        return (
-                <TextField
-                    id="standard-multiline-flexible"
-                    label="Event Title"
-                    multiline
-                    rowsMax={4}
-                />
-        )
-    } 
+    /* User */
 
     export const FirstName = () => {
 
@@ -144,7 +135,20 @@ import { withStyles } from "@material-ui/core/styles";
               }}
             />
         );
-      } 
+      }
+    /* Event  */ 
+
+    export const EventTitle = () => {
+
+        return (
+                <TextField
+                    id="standard-multiline-flexible"
+                    label="Event Title"
+                    multiline
+                    rowsMax={4}
+                />
+        )
+    } 
     export const IsPaid = () => {
 
         const ispaid = ['Paid', 'Not Paid'];
@@ -218,7 +222,69 @@ import { withStyles } from "@material-ui/core/styles";
         );
       }
       
+    /* Realisation */
+    export const RealisationTitle = () => {
 
+        return (
+                <TextField
+                    id="RealisationTitle"
+                    label="Realisation Title"
+                    multiline
+                    rowsMax={4}
+                />
+        )
+    } 
+
+    export const StartDateR = () => {
+      
+        return (
+            <TextField
+              id="date"
+              label="Starting Date"
+              type="datetime-local"
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+        );
+      }
+
+      export const EndDateR = () => {
+      
+        return (
+            <TextField
+              id="date"
+              label="Ending Date"
+              type="datetime-local"
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+        );
+      }
+      export const Place = () => {
+
+        return (
+                <TextField
+                    id="place"
+                    label="Place"
+                    multiline
+                    rowsMax={4}
+                />
+        )
+    } 
+
+    export const Partners = () => {
+
+        return (
+                <TextField
+                    id="partners"
+                    label="partners"
+                    multiline
+                    rowsMax={4}
+                />
+        )
+    } 
     //METAS   
 
     const styles = theme => ({

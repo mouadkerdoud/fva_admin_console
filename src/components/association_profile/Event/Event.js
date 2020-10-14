@@ -20,9 +20,7 @@ class Event extends Component {
           $('#example').DataTable({
               "pagingType": "full_numbers",
               "lengthMenu": [[5, 10, 20, -1], [5, 10, 25, "All"]]
-          });
-    
-          
+          })      
       });
       
     }
@@ -62,7 +60,7 @@ class Event extends Component {
                     </tr>
                     </thead>
                     <tbody>
-                    {this.state.todos.map((todo,i) => {
+                    {this.state.todos.slice(0,40).map((todo,i) => {
                         return (
                                     <tr key={i}>
                                         <td>{todo.id}</td>

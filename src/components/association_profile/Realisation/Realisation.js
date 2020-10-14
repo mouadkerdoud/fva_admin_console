@@ -1,36 +1,37 @@
 import React, {Component} from 'react'
 import {Link} from "react-router-dom"
  
+const $ = require("jquery");
+$.DataTable = require("datatables.net");
 
 
 class Realisation extends Component {
 
-    handlePageClick = (e) => {
-        const selectedPage = e.selected;
-        const offset = selectedPage * this.state.perPage;
-
-        this.setState({
-            currentPage: selectedPage,
-            offset: offset
-        }, () => {
-            this.loadMoreData()
-        });
-
-    };
-
-    loadMoreData() {
-		const data = this.state.orgUsers;
-		
-		const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
-		this.setState({
-			pageCount: Math.ceil(data.length / this.state.perPage),
-			Users:slice
-		})
-	
+    state = {
+        isLoading: true,
+        todos: null
     }
-
+    async componentDidMount() {
+      const url = "https://jsonplaceholder.typicode.com/todos"
+      const response = await fetch(url)
+      const data = await response.json()
+      this.setState({ todos: data, isLoading: false });
+      $(function () {
+          $('#example').DataTable({
+              "pagingType": "full_numbers",
+              "lengthMenu": [[5, 10, 20, -1], [5, 10, 25, "All"]]
+          })      
+      });
+      
+    }
     render(){
-        return (
+            const { todos, isLoading } = this.state
+
+            if (isLoading || !todos) {
+                return <div className="container">Loading ... </div>
+            }
+            else {
+            return (
             <div className="container">
     
                 <h1>Realisation</h1>
@@ -42,18 +43,10 @@ class Realisation extends Component {
                             <h2 className="active" style={{width: '16rem'}}><i className="fa fa-trophy"></i>Realisation List</h2>     
                         </div>
         
-                        <div className="meta-table-field metatable col-3 input-effect">
-                            <input  className="effect-16" />
-                            <label>Search</label>
-                            <span className="focus-border"></span>
-                            <i className="fas fa-search search-icon"></i>
-                        </div>
-    
                 </div>
     
-                
-    
-                <table className="table-prod">
+            
+                <table id="example" className="table-User hover display compact row-border hover order-column" style={{ width: '100%' }}>
      
                     <thead>
                         <tr>
@@ -68,72 +61,30 @@ class Realisation extends Component {
                         </tr>
                     </thead>
                    
-    
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>EXPERTISE IMMOBILIERE</td>
-                            <td>Étant agréé par la RICS (Royal Institution of Chartered Surveyors) nos rapports.</td>
-                            <td>09/01/2019 12:22</td>
-                            <td>08/02/2019 14:22</td>
-                            <td>Rabat</td>
-                            <td>la RICS</td>
-                            <td className="actions-table">
-                                <i className="fas fa-edit"></i>
-                                <i className="fas fa-trash"></i>
-                            </td>
-                        </tr>
-        
-                        <tr>
-                            <td>2</td>
-                            <td>COMMERCIALISATION</td>
-                            <td>vent is a tech conference for copywriters, you can follow the thought pattern</td>
-                            <td>09/01/2019 12:22</td>
-                            <td>08/02/2019 14:22</td>
-                            <td>Casa</td>
-                            <td>REA PARTNERS</td>
-                            <td className="actions-table">
-                                <i className="fas fa-edit"></i>
-                                <i className="fas fa-trash"></i>
-                            </td>
-                        </tr>
-        
-        
-                        <tr>
-                            <td>3 </td>
-                            <td>INVESTMENT</td>
-                            <td>Dotée d’une expertise confirmée et d’un large éventail de services</td>
-                            <td>09/01/2019 12:22</td>
-                            <td>08/02/2019 14:22</td>
-                            <td>Asfi</td>
-                            <td>REA INVESTMENT</td>
-                            <td className="actions-table">
-                                <i className="fas fa-edit"></i>
-                                <i className="fas fa-trash"></i>
-                            </td>
-                        </tr>
-        
-                        <tr>
-                            <td>4</td>
-                            <td>CONSEIL</td>
-                            <td>Etant notre principal métier, nous avons consacré la majeure partie de notre expérience</td>
-                            <td>09/01/2019 12:22</td>
-                            <td>08/02/2019 14:22</td>
-                            <td>Taza</td>
-                            <td>REA CONSEIL</td>
-                            <td className="actions-table">
-                                <i className="fas fa-edit"></i>
-                                <i className="fas fa-trash"></i>
-                            </td>
-                        </tr>
+                    {this.state.todos.slice(0,40).map((todo,i) => {
+                        return (
+                                <tr key={i}>
+                                    <td>{todo.id}</td>
+                                    <td>EXPERTISE CONSEIL</td>
+                                    <td>{todo.title}</td>
+                                    <td>09/01/2019 12:22</td>
+                                    <td>08/02/2019 14:22</td>
+                                    <td>Rabat</td>
+                                    <td>la RICS</td>
+                                    <td className="actions-table">
+                                        <i className="fas fa-edit"></i>
+                                        <i className="fas fa-trash"></i>
+                                    </td>
+                                </tr>
+                        )
+                    })}
                     </tbody>
-                
-                </ table>
-               
+                </table>
             </div>
         )
     }
-
+    }
     
 }
 
