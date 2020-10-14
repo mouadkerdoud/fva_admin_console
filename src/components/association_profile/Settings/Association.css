@@ -17,7 +17,9 @@
     width: 50%;
     margin-bottom:2rem;
 }
-
+.rows{
+    margin-right:2.4rem !important;
+}
 .col select{
     padding:0.3rem ;
     width: 13rem;
