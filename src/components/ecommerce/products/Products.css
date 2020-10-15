@@ -10,6 +10,13 @@
   margin-left: 0.2rem;
 }
 
+.img-product-list{
+  border: 2px solid black;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
 .meta-table{
   margin-top: 1.8rem;
   display: flex;
