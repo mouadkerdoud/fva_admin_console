@@ -7,6 +7,9 @@
 .forms5 .add-post{
     width: 30.9rem !important;
 }
+.avatar .row .label-input .label{
+    margin-top: 10px;
+}
 /* Edit Ckeditor */
 .assoc-form .ck.ck-editor {
    position: relative;
@@ -16,11 +19,11 @@
 .avatar .picture-assoc{
     top: -2rem;
     margin-right: 0 !important;
-    margin-left: 6rem;
+    margin-left: 26rem;
     position: relative;
 }
 .avatar .assoc-wrapper input {
-    width: 12rem;
+    width: 33rem !important;
     padding: 0.8rem;
 }
 

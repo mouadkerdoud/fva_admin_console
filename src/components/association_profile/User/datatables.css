@@ -31,8 +31,17 @@ th,td{
     text-align: left !important;
 }
 .dataTables_wrapper{
-    margin-top: 10px;
-    margin-bottom: 10px;
-
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
     margin-right: 10px;
+}
+.dataTables_wrapper .dataTables_filter input{
+    background-color: white !important;
+    font-size: 16px;
+
+}
+.dataTables_wrapper .dataTables_length select{
+    background-color: white !important;
+    font-size: 16px;
 }

@@ -16,8 +16,6 @@ import "./Posts.css"
 
 
 
-
-
 const AddPost = ()=>{
 
 

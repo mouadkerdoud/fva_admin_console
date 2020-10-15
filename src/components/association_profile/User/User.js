@@ -52,9 +52,8 @@ class User extends Component {
 
 
 
-                    <table id="example" className="hover display compact row-border hover order-column" style={{ width: '100%' }}>
-                    
-                    <thead>
+                <table id="example" className="table-User hover display compact row-border hover order-column" style={{ width: '100%' }}>
+                <thead>
                         <tr>
                             <th>Id</th>
                             <th>Name</th>
@@ -66,8 +65,7 @@ class User extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                    {
-                    this.state.users.map((user, i) => (
+                    {this.state.users.map((user, i) => (
                        
                             <tr key={i}>
                                 <td>{user.id}</td>

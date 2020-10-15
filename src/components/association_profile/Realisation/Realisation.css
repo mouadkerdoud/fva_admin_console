@@ -1,0 +1,28 @@
+/* Date */
+.dateR{
+    display: flex;
+}
+.dateR .dateRe{
+    margin-right: 14px;
+}
+/* Image Wrapper */
+.mainImg{
+    width: 100% !important;
+    position: relative;
+    left: 0 !important;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+.mainImg .rmvM{
+    top:1.5rem !important;
+    left: 28.2rem !important;
+}
+/* Button */
+.BTNS{
+    left: 0 !important;
+    width: 100% !important;
+}
+/* Forms */
+.side-seconds{
+    overflow: hidden;
+}
