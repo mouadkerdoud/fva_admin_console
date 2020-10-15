@@ -36,7 +36,7 @@ export class Association extends Component {
 
                     </div>
 
-                    <div className="row">
+                    <div className="row inps">
                         <div className="col label-input rows">
                             <AssociationName />
                         </div>

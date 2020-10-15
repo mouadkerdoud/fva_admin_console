@@ -20,11 +20,15 @@ const Sidebar = () => {
                         <DropDown title=" News" icon={<i className="fa fa-newspaper-o"></i>} link="News" />
                         <DropDown title=" Missions" icon={<i className="fa fa-black-tie"></i>} link="Mission" />
                         <DropDown title=" Realisation" icon={<i className="fa fa-trophy"></i>} link="Realisation" />
-                        <DropDown title="Users" icon={<i className="fas fa-users"></i>} link="User" />
                         <DropDown title="Settings" icon={<i className="fas fa-cog"></i>} link="association" />
 
                     </SidebarItems>
 
+                    <SidebarItems title="Users" icon={ <i className="fas fa-users"></i>} drop={<i className="fas fa-caret-down"></i>} >                        
+                        <DropDown title=" List" icon={<i className=" fa fa-list-alt"></i>} link="User" />
+                        <DropDown title=" Profile" icon={<i className=" fa fa-user"></i>} link="Profile" />
+
+                    </SidebarItems>
 
                     <SidebarItems title="Ecommerce" icon={<i className="fas fa-shopping-cart"></i>} drop={<i className="fas fa-caret-down"></i>} >
                         

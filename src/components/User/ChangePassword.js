@@ -1,22 +1,10 @@
 import React, { Component } from 'react';
 import "./User.css"
-import {Emails, FirstName, Password,LastName,ConfirmPassword,PhoneNumber, Role, Country, City, DateBirthday} from "../MaterialUIComponents/index"
+import {Emails, FirstName, Password,LastName,ConfirmPassword,PhoneNumber, Role, Country, City, DateBirthday, Address} from "../association_profile/MaterialUIComponents/index"
 
-export class AddUser extends Component {
-    state={
-        profileImg:'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
-      }
-  imageHandler = (e) => {
-    const reader = new FileReader();
-    reader.onload = () =>{
-      if(reader.readyState === 2){
-        this.setState({profileImg: reader.result})
-      }
-    }
-    reader.readAsDataURL(e.target.files[0])
-  };
+export class ChangePassword extends Component {
+
 	render() {
-    const { profileImg} = this.state
     return (
         <div className="container">
             <h1>Add User</h1>
@@ -44,15 +32,15 @@ export class AddUser extends Component {
                         </div>
 
                         <div className="col label-input">
+                            <PhoneNumber />
+                        </div>
+
+                        <div className="col label-input">
                             <Password />
                         </div>
 
                         <div className="col label-input">
                             <ConfirmPassword />
-                        </div>
-
-                        <div className="col label-input">
-                            <PhoneNumber />
                         </div>
 
                         <div className="col label-input">
@@ -88,6 +76,9 @@ export class AddUser extends Component {
                         <div className="col label-input">
                             <Role />
                         </div>
+                        <div className="col label-input">
+                            <Address />
+                        </div>
                         </div>
                     </div>
                 <button type="submit"className="btn-assoc" ><span>Add User</span></button>
@@ -97,7 +88,7 @@ export class AddUser extends Component {
 	}
 }
 
-export default AddUser;
+export default ChangerPassword;
 
 
 

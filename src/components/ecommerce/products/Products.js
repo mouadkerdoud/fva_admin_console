@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {Link} from "react-router-dom"
 import "./Products.css"
 
+const $ = require("jquery");
+$.DataTable = require("datatables.net");
 
 class Products extends Component {
 
@@ -17,6 +19,12 @@ class Products extends Component {
         const data_products = data.results
         console.log(data_products)
         this.setState({products:data_products, isLoading:false})
+        $(function () {
+            $('#example').DataTable({
+                "pagingType": "full_numbers",
+                "lengthMenu": [[5, 10, 20, -1], [5, 10, 25, "All"]]
+            })      
+        });
     }
 
     render(){
@@ -36,17 +44,12 @@ class Products extends Component {
                             <div className="main-menu">
                                 <h2 className="active"><i className="fa fa-shopping-bag"></i>Products List</h2>     
                             </div>
-            
-                            <div className="search-bar">
-                                 <input placeholder="Search Product..." />
-                                <i className="fas fa-search search-icon"></i>
-                            </div>
         
                     </div>
         
                     
         
-                    <table className="table-prod">
+                    <table id="example" className="table-User hover display compact row-border hover order-column" style={{ width: '100%' }}>
          
                         <thead>
                         <tr>

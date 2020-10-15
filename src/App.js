@@ -16,8 +16,8 @@ import CategoryPost from "./components/blog/categories_posts/CategoryPost"
 import AddCategoryPost from "./components/blog/categories_posts/AddCategoryPost"
 
 import Association from "./components/association_profile/Settings/Association"
-import User from "./components/association_profile/User/User"
-import AddUser from "./components/association_profile/User/AddUser"
+import User from "./components/User/User"
+import AddUser from "./components/User/AddUser"
 import Event from "./components/association_profile/Event/Event"
 import AddEvent from './components/association_profile/Event/AddEvent';
 import News from "./components/association_profile/News/News"
@@ -32,6 +32,7 @@ import Home from "./components/Home"
 
 
 import './App.css';
+import Profile from './components/User/Profile';
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
         <Route path="/AddCategoryPost" component={AddCategoryPost} />
         <Route path="/User" component={User} />
         <Route path="/AddUser" component={AddUser} />
+        <Route path="/Profile" component={Profile} />
         <Route path="/dashblog" component={DashBlog} />
         <Route path="/Event" component={Event} />
         <Route path="/AddEvent" component={AddEvent} />
