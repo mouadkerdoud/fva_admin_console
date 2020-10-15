@@ -27,6 +27,18 @@ class Products extends Component {
         });
     }
 
+     deleteProduct(productID){
+        const currentProducts = this.state.products
+        this.setState({
+            products: currentProducts.filter(product => product.id !== productID),
+          });
+        const url='http://fva-backend-dev.herokuapp.com/api/shop/ListProduct/'+productID
+         fetch(url, {
+            method : "DELETE"
+        })
+
+    }
+
     render(){
 
         const {products, isLoading} = this.state
@@ -71,7 +83,7 @@ class Products extends Component {
                                     <tr key={index}>
                                         <td>{item.id}</td>
                                         <td>{item.product_title}</td>
-                                        <td>Image</td>
+                                        <td><img className="img-product-list" alt="" src={item.image}/></td>
                                         <td>{item.category.category_title}</td>
                                         <td>{item.brand.brand_name}</td>
                                         <td>{item.product_model}</td>
@@ -79,7 +91,7 @@ class Products extends Component {
                                         <td>{item.quantity}</td>
                                         <td className="actions-table">
                                             <i className="fas fa-edit"></i>
-                                            <i className="fas fa-trash"></i>
+                                            <i onClick={()=>this.deleteProduct(item.id)} className="fas fa-trash"></i>
                                         </td>
                                     </tr>
                                 )
