@@ -69,8 +69,8 @@ class Products extends Component {
                                         <td>{item.id}</td>
                                         <td>{item.product_title}</td>
                                         <td>Image</td>
-                                        <td>{products[4].category.category_title}</td>
-                                        {/* <td>{item.brand.brand_name}</td> */}
+                                        <td>{item.category.category_title}</td>
+                                        <td>{item.brand.brand_name}</td>
                                         <td>{item.product_model}</td>
                                         <td>{item.price}<span className="currency-product">DH</span></td>
                                         <td>{item.quantity}</td>
