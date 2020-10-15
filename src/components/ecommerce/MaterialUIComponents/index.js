@@ -36,7 +36,7 @@ import { withStyles } from "@material-ui/core/styles";
 
     export const CategoryProduct = () => {
 
-        const categoriesProduct = ['Electronics', 'Clothes', 'Home Furniture'];
+        const categoriesProduct = ['Tech', 'Humanity', 'Culture'];
 
         return (
             <>
