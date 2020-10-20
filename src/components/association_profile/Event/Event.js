@@ -86,7 +86,11 @@ class Event extends Component {
                                         <td>{Event.end_at}</td>
                                         <td>{Event.reserve_before}</td>
                                         <td className="actions-table">
-                                            <i className="fas fa-edit"></i>
+                                            <button className="btnEdit">
+                                                <Link to={"/EditEvent/"+Event.id} className="linkEdit" >
+                                                    <i className="fas fa-edit"></i>
+                                                </Link>
+                                            </button>
                                             <i className="fas fa-trash" onClick={()=>{this.deleteEvent(Event.id)}}></i>
                                         </td>
                                     </tr>
