@@ -1,19 +1,23 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { withStyles } from "@material-ui/core/styles";
-import InputAdornment from '@material-ui/core/InputAdornment';
-
+/* import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade'; */
+import Badge from '@material-ui/core/Badge';
+import Avatar from '@material-ui/core/Avatar';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import src from '../MaterialUIComponents/image/avatar.jpg'
                                 //EVENTS FORM
 
+                                
     //REGULAR
     const styles = theme => ({
         input: {
         height: 120
         },
     });
-
-
+    
     /* User */
 
     export const FirstName = () => {
@@ -157,92 +161,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
       }
     /* Event  */ 
 
-    export const EventTitle = () => {
-
-        return (
-                <TextField
-                    id="standard-multiline-flexible"
-                    label="Event Title"
-                    multiline
-                    rowsMax={4}
-                />
-        )
-    } 
-    export const IsPaid = () => {
-
-        const ispaid = ['Paid', 'Not Paid'];
-
-        return (
-            <>
-                <Autocomplete
-                    id="controllable-states-demo"
-                    options={ispaid}
-                    style={{ width: 500 }}
-                    renderInput={(params) => <TextField {...params} label="Select if the event is paid" variant="outlined" />}
-                />
-
-            </>
-        )
-    }
-
- 
-
-    export const PriceEvent = () => {
-
-        return (
-                <TextField
-                    id="standard-number"
-                    label="Price Event"
-                    type="number"
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">$</InputAdornment>,
-                    }}
-                /> 
-        )
-    } 
-
-
-    export const StartDate = () => {
-      
-        return (
-            <TextField
-              id="datetime-local"
-              label="Starting Date"
-              type="datetime-local"
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-        );
-      }
-
-      export const EndDate = () => {
-      
-        return (
-            <TextField
-              id="datetime-local"
-              label="Ending Date"
-              type="datetime-local"
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-        );
-      }
-
-      export const ReserveDate = () => {
-      
-        return (
-            <TextField
-              id="datetime-local"
-              label="Reserving Date"
-              type="datetime-local"
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-        );
-      }
+       
       
     /* Realisation */
     export const RealisationTitle = () => {
@@ -648,7 +567,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
       }
 
       export const CityUser = () => {
-        const city=["Tanger","Asila","Casa","Mekness","Rabat","Sale","Asfi","Marrakech","Agadir","Taza","Fes","Tetouane","Layounne","Khenifra","Kelmime","Ouzzane"];
+        const city=["Tanger","Asila","Casa","Mekness","Rabat","Sale","Asfi","Marrakech","Agadir","Taza","Fes","Tetouane","Chefchoune","Meknes","Fes","Tata","Layounne","Khenifra","Kelmime","Ouzzane"];
 
         return (
             <>
@@ -765,4 +684,140 @@ export const NewsTitle = () => {
                 rowsMax={4}
             />
     )
-} 
+}
+
+/* Avatars */
+const StyledBadge = withStyles((theme) => ({
+  badge: {
+    backgroundColor: '#44b700',
+    color: '#44b700',
+    boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+    '&::after': {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      borderRadius: '50%',
+      animation: '$ripple 1.2s infinite ease-in-out',
+      border: '1px solid currentColor',
+      content: '""',
+    },
+  },
+  '@keyframes ripple': {
+    '0%': {
+      transform: 'scale(.8)',
+      opacity: 1,
+    },
+    '100%': {
+      transform: 'scale(2.4)',
+      opacity: 0,
+    },
+  },
+}))(Badge);
+
+ 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
+}));
+
+export default function BadgeAvatars() {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <StyledBadge
+        overlap="circle"
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+        variant="dot"
+      >
+        <Avatar alt="Remy Sharp" src={src} />
+      </StyledBadge>
+    </div>
+  );
+}
+/* Modal */
+/* 
+const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'fixed',
+    height: '100%',
+    width: '100%',
+    backgroundColor: 'rgba(0, 0, 0, 0.47)',
+    top: '0',
+    left: '0',
+     overflow: 'auto'
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
+}));
+
+export default function TransitionsModal() {
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <div>
+      <button type="button" id="test" className="login" onClick={handleOpen}>
+      Change Password
+      </button>
+      
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        className={classes.modal}
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+        <div className={classes.paper}>
+        <div className="modal-box">
+            <span className="close">&times;</span>
+            <form action="" className="login-box">
+              <h1> Change Or Recover Your Password: </h1>
+                <label htmlFor="">Current Password </label>
+                <input type="password" className="name"  required />
+                <label htmlFor="">New Password </label>
+                <input type="password" className="password" required />
+                <label htmlFor="">Verify  Password </label>
+                <input type="password" className="password" required />
+                <button className="login-button">Save Change</button>
+                <div className="close-forgot">
+                    <button className="cancel">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+        </Fade>
+      </Modal>
+    </div>
+  );
+} */

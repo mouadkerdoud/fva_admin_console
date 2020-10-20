@@ -9,13 +9,14 @@ class Event extends Component {
 
     state = {
         isLoading: true,
-        todos: null
+        Events: []
     }
     async componentDidMount() {
-      const url = "https://jsonplaceholder.typicode.com/todos"
+      const url = "http://fva-backend-dev.herokuapp.com/api/app/event/"
       const response = await fetch(url)
       const data = await response.json()
-      this.setState({ todos: data, isLoading: false });
+      console.log(data);
+      this.setState({ Events: data.results, isLoading: false });
       $(function () {
           $('#example').DataTable({
               "pagingType": "full_numbers",
@@ -24,10 +25,22 @@ class Event extends Component {
       });
       
     }
-    render(){
-        const { todos, isLoading } = this.state
+    
+    deleteEvent(EventID){
+        const currentProducts = this.state.Events
+        this.setState({
+            Events: currentProducts.filter(event => event.id !== EventID),
+          });
+        const url='http://fva-backend-dev.herokuapp.com/api/app/event/'+EventID
+         fetch(url, {
+            method : "DELETE"
+        })
 
-    if (isLoading || !todos) {
+    }
+    render(){
+        const { Events, isLoading } = this.state
+
+    if (isLoading || !Events) {
         return <div className="container">Loading ... </div>
     }
     else {
@@ -52,27 +65,30 @@ class Event extends Component {
                 <thead>     
                     <tr>
                         <th>Id</th>
+                        <th>Title</th>
+                        <th>Short Description</th>
                         <th>Price</th>
                         <th>Start Event</th>
-                        <th>End Event </th>
-                        <th>Reserve Befor</th>
+                        <th>End Event</th>
+                        <th>Before Event</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {this.state.todos.slice(0,40).map((todo,i) => {
+                    {Events.map((Event,i) => {
                         return (
                                     <tr key={i}>
-                                        <td>{todo.id}</td>
-                                        <td>700 DH</td>
-                                        <td>09/01/2019 12:22</td>
-                                        <td>08/02/2019 14:22</td>
-                                        <td>08/10/2019 13:22</td>
+                                        <td>{Event.id}</td>
+                                        <td>{Event.title}</td>
+                                        <td>{Event.short_description}</td>
+                                        <td>{Event.price}</td>
+                                        <td>{Event.start_at}</td>
+                                        <td>{Event.end_at}</td>
+                                        <td>{Event.reserve_before}</td>
                                         <td className="actions-table">
                                             <i className="fas fa-edit"></i>
-                                            <i className="fas fa-trash"></i>
+                                            <i className="fas fa-trash" onClick={()=>{this.deleteEvent(Event.id)}}></i>
                                         </td>
-            
                                     </tr>
                             )        
                         })}
