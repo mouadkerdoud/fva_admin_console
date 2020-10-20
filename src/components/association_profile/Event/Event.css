@@ -62,3 +62,12 @@
     position: relative;
     top: 5px;
 }
+/* Short Description */
+.short .MuiInputBase-multiline {
+    height: 80px;
+}
+/* Metat Title */
+.meta_DK .MuiInputBase-multiline{
+    padding: 18.5px 14px;
+    height: 120px;
+}

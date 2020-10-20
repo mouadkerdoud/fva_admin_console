@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { FirstNameU,LastNameU,PhoneUser,EmailUser,PasswordUser,ConfirmPasswordUser,DateUser,CountryUser,CityUser,RoleUser,AddressUser } from '../association_profile/MaterialUIComponents';
 import "./User.css"
-
 export class Profile extends Component {
     state={
         profileImg:'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
       }
-  
+    
 	render() {
     const { profileImg} = this.state
+    
     return (
         <div className="container">
             <h1>Profile</h1>

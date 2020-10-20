@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {Link} from "react-router-dom"
 
+const $ = require("jquery");
+$.DataTable = require("datatables.net");
 
 class Post extends Component {
 
@@ -15,6 +17,13 @@ class Post extends Component {
         const response = await fetch(url)
         const data = await response.json()
         this.setState({posts:data, isLoading:false})
+        $(function () {
+            $('#example').DataTable({
+                "pagingType": "full_numbers",
+                "lengthMenu": [[5, 10, 20, -1], [5, 10, 25, "All"]]
+            })      
+        });
+
     }
 
 
@@ -36,22 +45,16 @@ class Post extends Component {
         
                         <div className="main-menu">
                             <h2 className="active"><i className="fa fa-clipboard"></i>Post List</h2>     
+                        </div>    
+    
                         </div>
         
-                        <div className="search-bar">
-                            <input placeholder="Search Post..." />
-                            <i className="fas fa-search search-icon"></i>
-                       </div>
-    
-        
-                    </div>
-        
                     
-                    <table className="table-prod">
+                    <table id="example" className="table-User hover display compact row-border hover order-column" style={{ width: '100%' }}>
         
                         <thead>
                             <tr>
-                                <th>Post Id</th>
+                                <th>Id</th>
                                 <th>Post Title</th>
                                 <th>Category</th>
                                 <th>Status</th>

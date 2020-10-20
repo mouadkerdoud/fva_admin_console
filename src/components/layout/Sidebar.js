@@ -1,6 +1,7 @@
 import React from 'react'
 import SidebarItems from "./SidebarItems"
 import DropDown from "./DropDown"
+import BadgeAvatars from "../association_profile/MaterialUIComponents/index"
 
 import "./Sidebar.css"
 
@@ -26,8 +27,6 @@ const Sidebar = () => {
 
                     <SidebarItems title="Users" icon={ <i className="fas fa-users"></i>} drop={<i className="fas fa-caret-down"></i>} >                        
                         <DropDown title=" List" icon={<i className=" fa fa-list-alt"></i>} link="User" />
-                        <DropDown title=" Profile" icon={<i className=" fa fa-user"></i>} link="Profile" />
-
                     </SidebarItems>
 
                     <SidebarItems title="Ecommerce" icon={<i className="fas fa-shopping-cart"></i>} drop={<i className="fas fa-caret-down"></i>} >
@@ -43,14 +42,19 @@ const Sidebar = () => {
                         <DropDown title="Posts" icon={<i className="fas fa-clipboard"></i>} link="post" />
                         <DropDown title="Post Categories" icon={<i className="fas fa-list-ul"></i>} link="categoriesPost" />
                     </SidebarItems>
-
+                    
+                    <SidebarItems title=" Mon Profile" icon={<i className=" fa fa-user"></i>} link="Profile" />
                     <SidebarItems title="Messages" icon={<i className="fas fa-envelope"></i>} link="messages" />
                     <SidebarItems title="Support" icon={<i className="fas fa-question-circle"></i>} link="support" />
                     
                 </ul> 
             </div>
             <div className="main_content">
-                <div className="header">Future Vision Association Admin Console</div>  
+                <div className="header">
+                     <span> Future Vision Association Admin Console
+                     <div className="badge"><BadgeAvatars /></div>
+                     </span>
+                </div>  
             </div>
         </div>
     )

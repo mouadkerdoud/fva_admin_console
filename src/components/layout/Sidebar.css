@@ -62,3 +62,10 @@
       display: none !important;
     }
   }
+
+.badge{
+  display: inline-block;
+  float: right;
+  position: relative;
+  bottom: 1.4rem;
+}

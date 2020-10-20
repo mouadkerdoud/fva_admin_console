@@ -65,7 +65,7 @@ class User extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                    {this.state.users.map((user, i) => (
+                    {users.map((user, i) => (
                        
                             <tr key={i}>
                                 <td>{user.id}</td>
