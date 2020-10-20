@@ -1,4 +1,5 @@
 import React from 'react'
+import Moment from 'moment';
 /* Style */
 import "./Event.css"
 
@@ -14,15 +15,18 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import InputAdornment from '@material-ui/core/InputAdornment';
+/**
+* @author
+* @class EditEvent
+**/
 
-
-class AddEvent extends React.Component {
+class EditEvent extends React.Component {
     constructor(props){
         super(props);
         this.state={
             title:'',
-            short_description:'',
             description:'',
+            short_description:'',
             price:'',
             is_paid:'select',
             start_at:'',
@@ -33,34 +37,53 @@ class AddEvent extends React.Component {
             met_keyword:''  
         }
     }
-
-    Create(){
+    componentDidMount(){
+        const url = "http://fva-backend-dev.herokuapp.com/api/app/event/"+this.props.match.params.id
+        fetch(url).then((response)=>{
+          response.json().then((result)=>{
+            this.setState({
+              id:result.id,
+              title:result.title,
+              description:result.description,
+              short_description:result.short_description,
+              is_paid:result.is_paid,
+              price:result.price,
+              start_at:Moment(result.start_at).format('YYYY-MM-DDThh:mm:ssZ'),
+              end_at:Moment(result.end_at).format('YYYY-MM-DDThh:mm:ssZ'),
+              reserve_before:Moment(result.reserve_before).format('YYYY-MM-DDThh:mm:ssZ'),
+              meta_title:result.meta_title,
+              meta_description:result.meta_description,
+              met_keyword:result.met_keyword
+            })
+          })
+        }) 
+        
+    }
+    Update(){
         console.log(this.state);
-        const url = "http://fva-backend-dev.herokuapp.com/api/app/event/"
+        const url = "http://fva-backend-dev.herokuapp.com/api/app/event/"+this.state.id+"/"
         fetch(url,{
-            method: 'POST',
+            method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(this.state)
         })
         .then((result)=>{
             result.json().then((resp)=>{
-                alert('Event has been success');
+                alert('Event has been Edited');
             })
-        })         
-    }
-
-    handleCkeditorState=(event,editor)=>{
+        })
+      }
+      handleCkeditorState=(event,editor)=>{
         const data = editor.getData();
         
         this.setState({
             description:data.replace(/<[^>]*>?/gm, '')
         })
     }
-    render(){
-
-        return (
-            <div className="container">
-                <h1>Add Event</h1>
+ render() {
+  return(
+    <div className="container">
+                <h1>Edit Event</h1>
     
                 <form >
                     <div className="addcategory-page-container">
@@ -75,6 +98,7 @@ class AddEvent extends React.Component {
                                     multiline
                                     rowsMax={4}
                                     onChange={(e)=>{this.setState({title:e.target.value})}}
+                                    value={this.state.title}
                                 />
                             </div>
 
@@ -86,11 +110,13 @@ class AddEvent extends React.Component {
                                     variant="outlined"
                                     rowsMax={4}
                                    onChange={(e)=>{this.setState({short_description:e.target.value})}}
+                                   value={this.state.short_description}
                                 />
                             </div>
                             <div className="label-input">
                                 <CKEditor
                                     config={{placeholder: "Description"}}
+                                    data={this.state.description}
                                     editor={ClassicEditor}
                                     onInit={editor=>{
                                     }}
@@ -102,7 +128,7 @@ class AddEvent extends React.Component {
                             <div className="field label-input">
                                 <FormControl>
                                     <InputLabel>Select If the event is paid</InputLabel>
-                                    <Select onChange={(e)=>{this.setState({is_paid:e.target.value})}}>
+                                    <Select onChange={(e)=>{this.setState({is_paid:e.target.value})}} value={this.state.is_paid}>
                                             <MenuItem value={true}>True</MenuItem>
                                             <MenuItem value={false}>False</MenuItem>
                                     </Select>
@@ -118,6 +144,7 @@ class AddEvent extends React.Component {
                                     endAdornment: <InputAdornment position="end">$</InputAdornment>,
                                 }}
                                 onChange={(e)=>{this.setState({price:e.target.value})}}
+                                value={this.state.price}
                             /> 
                             </div>
     
@@ -130,11 +157,12 @@ class AddEvent extends React.Component {
                             <TextField
                                 id="datetime-local"
                                 label="Starting Date"
-                                type="datetime-local"
+                                type="datetime"
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
                                 onChange={(e)=>{this.setState({start_at:e.target.value})}}
+                                value={this.state.start_at}
                                 />
                             </div>
     
@@ -142,24 +170,25 @@ class AddEvent extends React.Component {
                                 <TextField
                                     id="datetime-local"
                                     label="Ending Date"
-                                    type="datetime-local"
+                                    type="datetime"
                                     InputLabelProps={{
                                         shrink: true,
                                     }}
                                     onChange={(e)=>{this.setState({end_at:e.target.value})}}
-
+                                    value={this.state.end_at}
                                 />
                             </div>   
                             
                             <div className="field label-input">
                                     <TextField
-                                        id="datetime-local"
+                                        id="datetime"
                                         label="Reserving Date"
-                                        type="datetime-local"
+                                        type="datetime"
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
                                         onChange={(e)=>{this.setState({reserve_before:e.target.value})}}
+                                        value={this.state.reserve_before}
                                     />
                             </div> 
 
@@ -170,6 +199,7 @@ class AddEvent extends React.Component {
                                     multiline
                                     rowsMax={4}
                                     onChange={(e)=>{this.setState({meta_title:e.target.value})}}
+                                    value={this.state.meta_title}
                                 />
                             </div>
     
@@ -181,6 +211,7 @@ class AddEvent extends React.Component {
                                     variant="outlined"
                                     rowsMax={4}
                                     onChange={(e)=>{this.setState({met_keyword:e.target.value})}}
+                                    value={this.state.met_keyword}
                                 />
                             </div>
     
@@ -192,18 +223,21 @@ class AddEvent extends React.Component {
                                     variant="outlined"
                                     rowsMax={4}
                                     onChange={(e)=>{this.setState({meta_description:e.target.value})}}
+                                    value={this.state.meta_description}
                                 />
                             </div>
     
-                            <button type="button" className="btn" onClick={()=>{this.Create()}}>Add Event</button>
+                            <button type="button" className="btn" onClick={()=>{this.Update()}}>EditEvent Event</button>
     
                         </div>
     
                     </div>
                 </form>
             </div>
-        )    
-    }
-}
 
-export default AddEvent
+    )
+   }
+ }
+
+
+export default EditEvent
