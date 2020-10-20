@@ -13,14 +13,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function TagsProducts() {
+export default function TagsProducts(props) {
 
-  const productTags = [
-    { title: "Electronics"},
-    { title: "Jewelery"},
-    { title: "Home"},
-    
-    ];
+  const productTags = props.tags
   const classes = useStyles();
 
   return (

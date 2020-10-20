@@ -34,15 +34,17 @@ import { withStyles } from "@material-ui/core/styles";
     } 
 
 
-    export const CategoryProduct = () => {
+    export const CategoryProduct = (props) => {
 
-        const categoriesProduct = ['Tech', 'Humanity', 'Culture'];
+        const categoriesProduct = props.categories
 
         return (
             <>
                 <Autocomplete
                     id="controllable-states-demo"
                     options={categoriesProduct}
+                    getOptionLabel={(option) => option.category_name}
+                    filterSelectedOptions
                     style={{ width: 500 }}
                     renderInput={(params) => <TextField {...params} label="Select Category Product" variant="outlined" />}
                 />
@@ -51,15 +53,17 @@ import { withStyles } from "@material-ui/core/styles";
         )
     }
 
-    export const BrandProduct = () => {
+    export const BrandProduct = (props) => {
 
-        const postStatus = ['Alver', 'Lacoste', "Kalles"];
+        const brandsProduct = props.brands;
 
         return (
             <>
                 <Autocomplete
                     id="controllable-states-demo"
-                    options={postStatus}
+                    options={brandsProduct}
+                    getOptionLabel={(option) => option.brand_name}
+                    filterSelectedOptions
                     style={{ width: 500 }}
                     renderInput={(params) => <TextField {...params} label="Select Brand Product" variant="outlined" />}
                 />

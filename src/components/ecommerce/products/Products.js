@@ -17,7 +17,6 @@ class Products extends Component {
         const response = await fetch(url)
         const data = await response.json()
         const data_products = data.results
-        console.log(data_products)
         this.setState({products:data_products, isLoading:false})
         $(function () {
             $('#example').DataTable({
