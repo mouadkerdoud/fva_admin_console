@@ -13,7 +13,7 @@ class Products extends Component {
     } 
 
     async componentDidMount(){
-        const url = "http://fva-backend-dev.herokuapp.com/api/shop/ListProduct/"
+        const url = "http://fva-backend-dev.herokuapp.com/api/shop/product/"
         const response = await fetch(url)
         const data = await response.json()
         const data_products = data.results
@@ -32,11 +32,10 @@ class Products extends Component {
         this.setState({
             products: currentProducts.filter(product => product.id !== productID),
           });
-        const url='http://fva-backend-dev.herokuapp.com/api/shop/ListProduct/'+productID
+        const url='http://fva-backend-dev.herokuapp.com/api/shop/product/'+productID
          fetch(url, {
             method : "DELETE"
         })
-
     }
 
     render(){
