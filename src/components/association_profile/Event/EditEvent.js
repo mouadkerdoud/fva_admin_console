@@ -1,5 +1,6 @@
 import React from 'react'
 import Moment from 'moment';
+
 /* Style */
 import "./Event.css"
 
@@ -72,6 +73,7 @@ class EditEvent extends React.Component {
                 alert('Event has been Edited');
             })
         })
+        window.location.href = "/Event";
       }
       handleCkeditorState=(event,editor)=>{
         const data = editor.getData();
@@ -227,7 +229,7 @@ class EditEvent extends React.Component {
                                 />
                             </div>
     
-                            <button type="button" className="btn" onClick={()=>{this.Update()}}>EditEvent Event</button>
+                            <button type="button" className="btn" onClick={()=>{this.Update()}}>Edit Event</button>
     
                         </div>
     
