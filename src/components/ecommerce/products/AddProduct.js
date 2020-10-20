@@ -4,6 +4,7 @@ import React from 'react'
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
 
+import TagsProducts from "./TagsProducts"
 
 // Material UI
 import {ProductName, ProductModel, CategoryProduct, BrandProduct, QuantityProduct, PriceProduct, DiscountProduct} from "../MaterialUIComponents/index"
@@ -44,6 +45,11 @@ const AddProduct =  ()=>{
                     <div className="field label-input">
                         <PriceProduct />                        
                     </div>
+
+                    <div className="field label-input">
+                        <TagsProducts />
+                    </div>
+
                     <div className="field label-input">
                         <CategoryProduct />
                     </div>

@@ -36,7 +36,6 @@ class Products extends Component {
          fetch(url, {
             method : "DELETE"
         })
-
     }
 
     render(){
