@@ -34,7 +34,6 @@ class AddEvent extends React.Component {
     }
 
     Create(){
-        console.log(this.state);
         const url = "http://fva-backend-dev.herokuapp.com/api/app/event/"
         fetch(url,{
             method: 'POST',
@@ -50,7 +49,6 @@ class AddEvent extends React.Component {
 
     handleCkeditorState=(event,editor)=>{
         const data = editor.getData();
-        
         this.setState({
             description:data.replace(/<[^>]*>?/gm, '')
         })
@@ -95,6 +93,8 @@ class AddEvent extends React.Component {
                                     }}
                                     onChange={this.handleCkeditorState}
                                 />  
+
+                                
                             </div>
     
     
