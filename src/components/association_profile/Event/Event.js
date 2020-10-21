@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from "react-router-dom"
+import Moment from 'moment';
 
 const $ = require("jquery");
 $.DataTable = require("datatables.net");
@@ -27,15 +28,14 @@ class Event extends Component {
     }
     
     deleteEvent(EventID){
-        const currentProducts = this.state.Events
+        const currentEvent = this.state.Events
         this.setState({
-            Events: currentProducts.filter(event => event.id !== EventID),
+            Events: currentEvent.filter(event => event.id !== EventID),
           });
         const url='http://fva-backend-dev.herokuapp.com/api/app/event/'+EventID
          fetch(url, {
             method : "DELETE"
         })
-
     }
     render(){
         const { Events, isLoading } = this.state
@@ -82,9 +82,9 @@ class Event extends Component {
                                         <td>{Event.title}</td>
                                         <td>{Event.short_description}</td>
                                         <td>{Event.price}</td>
-                                        <td>{Event.start_at}</td>
-                                        <td>{Event.end_at}</td>
-                                        <td>{Event.reserve_before}</td>
+                                        <td>{Moment(Event.start_at).format('DD-MM-YYYY')}</td>
+                                        <td>{Moment(Event.end_at).format('DD-MM-YYYY')}</td>
+                                        <td>{Moment(Event.reserve_before).format('DD-MM-YYYY')}</td>
                                         <td className="actions-table">
                                             <button className="btnEdit">
                                                 <Link to={"/EditEvent/"+Event.id} className="linkEdit" >

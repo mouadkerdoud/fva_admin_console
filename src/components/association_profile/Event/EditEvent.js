@@ -1,5 +1,4 @@
 import React from 'react'
-import Moment from 'moment';
 
 /* Style */
 import "./Event.css"
@@ -15,6 +14,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Moment from 'moment';
 import InputAdornment from '@material-ui/core/InputAdornment';
 /**
 * @author
@@ -49,9 +49,9 @@ class EditEvent extends React.Component {
               short_description:result.short_description,
               is_paid:result.is_paid,
               price:result.price,
-              start_at:Moment(result.start_at).format('YYYY-MM-DDThh:mm:ssZ'),
-              end_at:Moment(result.end_at).format('YYYY-MM-DDThh:mm:ssZ'),
-              reserve_before:Moment(result.reserve_before).format('YYYY-MM-DDThh:mm:ssZ'),
+              start_at:Moment(result.start_at).format('YYYY-MM-DDThh:mm'),
+              end_at:Moment(result.end_at).format('YYYY-MM-DDThh:mm'),
+              reserve_before:Moment(result.reserve_before).format('YYYY-MM-DDThh:mm'),
               meta_title:result.meta_title,
               meta_description:result.meta_description,
               met_keyword:result.met_keyword
@@ -60,8 +60,14 @@ class EditEvent extends React.Component {
         }) 
         
     }
+    
+
     Update(){
-        console.log(this.state);
+        
+/*      this.state.start_at=Moment(this.state.start_at).format('YYYY-MM-DDThh:mm:ssZ')
+        this.state.end_at=Moment(this.state.end_at).format('YYYY-MM-DDThh:mm:ssZ')
+        this.state.reserve_before=Moment(this.state.reserve_before).format('YYYY-MM-DDThh:mm:ssZ')
+ */        console.log(this.state);
         const url = "http://fva-backend-dev.herokuapp.com/api/app/event/"+this.state.id+"/"
         fetch(url,{
             method: 'PUT',
@@ -73,7 +79,7 @@ class EditEvent extends React.Component {
                 alert('Event has been Edited');
             })
         })
-        window.location.href = "/Event";
+         
       }
       handleCkeditorState=(event,editor)=>{
         const data = editor.getData();
@@ -159,7 +165,7 @@ class EditEvent extends React.Component {
                             <TextField
                                 id="datetime-local"
                                 label="Starting Date"
-                                type="datetime"
+                                type="datetime-local"
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
@@ -172,7 +178,7 @@ class EditEvent extends React.Component {
                                 <TextField
                                     id="datetime-local"
                                     label="Ending Date"
-                                    type="datetime"
+                                    type="datetime-local"
                                     InputLabelProps={{
                                         shrink: true,
                                     }}
@@ -185,7 +191,7 @@ class EditEvent extends React.Component {
                                     <TextField
                                         id="datetime"
                                         label="Reserving Date"
-                                        type="datetime"
+                                        type="datetime-local"
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
