@@ -47,23 +47,20 @@ class  AddCategoryProduct extends Component {
     }
 
   
-    addCategory(){
+    async addCategory(){
         const url = "http://fva-backend-dev.herokuapp.com/api/shop/category/"
-        fetch(url,{
+        await fetch(url,{
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(this.state)
         })
-        .then((result)=>{
-            result.json().then((resp)=>{
-                console.log("category product added");
-            })
-        })         
+        console.log(this.history.pushState)
+
+           
     }
 
 
     render(){
-        console.log(this.state)
         return (
             <div className="container">
              <h1>Add Category Product </h1>
