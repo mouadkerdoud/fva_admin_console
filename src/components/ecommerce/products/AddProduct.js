@@ -6,10 +6,10 @@ import CKEditor from "@ckeditor/ckeditor5-react"
 
 
 // Material UI
-import {ProductName, ProductModel, TagsProducts ,CategoryProduct, BrandProduct, QuantityProduct, PriceProduct, DiscountProduct} from "../MaterialUIComponents/index"
+import {ProductName, ImageProduct,ProductModel, TagsProducts ,CategoryProduct, BrandProduct, QuantityProduct, PriceProduct, DiscountProduct} from "../MaterialUIComponents/index"
 import {MetaName, MetaKeyword, MetaDescription } from "../MaterialUIComponents/index"
 
-import ImageUploader from "../../layout/ImageUploader"
+// import ImageUploader from "../../layout/ImageUploader"
 
 
 
@@ -32,7 +32,16 @@ class AddProduct extends Component {
             product_title: "",
             price: "",
             quantity: "",
-            discount: "",
+            discount: {
+                coupon_code: 0,
+                date_beginning: "2020-10-22T14:31:23.756Z",
+                date_expired: "2020-10-22T14:31:23.756Z",
+                type_discount: "string",
+                value: 0,
+                created_at: "2020-10-22T14:31:23.756Z",
+                updated_by: 0,
+                shopping_cart: 0
+              },
             image: "",
             meta_keywords: "",
             meta_description: "",
@@ -42,8 +51,14 @@ class AddProduct extends Component {
         }
 
         this.handleChange = this.handleChange.bind(this)
+        this.handleDiscount = this.handleDiscount.bind(this)
+        this.handleTags = this.handleTags.bind(this)
+        this.handleBrands = this.handleBrands.bind(this)
+        this.handleCategories = this.handleCategories.bind(this)
         this.handleCkeditorStateLong = this.handleCkeditorStateLong.bind(this)
         this.handleCkeditorStateShort = this.handleCkeditorStateShort.bind(this)
+        this.handleImage = this.handleImage.bind(this)
+        this.addProduct = this.addProduct.bind(this)
 
     }
     
@@ -51,7 +66,7 @@ class AddProduct extends Component {
     async componentDidMount(){
         const url_tags = "http://fva-backend-dev.herokuapp.com/api/shop/tag/"
         const url_brands = "http://fva-backend-dev.herokuapp.com/api/shop/brand/"
-        const url_categories = "http://fva-backend-dev.herokuapp.com/api/blog/category/"
+        const url_categories = "http://fva-backend-dev.herokuapp.com/api/shop/category/"
         
         try{
             const [tags_db, category_db, brand_db] = await Promise.all([
@@ -77,57 +92,91 @@ class AddProduct extends Component {
      addProduct(){
         const url = "http://fva-backend-dev.herokuapp.com/api/shop/product/"
         
-         fetch(url,{
+        fetch(url,{
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body : JSON.stringify(this.state)
+            body: JSON.stringify(this.state)
         })
-        .then(()=>{
-            console.log("added success")
+        .then((result)=>{
+            result.json().then((resp)=>{
+                alert('product has been added');
+            })
         })
         .catch(err=>{
             console.log(err)
         })
- 
+      
 
     }
 
+    handleChange(e,payload){
+        let {name, value} = e.target
+        if(name === "quantity" || name === "price"){
+            value = parseFloat(value,10)
+            this.setState({
+                [name] : value
+            })
+        }else{
+            this.setState({
+                [name] : value
+            })
+        }
+        
+    }
  
+    handleDiscount(e){
+        this.setState({
+            discount: {
+                coupon_code: parseInt(e.target.value),
+                date_beginning: "2020-10-22T14:31:23.756Z",
+                date_expired: "2020-10-22T14:31:23.756Z",
+                type_discount: "string",
+                value: 0,
+                created_at: "2020-10-22T14:31:23.756Z",
+                updated_by: 0,
+                shopping_cart: 0
+              }
+        })
+    }
 
-    handleCkeditorStateLong=(event,editor)=>{
+    handleCkeditorStateLong(event,editor){
         const data = editor.getData();
         this.setState({
             long_desc_product:data.replace(/<[^>]*>?/gm, '')
         })
     }
 
-    handleCkeditorStateShort=(event,editor)=>{
+    handleCkeditorStateShort(event,editor){
         const data = editor.getData();
         this.setState({
             short_desc_product:data.replace(/<[^>]*>?/gm, '')
         })
     }
 
-    handleChange(e,payload){
-        const {name, value} = e.target
-        if(name){
-            this.setState({
-                [name] : value
-            })
-        }else{
-            if(typeof payload === "string"){
-                this.setState({
-                    [payload] : value
-                })
-            }else{
-                this.setState({
-                    tags : payload
-                })
-            }
-            
-                
-        }
-       
+    handleCategories(e,value){
+        this.setState({
+            category:value
+        })
+    }
+
+    handleBrands(e,value){
+        this.setState({
+            brand:value
+        })    
+    }
+
+    handleTags(e,value){
+        this.setState({
+            tags:value
+        })
+    }
+
+
+
+    handleImage(event){
+        this.setState({
+            image: event.target.files[0]
+        })
     }
 
 
@@ -145,7 +194,7 @@ class AddProduct extends Component {
                 <div className="container">
                     <h1>Add Product</h1>
             
-                    <form >
+                    <form  >
                         <div className="addcategory-page-container">
             
             
@@ -182,21 +231,21 @@ class AddProduct extends Component {
             
                                 <div className="field label-input">
                                     <TagsProducts 
-                                        handleChange={this.handleChange}
+                                        handleTags={this.handleTags}
                                         tags={tags_db} 
                                     />
                                 </div>
             
                                 <div className="field label-input">
                                     <CategoryProduct 
-                                        handleChange={this.handleChange}
+                                        handleCategories={this.handleCategories}
                                         categories={category_db} 
                                     />
                                 </div>
             
                                 <div className="field label-input">
                                     <BrandProduct 
-                                        handleChange={this.handleChange}
+                                        handleBrands={this.handleBrands}
                                         brands={brand_db} 
                                     />
                                 </div>
@@ -204,7 +253,7 @@ class AddProduct extends Component {
                                 <div className="field label-input">
                                     <DiscountProduct 
                                         value={this.state.discount}  
-                                        handleChange={this.handleChange}
+                                        handleDiscount={this.handleDiscount}
                                     />
                                 </div>
             
@@ -230,7 +279,7 @@ class AddProduct extends Component {
                                 </div>
             
                                 <div className="field label-input">
-                                    <ImageUploader  handleChange={this.handleChange} />
+                                    <ImageProduct handleImage={this.handleImage} />
                                 </div>
             
             
@@ -258,7 +307,7 @@ class AddProduct extends Component {
                                      handleChange={this.handleChange} /> 
                                 </div>
             
-                                <button className="btn">Add Product</button>
+                                <button type="button" className="btn" onClick={()=>{this.addProduct()}}>Add Product</button>
             
                             </div>
             

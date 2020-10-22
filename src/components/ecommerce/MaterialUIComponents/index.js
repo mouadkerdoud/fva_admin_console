@@ -53,7 +53,6 @@ import { makeStyles } from "@material-ui/core/styles";
         }));
       
         const productTags = props.tags
-        const {handleChange} = props
         const classes = useStyles();
       
         return (
@@ -64,7 +63,7 @@ import { makeStyles } from "@material-ui/core/styles";
                   options={productTags}
                   getOptionLabel={(option) => option.title}
                   filterSelectedOptions
-                  onChange={handleChange}
+                  onChange={props.handleTags}
                   renderInput={(params) => (
                   <TextField {...params} label="Choose Tags" variant="outlined"  />
                   )}
@@ -77,17 +76,16 @@ import { makeStyles } from "@material-ui/core/styles";
     export const CategoryProduct = (props) => {
 
         const categoriesProduct = props.categories
-        const {handleChange} = props
 
         return (
             <>
                 <Autocomplete
                     id="controllable-states-demo"
                     options={categoriesProduct}
-                    getOptionLabel={(option) => option.category_name}
+                    getOptionLabel={(option) => option.category_title}
                     filterSelectedOptions
                     style={{ width: 500 }}
-                    onSelect={(event) => handleChange(event, 'category')}
+                    onChange={props.handleCategories}
                     renderInput={(params) => <TextField {...params} label="Select Category Product" variant="outlined" />}
                 />
 
@@ -98,7 +96,6 @@ import { makeStyles } from "@material-ui/core/styles";
     export const BrandProduct = (props) => {
 
         const brandsProduct = props.brands;
-        const {handleChange} = props
 
         return (
             <>
@@ -108,8 +105,7 @@ import { makeStyles } from "@material-ui/core/styles";
                     getOptionLabel={(option) => option.brand_name}
                     filterSelectedOptions
                     style={{ width: 500 }}
-                    onChange={props.handleChange}
-                    onSelect={(event) => handleChange(event, 'brand')}
+                    onChange={props.handleBrands}
                     renderInput={(params) => <TextField {...params} label="Select Brand Product" variant="outlined" />}
                 />
 
@@ -158,12 +154,17 @@ import { makeStyles } from "@material-ui/core/styles";
                     label="Discount Product"
                     multiline
                     rowsMax={4}
-                    onChange={props.handleChange}
+                    onChange={props.handleDiscount}
 
                 />
         )
     } 
 
+    export const ImageProduct = (props)=>{
+        return (
+            <input type="file" name="image" onChange={props.handleImage} />
+        )
+    }
 
 
 
