@@ -26,6 +26,18 @@ class CategoriesProducts extends Component {
     }
 
 
+    deleteCategoryProduct(categoryID){
+        const currentCategories = this.state.products_categories
+        this.setState({
+            products_categories: currentCategories.filter(category => category.id !== categoryID),
+          });
+        const url='http://fva-backend-dev.herokuapp.com/api/shop/category/'+categoryID
+         fetch(url, {
+            method : "DELETE"
+        })
+    }
+
+
     render(){
         const {products_categories, isLoading} = this.state
         console.log(this.state)
@@ -66,7 +78,7 @@ class CategoriesProducts extends Component {
                                         <td>{item.category_title}</td>
                                         <td className="actions-table">
                                             <i className="fas fa-edit"></i>
-                                            <i className="fas fa-trash"></i>
+                                            <i onClick={()=>this.deleteCategoryProduct(item.id)} className="fas fa-trash"></i>
                                         </td>
                                     </tr>
                                 )
