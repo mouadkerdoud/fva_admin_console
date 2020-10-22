@@ -10,6 +10,7 @@ import {NewsTitle} from "../MaterialUIComponents/index"
 import {MetaName, MetaKeyword, MetaDescription } from "../MaterialUIComponents/index"
 import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
+import ImageUploader from '../../layout/ImageUploader'
 
 export default class AddNews extends React.Component {
     state={
@@ -101,17 +102,7 @@ export default class AddNews extends React.Component {
 
                                 <div className=" field label-input">
                                     <label className="label">Thumbnail Image*</label> 
-                                    <div className="wrapper">
-                                        <div className="box">
-                                            <img className="js--image-preview" id="preview" src={this.state.profileImg2} alt="" />
-                                            <input type="button" id="removeImage1" onClick={this.removeImage2} value="x" className="btn-rmv1" />
-                                            <div className="upload-options">
-                                                <label>
-                                                    <input type="file" className="image-upload" accept="image/*" onChange={this.imageHandler2}/>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ImageUploader />
                                 </div>      
 
 

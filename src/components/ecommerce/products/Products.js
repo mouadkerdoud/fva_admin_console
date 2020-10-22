@@ -82,7 +82,7 @@ class Products extends Component {
                                         <td>{item.product_title}</td>
                                         <td><img className="img-product-list" alt="" src={item.image}/></td>
                                         <td>{item.product_model}</td>
-                                          <td>{item.price}<span className="currency-product">DH</span></td>
+                                        <td>{item.price}<span className="currency-product">DH</span></td>
                                         <td>{item.quantity}</td>
                                         <td className="actions-table">
                                             <i className="fas fa-edit"></i>

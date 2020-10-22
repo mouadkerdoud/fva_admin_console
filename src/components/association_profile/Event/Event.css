@@ -71,3 +71,12 @@
     padding: 18.5px 14px;
     height: 120px;
 }
+/* Links Edit */
+.btnEdit{
+    border:none
+}
+.linkEdit{
+    color: black;
+    font-weight: bold;
+    font-size: 17px;
+}

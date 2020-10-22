@@ -7,9 +7,32 @@ import Fade from '@material-ui/core/Fade'; */
 import Badge from '@material-ui/core/Badge';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
+import Alert from '@material-ui/lab/Alert';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import src from '../MaterialUIComponents/image/avatar.jpg'
                                 //EVENTS FORM
 
+                                /* Alert Message */
+const useStyle = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
+
+export  const IconAlerts = () => {
+  const classes = useStyle();
+
+  return (
+    <div className={classes.root}>
+      <Alert iconMapping={{ success: <CheckCircleOutlineIcon fontSize="inherit" /> }}>
+          Event has been success — check it out!
+      </Alert>
+    </div>
+  );
+}
                                 
     //REGULAR
     const styles = theme => ({
