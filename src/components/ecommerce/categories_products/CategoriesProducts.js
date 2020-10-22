@@ -77,7 +77,9 @@ class CategoriesProducts extends Component {
                                         <td>{item.id}</td>
                                         <td>{item.category_title}</td>
                                         <td className="actions-table">
+                                        <Link to={"/EditCategory/"+item.id} className="linkEdit" >
                                             <i className="fas fa-edit"></i>
+                                        </Link>
                                             <i onClick={()=>this.deleteCategoryProduct(item.id)} className="fas fa-trash"></i>
                                         </td>
                                     </tr>

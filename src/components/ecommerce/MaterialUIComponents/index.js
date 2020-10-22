@@ -173,7 +173,22 @@ import { withStyles } from "@material-ui/core/styles";
     })
 
                                         //Category FORM
+
 export const CategoryName = (props) => {
+
+    return (
+            <TextField
+                name="category_title"
+                id="standard-multiline-flexible"
+                label="Category Name"
+                multiline
+                rowsMax={4}
+                onChange={props.handleChange}
+            />
+    )
+} 
+                                        
+export const CategoryNameEdit = (props) => {
 
         return (
                 <TextField
@@ -183,8 +198,69 @@ export const CategoryName = (props) => {
                     multiline
                     rowsMax={4}
                     onChange={props.handleChange}
+                    value={props.value}
+
                 />
         )
     } 
     
+
+    export const MetaNameEdit = (props) => {
+        return (
+            <TextField
+                name="meta_title"
+                id="standard-multiline-flexible"
+                placeholder="Meta Name"
+                multiline
+                rowsMax={4}
+                onChange={props.handleChange}
+                value={props.value}
+
+            />
+        )
+    }
+
+
+    export const MetaKeywordEdit = withStyles(styles)(props =>  {
+        const { classes, value } = props;
+
+        return (
+            <TextField
+                name="meta_description"
+                id="outlined-textarea"
+                placeholder="Meta Keywords"
+                multiline
+                variant="outlined"
+                rowsMax={4}
+                InputProps={{
+                    className: classes.input
+                }}
+                onChange={props.handleChange}
+                value={value}
+            />
+        )
+    })
+
+
+
+    export const MetaDescriptionEdit = withStyles(styles)(props =>  {
+        const { classes, value } = props;
+
+        return (
+            <TextField
+                name="meta_keyword"
+                id="outlined-textarea"
+                placeholder="Meta Description"
+                multiline
+                variant="outlined"
+                rowsMax={4}
+                InputProps={{
+                    className: classes.input
+                }}
+                onChange={props.handleChange}
+                value={value}
+
+            />
+        )
+    })
 

@@ -8,6 +8,7 @@ import Products from "./components/ecommerce/products/Products"
 import AddProduct from "./components/ecommerce/products/AddProduct"
 import CategoriesProducts from "./components/ecommerce/categories_products/CategoriesProducts"
 import AddCategoryProduct from "./components/ecommerce/categories_products/AddCategoryProduct"
+import EditCategory from "./components/ecommerce/categories_products/EditCategory"
 
 import DashBlog from "./components/blog/dashboard-blog/DashBlog"
 import Post from "./components/blog/Posts/Post"
@@ -49,6 +50,12 @@ function App() {
         <Route path="/AddProduct" component={AddProduct} />
         <Route path="/CategoriesProducts" component={CategoriesProducts} />
         <Route path="/AddCategoryProduct" component={AddCategoryProduct} />
+        <Route path="/EditCategory/:id"
+            render={props=>(
+              <EditCategory {...props} />
+            )}
+            >
+          </Route>
         <Route path="/post" component={Post} />
         <Route path="/categoriesPost" component={CategoryPost} />
         <Route path="/AddPost" component={AddPost} />
@@ -65,6 +72,7 @@ function App() {
             )}
             >
           </Route>
+          
         <Route path="/News" component={News} />
         <Route path="/AddNews" component={AddNews} />
         <Route path="/Mission" component={Mission} />
