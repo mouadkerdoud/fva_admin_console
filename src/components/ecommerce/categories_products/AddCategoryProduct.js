@@ -15,7 +15,7 @@ import "./Category.css"
 
 class  AddCategoryProduct extends Component {
 
-    constructor(){
+    constructor(props){
         super()
         this.state={
             category_title:"",
@@ -54,7 +54,7 @@ class  AddCategoryProduct extends Component {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(this.state)
         })
-        alert("Category has been added")   
+        this.props.history.push("/CategoriesProducts")  
     }
 
 
