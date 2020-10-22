@@ -54,7 +54,6 @@ class  AddCategoryProduct extends Component {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(this.state)
         })
-        console.log(this.history.pushState)
 
            
     }
