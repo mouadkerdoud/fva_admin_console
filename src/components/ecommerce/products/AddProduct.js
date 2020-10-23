@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import axios from "axios"
 
 /* CKEditor */
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
@@ -25,23 +26,14 @@ class AddProduct extends Component {
             tags_db: null,
             brand_db: null,
             category_db: null,
-            tags:[],
+            tags:"",
             category:"",
             brand:"",
             product_model: "",
             product_title: "",
             price: "",
             quantity: "",
-            discount: {
-                coupon_code: 0,
-                date_beginning: "2020-10-22T14:31:23.756Z",
-                date_expired: "2020-10-22T14:31:23.756Z",
-                type_discount: "string",
-                value: 0,
-                created_at: "2020-10-22T14:31:23.756Z",
-                updated_by: 0,
-                shopping_cart: 0
-              },
+            discount: "",
             image: "",
             meta_keywords: "",
             meta_description: "",
@@ -89,24 +81,35 @@ class AddProduct extends Component {
     }
 
 
-     addProduct(){
+      addProduct(e){
+        e.preventDefault();
         const url = "http://fva-backend-dev.herokuapp.com/api/shop/product/"
+        const formData = new FormData();
+
+        formData.append("product_title", this.state.product_title);
+        formData.append("product_model", this.state.product_model);
+        formData.append("price", this.state.price);
+        formData.append("quantity", this.state.quantity);
+        formData.append("image", this.state.image);
+        formData.append("tags",this.state.tags)
+        formData.append("brand", this.state.brand);
+        formData.append("category", this.state.category);
+        formData.append("discount", this.state.discount);
+        formData.append("meta_keywords", this.state.meta_keywords);
+        formData.append("meta_name", this.state.meta_name);
+        formData.append("meta_description", this.state.meta_description);
+        formData.append("long_desc_product", this.state.long_desc_product);
+        formData.append("short_desc_product", this.state.short_desc_product);
+
         
-        fetch(url,{
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(this.state)
-        })
-        .then((result)=>{
-            result.json().then((resp)=>{
-                alert('product has been added');
-            })
+        axios.post(url, formData)
+        .then(()=>{
+            this.props.history.push("/products")
         })
         .catch(err=>{
             console.log(err)
         })
-      
-
+        
     }
 
     handleChange(e,payload){
@@ -125,17 +128,10 @@ class AddProduct extends Component {
     }
  
     handleDiscount(e){
+        let {value} = e.target
+        value=parseInt(value)
         this.setState({
-            discount: {
-                coupon_code: parseInt(e.target.value),
-                date_beginning: "2020-10-22T14:31:23.756Z",
-                date_expired: "2020-10-22T14:31:23.756Z",
-                type_discount: "string",
-                value: 0,
-                created_at: "2020-10-22T14:31:23.756Z",
-                updated_by: 0,
-                shopping_cart: 0
-              }
+           discount : value
         })
     }
 
@@ -155,19 +151,21 @@ class AddProduct extends Component {
 
     handleCategories(e,value){
         this.setState({
-            category:value
+            category:value.id
         })
     }
 
     handleBrands(e,value){
         this.setState({
-            brand:value
+            brand:value.id
         })    
     }
 
-    handleTags(e,value){
+    handleTags(e,values){
+       
+        
         this.setState({
-            tags:value
+            tags:values
         })
     }
 
@@ -194,7 +192,7 @@ class AddProduct extends Component {
                 <div className="container">
                     <h1>Add Product</h1>
             
-                    <form  >
+                    <form encType="multipart/form-data" onSubmit={this.addProduct} >
                         <div className="addcategory-page-container">
             
             
@@ -307,7 +305,7 @@ class AddProduct extends Component {
                                      handleChange={this.handleChange} /> 
                                 </div>
             
-                                <button type="button" className="btn" onClick={()=>{this.addProduct()}}>Add Product</button>
+                                <input type="submit" value="Add Product" className="btn" />
             
                             </div>
             

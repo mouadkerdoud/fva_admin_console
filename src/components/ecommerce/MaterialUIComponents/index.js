@@ -162,7 +162,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
     export const ImageProduct = (props)=>{
         return (
-            <input type="file" name="image" onChange={props.handleImage} />
+            <input type="file" name="image" accept="image/*" onChange={props.handleImage} />
         )
     }
 
