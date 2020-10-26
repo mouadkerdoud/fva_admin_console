@@ -12,8 +12,9 @@ function ImageUploader() {
 
   
   return (
-        <div  >
+        <div>
         <MultiImageInput
+            name="image"
             images={images}
             setImages={setImages}
             cropConfig={{ crop, ruleOfThirds: true, minWidth: 300 }}
