@@ -51,17 +51,30 @@ class AddEvent extends React.Component {
 
     }
 
-    handleTitle(e) {
-        this.setState({ title: e.target.value })
+    Create(){
+        const url = "http://fva-backend-dev.herokuapp.com/api/app/event/"
+        fetch(url,{
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(this.state)
+        })
+        .then((result)=>{
+            result.json().then((resp)=>{
+                alert('Event has been success');
+            })
+        })         
     }
 
+    
+    handleTitle(e){
+        this.setState({ title: e.target.value })
+    }
     handleShortDescription(e){
         this.setState({ short_description: e.target.value })
     }
 
     handleCkeditorState(event, editor) {
         const data = editor.getData();
-
         this.setState({
             description: data.replace(/<[^>]*>?/gm, '')
         })
