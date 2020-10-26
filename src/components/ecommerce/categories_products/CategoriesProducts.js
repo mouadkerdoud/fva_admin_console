@@ -11,12 +11,12 @@ class CategoriesProducts extends Component {
     } 
 
     async componentDidMount(){
-        const url = "http://fva-backend-dev.herokuapp.com/api/blog/category/"
+        const url = "http://fva-backend-dev.herokuapp.com/api/shop/category/"
         const response = await fetch(url)
         const data = await response.json()
-        const data_products = data.results
-        console.log(data_products)
-        this.setState({products:data_products, isLoading:false})
+        const products_categories = data.results
+
+        this.setState({products_categories:products_categories, isLoading:false})
         $(function () {
             $('#example').DataTable({
                 "pagingType": "full_numbers",
@@ -26,9 +26,22 @@ class CategoriesProducts extends Component {
     }
 
 
+    deleteCategoryProduct(categoryID){
+        const currentCategories = this.state.products_categories
+        this.setState({
+            products_categories: currentCategories.filter(category => category.id !== categoryID),
+          });
+        const url='http://fva-backend-dev.herokuapp.com/api/shop/category/'+categoryID
+         fetch(url, {
+            method : "DELETE"
+        })
+    }
+
+
     render(){
-        const {products, isLoading} = this.state
-        if (isLoading || !products ) {
+        const {products_categories, isLoading} = this.state
+        console.log(this.state)
+        if (isLoading || !products_categories ) {
             return <div className="container">Loading ... </div>
         }else{
         return (
@@ -50,22 +63,24 @@ class CategoriesProducts extends Component {
      
                     <thead>
                         <tr>
-                            <th>Category</th>
-                            <th>Subcategory</th>
+                            <th>Category ID</th>
+                            <th>Category Title</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
     
     
                     <tbody>
-                            {products.map( (item,index)=>{
+                            {products_categories.map( (item,index)=>{
                                 return(
                                     <tr key={index}>
-                                        <td>{item.category_name}</td>
-                                        <td>{item.category_description}</td>
+                                        <td>{item.id}</td>
+                                        <td>{item.category_title}</td>
                                         <td className="actions-table">
+                                        <Link to={"/EditCategory/"+item.id} className="linkEdit" >
                                             <i className="fas fa-edit"></i>
-                                            <i className="fas fa-trash"></i>
+                                        </Link>
+                                            <i onClick={()=>this.deleteCategoryProduct(item.id)} className="fas fa-trash"></i>
                                         </td>
                                     </tr>
                                 )

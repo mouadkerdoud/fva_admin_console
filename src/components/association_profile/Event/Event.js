@@ -87,7 +87,7 @@ class Event extends Component {
                                         <td>{Moment(Event.start_at).format('DD-MM-YYYY')}</td>
                                         <td>{Moment(Event.end_at).format('DD-MM-YYYY')}</td>
                                         <td>{Moment(Event.reserve_before).format('DD-MM-YYYY')}</td>
-                                        <td className="actions-table">
+                                        <td className="actions-table event-table">
                                             <button className="btnEdit">
                                                 <Link to={"/EditEvent/"+Event.id} className="linkEdit" >
                                                     <i className="fas fa-edit"></i>

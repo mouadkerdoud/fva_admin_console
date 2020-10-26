@@ -90,3 +90,7 @@
 .event .btn-assoc:hover{
     color: #594f8d !important;
 }
+/* event table */
+.event-table{
+    padding-top: 14px !important;
+}

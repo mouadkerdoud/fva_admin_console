@@ -15,8 +15,7 @@ export class EditMission extends React.Component {
             title: '',
             content: '',
             avatar: '',
-            association:1,
-            image:''
+            association:1
         }
         this.editMission = this.editMission.bind(this);
     }
@@ -51,8 +50,9 @@ export class EditMission extends React.Component {
         form_data.append('association', this.state.association);
         form_data.append('title', this.state.title);
         form_data.append('content', this.state.content);
-        form_data.append('avatar', this.state.avatar);
-
+        if( document.getElementById("upload").files.length === 0 ){
+            form_data.append('avatar', this.state.avatar);
+        }
         try {
              axios.put(url, form_data)
         } catch (err) {
@@ -62,17 +62,13 @@ export class EditMission extends React.Component {
 
     componentDidMount() {
         const url = "http://fva-backend-dev.herokuapp.com/api/app/mission/" + this.props.match.params.id
-        let file =  fetch(url)
-                    .then(r => r.blob())
-                    .then(blobFile => new File([blobFile], "fileNameGoesHere", { type: "image/*" }))
         fetch(url).then((response) => {
             response.json().then((result) => {
                 this.setState({
                     id: result.id,
                     title: result.title,
                     content: result.content,
-                    avatar: file
-                    
+                    avatar: result.avatar
                 })
             })
         })

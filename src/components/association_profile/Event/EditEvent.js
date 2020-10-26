@@ -29,6 +29,7 @@ class EditEvent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: '',
             title: '',
             short_description: '',
             description: '',
@@ -42,7 +43,7 @@ class EditEvent extends React.Component {
             meta_description: ''
         }
 
-        this.addEvent = this.addEvent.bind(this)
+        this.editEvent = this.editEvent.bind(this)
         this.handleTitle = this.handleTitle.bind(this)
         this.handleShortDescription = this.handleShortDescription.bind(this)
         this.handleCkeditorState = this.handleCkeditorState.bind(this)
@@ -120,7 +121,7 @@ class EditEvent extends React.Component {
     }
 
     handleMetaKeywords(e){
-        this.setState({ meta_keyword: e.target.value })
+        this.setState({ met_keyword: e.target.value })
     }
 
     handleMetaDescription(e){
@@ -130,7 +131,7 @@ class EditEvent extends React.Component {
     editEvent(e) {
         e.preventDefault();
         console.log(this.state);
-        const url = 'http://fva-backend-dev.herokuapp.com/api/app/event/'
+        const url = 'http://fva-backend-dev.herokuapp.com/api/app/event/'+this.state.id+"/"
         const form_data = new FormData();
 
         form_data.append('title', this.state.title);
@@ -146,7 +147,7 @@ class EditEvent extends React.Component {
         form_data.append('meta_keyword', this.state.meta_keyword);
 
         try {
-             axios.post(url, form_data)
+             axios.put(url, form_data)
              alert("News Has been added success")
         } catch (err) {
             console.log(err)
@@ -159,8 +160,8 @@ class EditEvent extends React.Component {
     <div className="container">
                 <h1>Edit Event</h1>
     
-                <form >
-                    <div className="addcategory-page-container">
+                <form onSubmit={this.editEvent}>
+                    <div className="addcategory-page-container event">
     
     
                         <div className="side">
@@ -301,7 +302,7 @@ class EditEvent extends React.Component {
                                 />
                             </div>
     
-                            <button type="button" className="btn" onClick={()=>{this.Update()}}>Edit Event</button>
+                            <button type="submit" className="btn btn-assoc">Edit Event</button>
     
                         </div>
     

@@ -1,10 +1,9 @@
-import React from 'react'
+import React, {Component} from 'react'
 
 // CKEDITOR
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
 
-import ImageUploader from "../../layout/ImageUploader"
 
 // MaterialUI
 import {CategoryName, MetaName, MetaKeyword, MetaDescription } from "../MaterialUIComponents/index"
@@ -14,57 +13,104 @@ import "./Category.css"
 
 
 
-const AddCategoryProduct = () => {
+class  AddCategoryProduct extends Component {
+
+    constructor(props){
+        super()
+        this.state={
+            category_title:"",
+            category_description:"",
+            meta_title:"",
+            meta_description:"",
+            meta_keyword:"",
+        }
+        this.handleChange = this.handleChange.bind(this)
+        this.handleCkeditorState = this.handleCkeditorState.bind(this)
+        this.addCategory = this.addCategory.bind(this)
+    }
   
-    return (
-        <div className="container">
-         <h1>Add Category Product </h1>
+    
 
-        <form >
-            <div className="addcategory-page-container">
+     handleChange(e){
+        const {name,value} =  e.target
+        this.setState({
+            [name] : value
+        })
+    }
 
-                <div className="side">
+    handleCkeditorState=(event,editor)=>{
+        const data = editor.getData();
+        
+        this.setState({
+            category_description:data.replace(/<[^>]*>?/gm, '')
+        })
+    }
 
-                    <div style={{marginBottom:"3rem"}} className="field label-input">
-                        <CategoryName />
+  
+    async addCategory(){
+        const url = "http://fva-backend-dev.herokuapp.com/api/shop/category/"
+        await fetch(url,{
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(this.state)
+        })
+        this.props.history.push("/CategoriesProducts")  
+    }
+
+
+    render(){
+        console.log(this.state)
+        return (
+            <div className="container">
+             <h1>Add Category Product </h1>
+    
+            <form >
+                <div className="addcategory-page-container">
+    
+                    <div className="side">
+    
+                        <div style={{marginBottom:"3rem"}} className="field label-input">
+                            <CategoryName handleChange={this.handleChange} />
+                        </div>
+    
+                        <div className="field label-input">
+                            <CKEditor
+                                        config={{placeholder: "Category Description"}} 
+                                        editor={ClassicEditor}
+                                        onInit={editor=>{
+                                        }}
+                                        onChange={this.handleCkeditorState}
+
+                            />
+                        </div>
+    
+                       
+                        
                     </div>
-
-                    <div className="field label-input">
-                        <CKEditor
-                                    config={{placeholder: "Category Description"}} 
-                                    editor={ClassicEditor}
-                                    onInit={editor=>{
-                                    }}
-                        />
+    
+                    <div className="side side-second">
+                        
+                        <div style={{marginBottom:"3rem"}} className="label-input">
+                            <MetaName handleChange={this.handleChange} />
+                        </div>
+    
+                        <div style={{marginBottom:"3rem"}} className="label-input">
+                            <MetaKeyword handleChange={this.handleChange} />
+                        </div>
+    
+                        <div style={{marginBottom:"3rem"}} className="label-input">
+                            <MetaDescription handleChange={this.handleChange} /> 
+                        </div>
+    
+                        <button type="button" className="btn" onClick={()=>{this.addCategory()}}>Add Category Product</button>
                     </div>
-
-                    <div className="field label-input">
-                        <ImageUploader />
-                    </div>
-                    
+    
                 </div>
-
-                <div className="side side-second">
-                    
-                    <div style={{marginBottom:"3rem"}} className="label-input">
-                        <MetaName />
-                    </div>
-
-                    <div style={{marginBottom:"3rem"}} className="label-input">
-                        <MetaKeyword />
-                    </div>
-
-                    <div style={{marginBottom:"3rem"}} className="label-input">
-                        <MetaDescription /> 
-                    </div>
-
-                    <button className="btn">Add Category Product</button>
-                </div>
-
-            </div>
-        </form>
-    </div>
-    )
+            </form>
+        </div>
+        )
+    }
+   
 }
 
 export default AddCategoryProduct

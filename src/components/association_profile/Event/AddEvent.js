@@ -92,7 +92,7 @@ class AddEvent extends React.Component {
     }
 
     handleMetaKeywords(e){
-        this.setState({ meta_keyword: e.target.value })
+        this.setState({ met_keyword: e.target.value })
     }
 
     handleMetaDescription(e){
@@ -113,9 +113,9 @@ class AddEvent extends React.Component {
         form_data.append('start_at', this.state.start_at);
         form_data.append('end_at', this.state.end_at);
         form_data.append('reserve_before', this.state.reserve_before);
+        form_data.append('meta_title', this.state.meta_title);
         form_data.append('met_keyword', this.state.met_keyword);
         form_data.append('meta_description', this.state.meta_description);
-        form_data.append('meta_keyword', this.state.meta_keyword);
 
         try {
              axios.post(url, form_data)
