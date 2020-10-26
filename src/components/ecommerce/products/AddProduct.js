@@ -26,7 +26,7 @@ class AddProduct extends Component {
             tags_db: null,
             brand_db: null,
             category_db: null,
-            tags:"",
+            tags:[],
             category:"",
             brand:"",
             product_model: "",
@@ -91,7 +91,7 @@ class AddProduct extends Component {
         formData.append("price", this.state.price);
         formData.append("quantity", this.state.quantity);
         formData.append("image", this.state.image);
-        formData.append("tags",this.state.tags)
+        formData.append("tags", this.state.tags) 
         formData.append("brand", this.state.brand);
         formData.append("category", this.state.category);
         formData.append("discount", this.state.discount);
@@ -101,10 +101,11 @@ class AddProduct extends Component {
         formData.append("long_desc_product", this.state.long_desc_product);
         formData.append("short_desc_product", this.state.short_desc_product);
 
-        
+       
+
         axios.post(url, formData)
         .then(()=>{
-            this.props.history.push("/products")
+            console.log("success")
         })
         .catch(err=>{
             console.log(err)
@@ -162,8 +163,6 @@ class AddProduct extends Component {
     }
 
     handleTags(e,values){
-       
-        
         this.setState({
             tags:values
         })
