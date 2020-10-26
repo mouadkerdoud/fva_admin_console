@@ -15,6 +15,7 @@ export class EditMission extends React.Component {
             title: '',
             content: '',
             avatar: '',
+            image:'',
             association:1
         }
         this.editMission = this.editMission.bind(this);
@@ -25,11 +26,11 @@ export class EditMission extends React.Component {
         var input = document.querySelector('#upload')   
         var file = input.files[0]
         document.querySelector('#avatarI').src = URL.createObjectURL(file)
+        
         this.setState({
             avatar: e.target.files[0]
         })
         console.log(this.state.avatar)
-          
     };
 
     handleCkeditorState = (event, editor) => {
@@ -41,7 +42,7 @@ export class EditMission extends React.Component {
     }
 
 
-     editMission(e) {
+    editMission(e) {
         e.preventDefault();
         console.log(this.state);
         const url = 'http://fva-backend-dev.herokuapp.com/api/app/mission/'+this.state.id+'/'
@@ -50,11 +51,13 @@ export class EditMission extends React.Component {
         form_data.append('association', this.state.association);
         form_data.append('title', this.state.title);
         form_data.append('content', this.state.content);
-        if( document.getElementById("upload").files.length === 0 ){
+        if(this.state.avatar !==""){
             form_data.append('avatar', this.state.avatar);
         }
+        
         try {
              axios.put(url, form_data)
+             alert("Mission Has been added success")
         } catch (err) {
             console.log(err)
         }
@@ -62,17 +65,18 @@ export class EditMission extends React.Component {
 
     componentDidMount() {
         const url = "http://fva-backend-dev.herokuapp.com/api/app/mission/" + this.props.match.params.id
+
         fetch(url).then((response) => {
             response.json().then((result) => {
                 this.setState({
                     id: result.id,
                     title: result.title,
                     content: result.content,
-                    avatar: result.avatar
+                    image: result.avatar
                 })
             })
-        })
-        
+        })  
+      
     }
 
 
@@ -106,7 +110,7 @@ export class EditMission extends React.Component {
                         </div>
                         <div className="picture-assoc assoc">
                             <div className="avatar-wrapper">
-                                <img className="profile-pic" id="avatarI" src={this.state.avatar} type="file" alt=""  />
+                                <img className="profile-pic" id="avatarI" src={this.state.image} alt=""   />
                             </div>
                             <div className="button-wrapper avatar-edit">
                                 <label ></label>

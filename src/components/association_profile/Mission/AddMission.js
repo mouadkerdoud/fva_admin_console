@@ -58,8 +58,9 @@ export class AddMission extends React.Component {
         form_data.append('avatar', this.state.avatar);
 
         try {
-             axios.post(url, form_data)
-             alert("Mission Has been added success")
+            axios.post(url, form_data)
+            alert("Mission Has been added success")
+            this.props.history.push("/Mission") 
         } catch (err) {
             console.log(err)
         }

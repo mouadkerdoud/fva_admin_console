@@ -148,11 +148,11 @@ class EditEvent extends React.Component {
 
         try {
              axios.put(url, form_data)
-             alert("News Has been added success")
+             alert("Event Has been added success")
+             this.props.history.push("/Event") 
         } catch (err) {
             console.log(err)
         }; 
-
     };
 
  render() {
