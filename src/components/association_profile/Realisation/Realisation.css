@@ -26,3 +26,17 @@
 .side-seconds{
     overflow: hidden;
 }
+
+.mission-manip .fa-edit, .mission-manip .fa-trash{
+    font-size: 24px;
+}
+/* Button Realisation */
+.realisation .btn-assoc{
+    top:0 !important;
+    left:0 !important;
+    width: 100% !important;
+    height: 46px !important;
+}
+.realisation .btn-assoc:hover{
+    color: #594f8d !important;
+}

@@ -3,6 +3,9 @@ import React from 'react'
 /* Style */
 import "./Event.css"
 
+/* Axios  */
+import axios from 'axios';
+
 /* CKEditor */
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
@@ -22,22 +25,38 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 **/
 
 class EditEvent extends React.Component {
-    constructor(props){
+    
+    constructor(props) {
         super(props);
-        this.state={
-            title:'',
-            description:'',
-            short_description:'',
-            price:'',
-            is_paid:'select',
-            start_at:'',
-            end_at:'',
-            reserve_before:'',
-            meta_title:'',
-            meta_description:'',
-            met_keyword:''  
+        this.state = {
+            title: '',
+            short_description: '',
+            description: '',
+            price: '',
+            is_paid: 'select',
+            start_at: '',
+            end_at: '',
+            reserve_before: '',
+            meta_title: '',
+            met_keyword: '',
+            meta_description: ''
         }
+
+        this.addEvent = this.addEvent.bind(this)
+        this.handleTitle = this.handleTitle.bind(this)
+        this.handleShortDescription = this.handleShortDescription.bind(this)
+        this.handleCkeditorState = this.handleCkeditorState.bind(this)
+        this.handleSelect = this.handleSelect.bind(this)
+        this.handlePrice = this.handlePrice.bind(this)
+        this.handleStartE = this.handleStartE.bind(this)
+        this.handleEndE = this.handleEndE.bind(this)
+        this.handleReserveB = this.handleReserveB.bind(this)
+        this.handleMetaTitle = this.handleMetaTitle.bind(this)
+        this.handleMetaKeywords = this.handleMetaKeywords.bind(this)
+        this.handleMetaDescription = this.handleMetaDescription.bind(this)
+
     }
+
     componentDidMount(){
         const url = "http://fva-backend-dev.herokuapp.com/api/app/event/"+this.props.match.params.id
         fetch(url).then((response)=>{
@@ -57,37 +76,84 @@ class EditEvent extends React.Component {
               met_keyword:result.met_keyword
             })
           })
-        }) 
-        
+        })  
+    }
+
+    handleTitle(e) {
+        this.setState({ title: e.target.value })
+    }
+
+    handleShortDescription(e){
+        this.setState({ short_description: e.target.value })
+    }
+
+    handleCkeditorState(event, editor) {
+        const data = editor.getData();
+
+        this.setState({
+            description: data.replace(/<[^>]*>?/gm, '')
+        })
+    }
+
+    handlePrice(e){
+        this.setState({ price: e.target.value })
     }
     
-
-    Update(){
-        
-/*      this.state.start_at=Moment(this.state.start_at).format('YYYY-MM-DDThh:mm:ssZ')
-        this.state.end_at=Moment(this.state.end_at).format('YYYY-MM-DDThh:mm:ssZ')
-        this.state.reserve_before=Moment(this.state.reserve_before).format('YYYY-MM-DDThh:mm:ssZ')
- */        console.log(this.state);
-        const url = "http://fva-backend-dev.herokuapp.com/api/app/event/"+this.state.id+"/"
-        fetch(url,{
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(this.state)
-        })
-        .then((result)=>{
-            result.json().then((resp)=>{
-                alert('Event has been Edited');
-            })
-        })
-         
-      }
-      handleCkeditorState=(event,editor)=>{
-        const data = editor.getData();
-        
-        this.setState({
-            description:data.replace(/<[^>]*>?/gm, '')
-        })
+    handleSelect(e){
+        this.setState({ is_paid: e.target.value })
     }
+
+    handleStartE(e){
+        this.setState({ start_at: e.target.value })
+    }
+    
+    handleEndE(e){
+        this.setState({ end_at: e.target.value })
+    }
+    
+    handleReserveB(e){
+        this.setState({ reserve_before: e.target.value })
+    }
+
+    handleMetaTitle(e){
+        this.setState({ meta_title: e.target.value })
+    }
+
+    handleMetaKeywords(e){
+        this.setState({ meta_keyword: e.target.value })
+    }
+
+    handleMetaDescription(e){
+        this.setState({ meta_description: e.target.value })
+    }
+    
+    editEvent(e) {
+        e.preventDefault();
+        console.log(this.state);
+        const url = 'http://fva-backend-dev.herokuapp.com/api/app/event/'
+        const form_data = new FormData();
+
+        form_data.append('title', this.state.title);
+        form_data.append('short_description', this.state.short_description);
+        form_data.append('description', this.state.description);
+        form_data.append('is_paid', this.state.is_paid);
+        form_data.append('price', this.state.price);
+        form_data.append('start_at', this.state.start_at);
+        form_data.append('end_at', this.state.end_at);
+        form_data.append('reserve_before', this.state.reserve_before);
+        form_data.append('met_keyword', this.state.met_keyword);
+        form_data.append('meta_description', this.state.meta_description);
+        form_data.append('meta_keyword', this.state.meta_keyword);
+
+        try {
+             axios.post(url, form_data)
+             alert("News Has been added success")
+        } catch (err) {
+            console.log(err)
+        }; 
+
+    };
+
  render() {
   return(
     <div className="container">
@@ -105,7 +171,7 @@ class EditEvent extends React.Component {
                                     label="Event Title"
                                     multiline
                                     rowsMax={4}
-                                    onChange={(e)=>{this.setState({title:e.target.value})}}
+                                    onChange={this.handleTitle}
                                     value={this.state.title}
                                 />
                             </div>
@@ -117,8 +183,8 @@ class EditEvent extends React.Component {
                                     multiline
                                     variant="outlined"
                                     rowsMax={4}
-                                   onChange={(e)=>{this.setState({short_description:e.target.value})}}
-                                   value={this.state.short_description}
+                                    onChange={this.handleShortDescription}
+                                    value={this.state.short_description}
                                 />
                             </div>
                             <div className="label-input">
@@ -136,7 +202,7 @@ class EditEvent extends React.Component {
                             <div className="field label-input">
                                 <FormControl>
                                     <InputLabel>Select If the event is paid</InputLabel>
-                                    <Select onChange={(e)=>{this.setState({is_paid:e.target.value})}} value={this.state.is_paid}>
+                                    <Select onChange={this.handleSelect} value={this.state.is_paid}>
                                             <MenuItem value={true}>True</MenuItem>
                                             <MenuItem value={false}>False</MenuItem>
                                     </Select>
@@ -151,7 +217,7 @@ class EditEvent extends React.Component {
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">$</InputAdornment>,
                                 }}
-                                onChange={(e)=>{this.setState({price:e.target.value})}}
+                                onChange={this.handlePrice}
                                 value={this.state.price}
                             /> 
                             </div>
@@ -169,7 +235,7 @@ class EditEvent extends React.Component {
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
-                                onChange={(e)=>{this.setState({start_at:e.target.value})}}
+                                onChange={this.handleStartE}
                                 value={this.state.start_at}
                                 />
                             </div>
@@ -182,7 +248,7 @@ class EditEvent extends React.Component {
                                     InputLabelProps={{
                                         shrink: true,
                                     }}
-                                    onChange={(e)=>{this.setState({end_at:e.target.value})}}
+                                    onChange={this.handleEndE}
                                     value={this.state.end_at}
                                 />
                             </div>   
@@ -195,7 +261,7 @@ class EditEvent extends React.Component {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
-                                        onChange={(e)=>{this.setState({reserve_before:e.target.value})}}
+                                        onChange={this.handleReserveB}
                                         value={this.state.reserve_before}
                                     />
                             </div> 
@@ -206,7 +272,7 @@ class EditEvent extends React.Component {
                                     placeholder="Meta Title"
                                     multiline
                                     rowsMax={4}
-                                    onChange={(e)=>{this.setState({meta_title:e.target.value})}}
+                                    onChange={this.handleMetaTitle}
                                     value={this.state.meta_title}
                                 />
                             </div>
@@ -218,7 +284,7 @@ class EditEvent extends React.Component {
                                     multiline
                                     variant="outlined"
                                     rowsMax={4}
-                                    onChange={(e)=>{this.setState({met_keyword:e.target.value})}}
+                                    onChange={this.handleMetaKeywords}
                                     value={this.state.met_keyword}
                                 />
                             </div>
@@ -230,7 +296,7 @@ class EditEvent extends React.Component {
                                     multiline
                                     variant="outlined"
                                     rowsMax={4}
-                                    onChange={(e)=>{this.setState({meta_description:e.target.value})}}
+                                    onChange={this.handleMetaDescription}
                                     value={this.state.meta_description}
                                 />
                             </div>

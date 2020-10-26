@@ -3,28 +3,26 @@ import "./Mission.css"
 import axios from 'axios';
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
-import src from'./user-icon-placeholder.png'
+
 import TextField from '@material-ui/core/TextField';
 
-export class AddMission extends React.Component {
-    
+
+export class EditMission extends React.Component {
     constructor() {
         super();
         this.state = {
+            id:'',
             title: '',
             content: '',
             avatar: '',
-            association:1
+            association:1,
+            image:''
         }
-        this.addMission = this.addMission.bind(this);
-        this.handleTitle = this.handleTitle.bind(this);
-        this.handleCkeditorState =this.handleCkeditorState.bind(this)
-        this.imageHandler = this.imageHandler.bind(this);
-
+        this.editMission = this.editMission.bind(this);
     }
 
-
-    imageHandler(e){
+    imageHandler = (e) => {
+        
         var input = document.querySelector('#upload')   
         var file = input.files[0]
         document.querySelector('#avatarI').src = URL.createObjectURL(file)
@@ -32,13 +30,10 @@ export class AddMission extends React.Component {
             avatar: e.target.files[0]
         })
         console.log(this.state.avatar)
+          
     };
 
-    handleTitle(e){
-        this.setState({ title: e.target.value }) 
-    }
-
-    handleCkeditorState(event, editor){
+    handleCkeditorState = (event, editor) => {
         const content = editor.getData();
 
         this.setState({
@@ -46,10 +41,11 @@ export class AddMission extends React.Component {
         })
     }
 
-     addMission(e) {
+
+     editMission(e) {
         e.preventDefault();
         console.log(this.state);
-        const url = 'http://fva-backend-dev.herokuapp.com/api/app/mission/'
+        const url = 'http://fva-backend-dev.herokuapp.com/api/app/mission/'+this.state.id+'/'
         const form_data = new FormData();
 
         form_data.append('association', this.state.association);
@@ -58,18 +54,37 @@ export class AddMission extends React.Component {
         form_data.append('avatar', this.state.avatar);
 
         try {
-             axios.post(url, form_data)
-             alert("Mission Has been added success")
+             axios.put(url, form_data)
         } catch (err) {
             console.log(err)
         }
     };
 
+    componentDidMount() {
+        const url = "http://fva-backend-dev.herokuapp.com/api/app/mission/" + this.props.match.params.id
+        let file =  fetch(url)
+                    .then(r => r.blob())
+                    .then(blobFile => new File([blobFile], "fileNameGoesHere", { type: "image/*" }))
+        fetch(url).then((response) => {
+            response.json().then((result) => {
+                this.setState({
+                    id: result.id,
+                    title: result.title,
+                    content: result.content,
+                    avatar: file
+                    
+                })
+            })
+        })
+        
+    }
+
+
     render() {
         return (
             <div className="container">
-                <h1>Add Mission</h1>
-                <form className="assoc-form avatar" onSubmit={this.addMission}>
+                <h1>Edit Mission</h1>
+                <form className="assoc-form avatar" onSubmit={this.editMission}>
                     <div className="assoc-wrapper">
                         <div className="row">
                             <div className="field label-input mt">
@@ -78,12 +93,14 @@ export class AddMission extends React.Component {
                                     label="Mission Title"
                                     multiline
                                     rowsMax={4}
-                                    onChange={this.handleTitle}
+                                    value={this.state.title}
+                                    onChange={(e) => { this.setState({ title: e.target.value }) }}
                                 />
                             </div>
                             <div className="description-element label-input">
                                 <CKEditor
                                     config={{ placeholder: "Content" }}
+                                    data={this.state.content}
                                     editor={ClassicEditor}
                                     onInit={editor => {
                                     }}
@@ -93,15 +110,15 @@ export class AddMission extends React.Component {
                         </div>
                         <div className="picture-assoc assoc">
                             <div className="avatar-wrapper">
-                                <img id="avatarI" className="profile-pic" src={src}  alt="" />
+                                <img className="profile-pic" id="avatarI" src={this.state.avatar} type="file" alt=""  />
                             </div>
                             <div className="button-wrapper avatar-edit">
                                 <label ></label>
-                                <input type="file" name="upload" id="upload" className="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
+                                <input type="file" name="upload" id="upload"  className="upload-box" placeholder="Upload File" onChange={this.imageHandler} />
                             </div>
                         </div>
                     </div>
-                    <button type="submit" className="btn-mission btn-assoc" ><span>Add Mission</span></button>
+                    <button type="submit" className="btn-EditMission btn-assoc" ><span>Edit Mission</span></button>
 
                 </form>
 
@@ -112,4 +129,4 @@ export class AddMission extends React.Component {
     }
 }
 
-export default AddMission
+export default EditMission

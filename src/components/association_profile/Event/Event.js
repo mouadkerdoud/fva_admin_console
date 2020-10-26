@@ -67,6 +67,7 @@ class Event extends Component {
                         <th>Id</th>
                         <th>Title</th>
                         <th>Short Description</th>
+                        <th>Description</th>
                         <th>Price</th>
                         <th>Start Event</th>
                         <th>End Event</th>
@@ -81,6 +82,7 @@ class Event extends Component {
                                         <td>{Event.id}</td>
                                         <td>{Event.title}</td>
                                         <td>{Event.short_description}</td>
+                                        <td>{Event.description}</td>
                                         <td>{Event.price}</td>
                                         <td>{Moment(Event.start_at).format('DD-MM-YYYY')}</td>
                                         <td>{Moment(Event.end_at).format('DD-MM-YYYY')}</td>

@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 import "./News.css"
 import src from "./placeholder4.png"
-import axios from 'axios';
+
 
 
 /* CKEditor */
@@ -13,56 +13,68 @@ import TextField from '@material-ui/core/TextField';
 import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 
-class AddNews extends React.Component {
-    constructor() {
-        super();
+
+export default class AddNews extends React.Component {
+    constructor(props) {
+        super(props);
         this.state = {
+            id:'',
             title: '',
             content: '',
-            main_image: '',
-            thumbnail_image:'',
+            main_image: null,
+            thumbnail_image: null,
             meta_title: '',
-            meta_keyword: '',
-            association: 1
+            meta_keyword: ''
         }
-        this.addNews = this.addNews.bind(this);
-        this.imageHandler =this.imageHandler.bind(this)
-        this.handleTitle =this.handleTitle.bind(this)
-        this.imageHandler2 =this.imageHandler2.bind(this)
-        this.handleCkeditorState =this.handleCkeditorState.bind(this)
     }
-
-    imageHandler(e){
+    imageHandler = (e) => {
+        const reader = new FileReader();
         let showimage = document.getElementById("showimage");
         let removeImage = document.getElementById("removeImage");
         showimage.style.display = "inline-block";
         removeImage.classList.add("rmvM");
 
-        var input = document.querySelector('#captureimage')   
-        var file = input.files[0]
-        document.querySelector('#showimage').src = URL.createObjectURL(file)
-
-        this.setState({
-            main_image: e.target.files[0]
-        })
+        reader.onload = () => {
+            if (reader.readyState === 2) {
+                this.setState({ main_image: reader.result })
+            }
+        }
+        reader.readAsDataURL(e.target.files[0])
     };
 
-    imageHandler2(e){
-        let showimage2 = document.getElementById("showimage2");
-        let removeImage2 = document.getElementById("removeImage2");
-        showimage2.style.display = "inline-block";
-        removeImage2.classList.add("rmvM2");
+    imageHandler2 = (e) => {
+        const reader = new FileReader();
+        let showimage = document.getElementById("showimage2");
+        let removeImage = document.getElementById("removeImage2");
+        showimage.style.display = "inline-block";
+        removeImage.classList.add("rmvM2");
 
-        var input = document.querySelector('#captureimage2')   
-        var file = input.files[0]
-        document.querySelector('#showimage2').src = URL.createObjectURL(file)
-        
-        this.setState({
-            thumbnail_image: e.target.files[0]
-        })
+        reader.onload = () => {
+            if (reader.readyState === 2) {
+                this.setState({ thumbnail_image: reader.result })
+            }
+        }
+        reader.readAsDataURL(e.target.files[0])
     };
 
-    removeImage= (e) => {
+    componentDidMount(){
+        const url = "http://fva-backend-dev.herokuapp.com/api/app/news/"+this.props.match.params.id
+        fetch(url).then((response)=>{
+          response.json().then((result)=>{
+            this.setState({
+              id:result.id,
+              title:result.title,
+              content:result.content,
+              main_image:result.main_image,
+              thumbnail_image:result.thumbnail_image,
+              meta_title:result.meta_title,
+              meta_keyword:result.meta_keyword
+            })
+          })
+        })  
+    }
+
+    removeImage = (e) => {
         e.preventDefault();
         let showimage = document.getElementById("showimage");
         showimage.setAttribute("src", src);
@@ -78,48 +90,29 @@ class AddNews extends React.Component {
         showimage.style.display = "none";
     }
 
-    handleTitle(e){
-         this.setState({ title: e.target.value })    
-    }
+    handleCkeditorState = (event, editor) => {
+        const data = editor.getData();
 
-    handleMeta=(e) => {
-        this.setState({ meta_title: e.target.value })   
+        this.setState({
+            content: data.replace(/<[^>]*>?/gm, '')
+        })
     }
-
-   handleKeywords=(e) => {
-    this.setState({ meta_keyword: e.target.value })    
-   }
     
-   handleCkeditorState(event, editor){
-    const data = editor.getData();
-
-    this.setState({
-        content: data.replace(/<[^>]*>?/gm, '')
-    })
-}
-
-    addNews(e) {
-        e.preventDefault();
+    Update(){
         console.log(this.state);
-        const url = 'http://fva-backend-dev.herokuapp.com/api/app/news/'
-        const form_data = new FormData();
-
-        form_data.append('association', this.state.association);
-        form_data.append('title', this.state.title);
-        form_data.append('content', this.state.content);
-        form_data.append('main_image', this.state.main_image);
-        form_data.append('thumbnail_image', this.state.thumbnail_image);
-        form_data.append('meta_title', this.state.meta_title);
-        form_data.append('meta_keyword', this.state.meta_keyword);
-
-        try {
-             axios.post(url, form_data)
-             alert("News Has been added success")
-        } catch (err) {
-            console.log(err)
-        }; 
-
-    };
+       const url = "http://fva-backend-dev.herokuapp.com/api/app/news/"+this.state.id+"/"
+       fetch(url,{
+           method: 'PUT',
+           headers: { 'Content-Type': 'application/json' },
+           body: JSON.stringify(this.state)
+       })
+       .then((result)=>{
+           result.json().then((resp)=>{
+               alert('News has been Edited');
+           })
+       })
+       /* window.location.href="/News" */
+     }
 
     render() {
 
@@ -127,8 +120,9 @@ class AddNews extends React.Component {
             <div className="container">
                 <h1>Add News</h1>
 
-                <form onSubmit={this.addNews}>
-                    <div className="addcategory-page-container news">
+
+                <form >
+                    <div className="addcategory-page-container">
 
                         <div className="side">
                             <div className="field label-input">
@@ -138,12 +132,12 @@ class AddNews extends React.Component {
                                             <IconButton color="primary" aria-label="upload picture" component="span">
                                                 <PhotoCamera />
                                             </IconButton>
-                                            <input type="file"  id="captureimage" onChange={this.imageHandler}  style={{ display: "none" }} />
+                                            <input type="file" accept="image/*" capture="camera" id="captureimage" onChange={this.imageHandler} caption="true" style={{ display: "none" }} />
                                         </label>
                                     </div>
-                                    <div id="imagewrapper">
+                                    <div id="imagewrapperI">
                                         <input type="button" id="removeImage" alt="" onClick={this.removeImage} value="x" className="btn-rmv1" />
-                                        <img id="showimage" className="image-frame" src={src}
+                                        <img id="showimage" className="image-frame" src={this.state.main_image}
                                             alt="" />
                                     </div>
                                 </main>
@@ -156,13 +150,15 @@ class AddNews extends React.Component {
                                     label="News Title"
                                     multiline
                                     rowsMax={4}
-                                    onChange={this.handleTitle}
+                                    onChange={(e) => { this.setState({ title: e.target.value }) }}
+                                    value={this.state.title}
                                 />
                             </div>
 
                             <div className="label-input">
                                 <CKEditor
                                     config={{ placeholder: "News Content" }}
+                                    data={this.state.content}
                                     editor={ClassicEditor}
                                     onInit={editor => {
                                     }}
@@ -180,15 +176,15 @@ class AddNews extends React.Component {
 
                                 <div className="formUpload newsform">
                                     <label className="lbl"><span>Thumbnail Image</span>
-                                        <input type="file" accept="image/*" capture="camera" id="captureimage2" onChange={this.imageHandler2} style={{ display: "none" }} />
+                                        <input type="file" accept="image/*" capture="camera" id="captureimage" onChange={this.imageHandler2} caption="true" style={{ display: "none" }} />
                                         <IconButton color="primary" aria-label="upload picture" component="span">
                                             <PhotoCamera />
                                         </IconButton>
                                     </label>
                                 </div>
-                                <div id="imagewrapper1">
+                                <div id="imagewrapperI">
                                     <input type="button" id="removeImage2" alt="" onClick={this.removeImage2} value="x" className="btn-rmv1" />
-                                    <img id="showimage2" className="image-frame" src={src}
+                                    <img id="showimage2" className="image-frame" src={this.state.thumbnail_image}
                                         alt="" />
                                 </div>
                             </div>
@@ -199,7 +195,8 @@ class AddNews extends React.Component {
                                     placeholder="Meta Title"
                                     multiline
                                     rowsMax={4}
-                                    onChange={this.handleMeta}
+                                    onChange={(e) => { this.setState({ meta_title: e.target.value }) }}
+                                    value={this.state.meta_title}
                                 />
                             </div>
 
@@ -210,11 +207,12 @@ class AddNews extends React.Component {
                                     multiline
                                     variant="outlined"
                                     rowsMax={4}
-                                    onChange={this.handleKeywords}
+                                    onChange={(e) => { this.setState({ meta_keyword: e.target.value }) }}
+                                    value={this.state.meta_keyword}
                                 />
                             </div>
 
-                            <button className="btn btn-assoc" type="submit">Add News</button>
+                            <button className="btn" onClick={() => { this.Update() }} type="button">Edit News</button>
 
                         </div>
 
@@ -227,4 +225,3 @@ class AddNews extends React.Component {
     }
 }
 
-export default AddNews

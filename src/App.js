@@ -23,10 +23,13 @@ import AddEvent from './components/association_profile/Event/AddEvent';
 import EditEvent from './components/association_profile/Event/EditEvent';
 import News from "./components/association_profile/News/News"
 import AddNews from "./components/association_profile/News/AddNews"
+import EditNews from './components/association_profile/News/EditNews';
 import Mission from './components/association_profile/Mission/Mission';
 import AddMission from './components/association_profile/Mission/AddMission';
+import EditMission from './components/association_profile/Mission/EditMission';
 import Realisation from './components/association_profile/Realisation/Realisation';
 import AddRealisation from './components/association_profile/Realisation/AddRealisation';
+import EditRealisation from './components/association_profile/Realisation/EditRealisation';
 
 
 import Home from "./components/Home"
@@ -64,14 +67,31 @@ function App() {
               <EditEvent {...props} />
             )}
             >
-          </Route>
+        </Route>
         <Route path="/News" component={News} />
         <Route path="/AddNews" component={AddNews} />
+        <Route path="/EditNews/:id"
+            render={props=>(
+              <EditNews {...props} />
+            )}
+            >
+        </Route>      
         <Route path="/Mission" component={Mission} />
         <Route path="/AddMission" component={AddMission} />
+        <Route path="/EditMission/:id"
+            render={props=>(
+              <EditMission {...props} />
+            )}
+            >
+        </Route>  
         <Route path="/Realisation" component={Realisation} />
         <Route path="/AddRealisation" component={AddRealisation} />
-
+        <Route path="/EditRealisation/:id"
+            render={props=>(
+              <EditRealisation {...props} />
+            )}
+            >
+        </Route>
       </Switch>
     </Router>
   );

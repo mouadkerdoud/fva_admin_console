@@ -1,38 +1,11 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-/* import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade'; */
 import Badge from '@material-ui/core/Badge';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import Alert from '@material-ui/lab/Alert';
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import src from '../MaterialUIComponents/image/avatar.jpg'
                                 //EVENTS FORM
-
-                                /* Alert Message */
-const useStyle = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    '& > * + *': {
-      marginTop: theme.spacing(2),
-    },
-  },
-}));
-
-export  const IconAlerts = () => {
-  const classes = useStyle();
-
-  return (
-    <div className={classes.root}>
-      <Alert iconMapping={{ success: <CheckCircleOutlineIcon fontSize="inherit" /> }}>
-          Event has been success — check it out!
-      </Alert>
-    </div>
-  );
-}
                                 
     //REGULAR
     const styles = theme => ({
@@ -182,73 +155,7 @@ export  const IconAlerts = () => {
             />
         );
       }
-    /* Event  */ 
-
-       
-      
-    /* Realisation */
-    export const RealisationTitle = () => {
-
-        return (
-                <TextField
-                    id="RealisationTitle"
-                    label="Realisation Title"
-                    multiline
-                    rowsMax={4}
-                />
-        )
-    } 
-
-    export const StartDateR = () => {
-      
-        return (
-            <TextField
-              id="date"
-              label="Starting Date"
-              type="datetime-local"
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-        );
-      }
-
-      export const EndDateR = () => {
-      
-        return (
-            <TextField
-              id="date"
-              label="Ending Date"
-              type="datetime-local"
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-        );
-      }
-      export const Place = () => {
-
-        return (
-                <TextField
-                    id="place"
-                    label="Place"
-                    multiline
-                    rowsMax={4}
-                />
-        )
-    } 
-
-    export const Partners = () => {
-
-        return (
-                <TextField
-                    id="partners"
-                    label="partners"
-                    multiline
-                    rowsMax={4}
-                />
-        )
-    } 
+    
 
     /* Setting */
     export const AssociationName = () => {
@@ -697,17 +604,7 @@ export  const IconAlerts = () => {
                           
                                             //NEWS FORM
 
-export const NewsTitle = () => {
 
-    return (
-            <TextField
-                id="standard-multiline-flexible"
-                label="News Title"
-                multiline
-                rowsMax={4}
-            />
-    )
-}
 
 /* Avatars */
 const StyledBadge = withStyles((theme) => ({

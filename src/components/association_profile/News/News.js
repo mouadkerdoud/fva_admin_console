@@ -84,8 +84,12 @@ class News extends Component {
                                         <td>{item.content}</td>
                                         <td>{<img className="img-news-list" alt="" src={item.main_image} />}</td>
                                         <td>{<img className="img-news-list" alt="" src={item.thumbnail_image} />}</td>
-                                        <td className="actions-table">
-                                            <i className="fas fa-edit"></i>
+                                        <td className="actions-table mission-manip">
+                                        <button className="btnEdit">
+                                                <Link to={"/EditNews/" + item.id} className="linkEdit" >
+                                                    <i className="fas fa-edit"></i>
+                                                </Link>
+                                            </button>
                                             <i className="fas fa-trash" onClick={()=>{this.deleteEvent(item.id)}}></i>
                                         </td>
                                     </tr>

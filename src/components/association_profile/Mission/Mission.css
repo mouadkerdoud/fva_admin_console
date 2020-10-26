@@ -7,6 +7,9 @@
 .forms5 .add-post{
     width: 30.9rem !important;
 }
+.avatar .row .label-input{
+    width: 33rem !important;
+}
 .avatar .row .label-input .label{
     margin-top: 10px;
 }
@@ -19,7 +22,7 @@
 .avatar .picture-assoc{
     top: -2rem;
     margin-right: 0 !important;
-    margin-left: 26rem;
+    margin-left: 10rem;
     position: relative;
 }
 .avatar .assoc-wrapper input {
@@ -168,4 +171,20 @@
     left: 12rem;
     top: 0px;
 }
-/* Avatar Image */
+/* Ckeditor */
+.avatar .ck-blurred{
+    height: 16rem !important;
+}
+/* imag mission list */
+.img-mission-list{
+    margin-left: 20%;
+    border: 1px solid gray;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+/* Image Edit & Trash */
+.mission-manip .fa-edit,.mission-manip .fa-trash{
+    font-size: 26px;
+    margin-top: 14px;
+}
