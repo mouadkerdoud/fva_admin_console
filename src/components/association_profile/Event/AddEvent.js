@@ -132,7 +132,8 @@ class AddEvent extends React.Component {
 
         try {
              axios.post(url, form_data)
-             alert("News Has been added success")
+             alert("Event Has been edited success")
+             this.props.history.push("/Event") 
         } catch (err) {
             console.log(err)
         }; 

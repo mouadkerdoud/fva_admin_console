@@ -75,7 +75,6 @@ function App() {
             )}
             >
         </Route>
-          
         <Route path="/News" component={News} />
         <Route path="/AddNews" component={AddNews} />
         <Route path="/EditNews/:id"
