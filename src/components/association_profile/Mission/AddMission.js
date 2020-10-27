@@ -60,7 +60,7 @@ export class AddMission extends React.Component {
         try {
             axios.post(url, form_data)
             alert("Mission Has been added success")
-            this.props.history.push("/Mission") 
+            this.props.history.push("/Mission");
         } catch (err) {
             console.log(err)
         }

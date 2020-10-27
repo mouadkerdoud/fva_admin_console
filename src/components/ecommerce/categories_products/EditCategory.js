@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+/* import React, {Component} from 'react'
 
 // CKEDITOR
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
@@ -7,7 +7,6 @@ import CKEditor from "@ckeditor/ckeditor5-react"
 
 // MaterialUI
 import {CategoryNameEdit, MetaNameEdit, MetaKeywordEdit, MetaDescriptionEdit} from "../MaterialUIComponents/index"
-
 import "./Category.css"
 
 
@@ -136,3 +135,4 @@ class  EditCategory extends Component {
 
 export default EditCategory
 
+ */

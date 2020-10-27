@@ -54,11 +54,12 @@ main{
 #imagewrapperI img{
   display: block;
   width: 100%;
+  height:20rem;
 }
 #imagewrapperI #showimage2{
-  display: block;
-  width: 50%;
-  height: 10rem;
+  display: block !important;
+  width: 60%;
+  height: 14rem;
 }
 .rmvM {
   cursor: pointer;
@@ -220,6 +221,7 @@ main{
   left:0 !important;
   width: 100% !important;
   height: 46px !important;
+  color: white;
 }
 .news .btn-assoc:hover{
   color: #594f8d !important;
