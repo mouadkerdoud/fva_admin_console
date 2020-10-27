@@ -74,12 +74,8 @@ function App() {
               <EditEvent {...props} />
             )}
             >
-<<<<<<< HEAD
         </Route>
-=======
-          </Route>
           
->>>>>>> 5ae154cfe4a636a83a45a267b27601bf7d86fccc
         <Route path="/News" component={News} />
         <Route path="/AddNews" component={AddNews} />
         <Route path="/EditNews/:id"

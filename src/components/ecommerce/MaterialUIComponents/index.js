@@ -251,6 +251,22 @@ export const CategoryName = (props) => {
                 />
         )
     } 
+
+export const CategoryNameEdit = (props) => {
+
+        return (
+                <TextField
+                    name="category_title"
+                    id="standard-multiline-flexible"
+                    label="Category Name"
+                    multiline
+                    rowsMax={4}
+                    onChange={props.handleChange}
+                    value={props.value}
+
+                />
+        )
+    } 
     
 
     export const MetaNameEdit = (props) => {
