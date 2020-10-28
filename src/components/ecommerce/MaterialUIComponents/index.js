@@ -244,7 +244,7 @@ import { makeStyles } from "@material-ui/core/styles";
     const findChosenList = (props,array)=>{
         let selectedValue = 0
         array.map(item=>{
-            if(item.id == props.value ){
+            if(item.id === props.value ){
                  selectedValue = item
             }
         })
@@ -406,6 +406,12 @@ import { makeStyles } from "@material-ui/core/styles";
                 />
         )
     } 
+
+    export const ImageProductEdit = (props)=>{
+        return (
+            <input type="file" name="image" accept="image/*" onChange={props.handleImage} src={props.value} />
+        )
+    }
 
   
 

@@ -31,7 +31,7 @@ class Products extends Component {
         this.setState({
             products: currentProducts.filter(product => product.id !== productID),
           });
-        const url='http://fva-backend-dev.herokuapp.com/api/shop/product/'+productID
+        const url='https://fva-backend-dev.herokuapp.com/api/shop/product/'+productID
          fetch(url, {
             method : "DELETE"
         })

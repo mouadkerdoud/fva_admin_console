@@ -7,7 +7,7 @@ import CKEditor from "@ckeditor/ckeditor5-react"
 
 
 // Material UI
-import {ProductNameEdit, ProductModelEdit, TagsProductsEdit, CategoryProductEdit, BrandProductEdit, QuantityProductEdit, PriceProductEdit, DiscountProductEdit, ImageProduct } from "../MaterialUIComponents/index"
+import {ProductNameEdit, ProductModelEdit, TagsProductsEdit, CategoryProductEdit, BrandProductEdit, QuantityProductEdit, PriceProductEdit, DiscountProductEdit, ImageProductEdit } from "../MaterialUIComponents/index"
 
 import {MetaNameEdit, MetaKeywordEdit, MetaDescriptionEdit } from "../MaterialUIComponents/index"
 
@@ -56,10 +56,10 @@ class EditProduct extends Component {
     }
    
     async componentDidMount(){
-        const url_tags = "http://fva-backend-dev.herokuapp.com/api/shop/tag/"
-        const url_brands = "http://fva-backend-dev.herokuapp.com/api/shop/brand/"
-        const url_categories = "http://fva-backend-dev.herokuapp.com/api/shop/category/"
-        const url_edit = "http://fva-backend-dev.herokuapp.com/api/shop/product/"+this.props.match.params.id
+        const url_tags = "https://fva-backend-dev.herokuapp.com/api/shop/tag/"
+        const url_brands = "https://fva-backend-dev.herokuapp.com/api/shop/brand/"
+        const url_categories = "https://fva-backend-dev.herokuapp.com/api/shop/category/"
+        const url_edit = "https://fva-backend-dev.herokuapp.com/api/shop/product/"+this.props.match.params.id
 
         
         try{
@@ -101,7 +101,7 @@ class EditProduct extends Component {
     
 
      editProduct(){
-        const url = "http://fva-backend-dev.herokuapp.com/api/shop/product/"+this.state.id+"/"
+        const url = "https://fva-backend-dev.herokuapp.com/api/shop/product/"+this.state.id+"/"
         const formData = new FormData();
 
         formData.append("product_title", this.state.product_title);
@@ -296,7 +296,7 @@ class EditProduct extends Component {
                                 </div>
             
                                 <div className="field label-input">
-                                    <ImageProduct handleImage={this.handleImage} />
+                                    <ImageProductEdit value={this.state.image} handleImage={this.handleImage} />
                                 </div>
             
             

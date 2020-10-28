@@ -30,7 +30,6 @@ export class EditMission extends React.Component {
         this.setState({
             avatar: e.target.files[0]
         })
-        console.log(this.state.avatar)
     };
 
     handleCkeditorState = (event, editor) => {

@@ -56,9 +56,9 @@ class AddProduct extends Component {
     
 
     async componentDidMount(){
-        const url_tags = "http://fva-backend-dev.herokuapp.com/api/shop/tag/"
-        const url_brands = "http://fva-backend-dev.herokuapp.com/api/shop/brand/"
-        const url_categories = "http://fva-backend-dev.herokuapp.com/api/shop/category/"
+        const url_tags = "https://fva-backend-dev.herokuapp.com/api/shop/tag/"
+        const url_brands = "https://fva-backend-dev.herokuapp.com/api/shop/brand/"
+        const url_categories = "https://fva-backend-dev.herokuapp.com/api/shop/category/"
         
         try{
             const [tags_db, category_db, brand_db] = await Promise.all([
@@ -83,7 +83,7 @@ class AddProduct extends Component {
 
       addProduct(e){
         e.preventDefault();
-        const url = "http://fva-backend-dev.herokuapp.com/api/shop/product/"
+        const url = "https://fva-backend-dev.herokuapp.com/api/shop/product/"
         const formData = new FormData();
 
         formData.append("product_title", this.state.product_title);
