@@ -3,7 +3,6 @@ import "./News.css"
 import src from "./placeholder4.png"
 import axios from 'axios';
 
-
 /* CKEditor */
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
@@ -20,25 +19,27 @@ class AddNews extends React.Component {
             title: '',
             content: '',
             main_image: '',
-            thumbnail_image:'',
+            thumbnail_image: '',
             meta_title: '',
             meta_keyword: '',
             association: 1
         }
         this.addNews = this.addNews.bind(this);
-        this.imageHandler =this.imageHandler.bind(this)
-        this.handleTitle =this.handleTitle.bind(this)
-        this.imageHandler2 =this.imageHandler2.bind(this)
-        this.handleCkeditorState =this.handleCkeditorState.bind(this)
+        this.imageHandler = this.imageHandler.bind(this)
+        this.handleTitle = this.handleTitle.bind(this)
+        this.imageHandler2 = this.imageHandler2.bind(this)
+        this.handleCkeditorState = this.handleCkeditorState.bind(this)
+        this.handleMeta = this.handleMeta.bind(this)
+        this.handleKeywords = this.handleKeywords.bind(this)
     }
 
-    imageHandler(e){
+    imageHandler(e) {
         let showimage = document.getElementById("showimage");
         let removeImage = document.getElementById("removeImage");
         showimage.style.display = "inline-block";
         removeImage.classList.add("rmvM");
 
-        var input = document.querySelector('#captureimage')   
+        var input = document.querySelector('#captureimage')
         var file = input.files[0]
         document.querySelector('#showimage').src = URL.createObjectURL(file)
 
@@ -47,22 +48,22 @@ class AddNews extends React.Component {
         })
     };
 
-    imageHandler2(e){
+    imageHandler2(e) {
         let showimage2 = document.getElementById("showimage2");
         let removeImage2 = document.getElementById("removeImage2");
         showimage2.style.display = "inline-block";
         removeImage2.classList.add("rmvM2");
 
-        var input = document.querySelector('#captureimage2')   
+        var input = document.querySelector('#captureimage2')
         var file = input.files[0]
         document.querySelector('#showimage2').src = URL.createObjectURL(file)
-        
+
         this.setState({
             thumbnail_image: e.target.files[0]
         })
     };
 
-    removeImage= (e) => {
+    removeImage = (e) => {
         e.preventDefault();
         let showimage = document.getElementById("showimage");
         showimage.setAttribute("src", src);
@@ -78,31 +79,32 @@ class AddNews extends React.Component {
         showimage.style.display = "none";
     }
 
-    handleTitle(e){
-         this.setState({ title: e.target.value })    
+    handleTitle(e) {
+        this.setState({ title: e.target.value })
     }
 
-    handleMeta=(e) => {
-        this.setState({ meta_title: e.target.value })   
+    handleMeta(e) {
+        this.setState({ meta_title: e.target.value })
     }
 
-   handleKeywords=(e) => {
-    this.setState({ meta_keyword: e.target.value })    
-   }
-    
-   handleCkeditorState(event, editor){
-    const data = editor.getData();
+    handleKeywords(e) {
+        this.setState({ meta_keyword: e.target.value })
+    }
 
-    this.setState({
-        content: data.replace(/<[^>]*>?/gm, '')
-    })
-}
+    handleCkeditorState(event, editor) {
+        const data = editor.getData();
+
+        this.setState({
+            content: data.replace(/<[^>]*>?/gm, '')
+        })
+    }
 
     addNews(e) {
         e.preventDefault();
         console.log(this.state);
         const url = 'http://fva-backend-dev.herokuapp.com/api/app/news/'
         const form_data = new FormData();
+
 
         form_data.append('association', this.state.association);
         form_data.append('title', this.state.title);
@@ -113,11 +115,12 @@ class AddNews extends React.Component {
         form_data.append('meta_keyword', this.state.meta_keyword);
 
         try {
-             axios.post(url, form_data)
-             alert("News Has been added success")
+            axios.post(url, form_data)
+            alert("News Has been added success")
+            this.props.history.push("/News");
         } catch (err) {
             console.log(err)
-        }; 
+        };
 
     };
 
@@ -138,7 +141,7 @@ class AddNews extends React.Component {
                                             <IconButton color="primary" aria-label="upload picture" component="span">
                                                 <PhotoCamera />
                                             </IconButton>
-                                            <input type="file"  id="captureimage" onChange={this.imageHandler}  style={{ display: "none" }} />
+                                            <input type="file" id="captureimage" onChange={this.imageHandler} style={{ display: "none" }} />
                                         </label>
                                     </div>
                                     <div id="imagewrapper">
@@ -173,10 +176,10 @@ class AddNews extends React.Component {
                         </div>
 
 
-                        <div className="side side-second">
+                        <div className="side side-second news">
 
 
-                            <div className=" field label-input">
+                            <div className="field label-input">
 
                                 <div className="formUpload newsform">
                                     <label className="lbl"><span>Thumbnail Image</span>
@@ -196,7 +199,7 @@ class AddNews extends React.Component {
                             <div style={{ marginBottom: "3rem" }} className="label-input">
                                 <TextField
                                     id="standard-multiline-flexible"
-                                    placeholder="Meta Title"
+                                    label="Meta Title"
                                     multiline
                                     rowsMax={4}
                                     onChange={this.handleMeta}
@@ -214,7 +217,7 @@ class AddNews extends React.Component {
                                 />
                             </div>
 
-                            <button className="btn btn-assoc" type="submit">Add News</button>
+                            <button className="btn-assoc" type="submit">Add News</button>
 
                         </div>
 

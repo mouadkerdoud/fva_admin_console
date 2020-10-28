@@ -19,7 +19,7 @@ class AddRealisation extends React.Component {
         super(props);
         this.state = {
             title: '',
-            content: '',
+            description: '',
             start_at: '',
             ended_at: '',
             place: '',
@@ -98,7 +98,7 @@ class AddRealisation extends React.Component {
 
         form_data.append('association', this.state.association);
         form_data.append('title', this.state.title);
-        form_data.append('content', this.state.content);
+        form_data.append('description', this.state.description);
         form_data.append('image', this.state.image);
         form_data.append('start_at', this.state.start_at);
         form_data.append('ended_at', this.state.ended_at);
@@ -108,6 +108,7 @@ class AddRealisation extends React.Component {
         try {
              axios.post(url, form_data)
              alert("Realisation Has been added success")
+             this.props.history.push("/Realisation");
         } catch (err) {
             console.log(err)
         }; 

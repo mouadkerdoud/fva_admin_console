@@ -2,6 +2,9 @@ import React from 'react'
 import "./Realisation.css"
 import src from "../News/placeholder4.png"
 
+/* Axios */
+import axios from 'axios';
+
 /* CKEditor */
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
 import CKEditor from "@ckeditor/ckeditor5-react"
@@ -21,28 +24,39 @@ class EditRealisation extends React.Component {
         this.state = {
             title: '',
             description: '',
+            descriptionR: '',
             start_at: '',
             ended_at: '',
             place: '',
             partners: '',
-            image: src
+            image: '',
+            association: 1,
+            imageR: ''
         }
+        this.editRealisation = this.editRealisation.bind(this);
+        this.imageHandler =this.imageHandler.bind(this)
+        this.handleTitle =this.handleTitle.bind(this)
+        this.handleCkeditorState =this.handleCkeditorState.bind(this)
+        this.handleStartR =this.handleStartR.bind(this)
+        this.handleEndR =this.handleEndR.bind(this)
+        this.handlePlace =this.handlePlace.bind(this)
+        this.handlePartners =this.handlePartners.bind(this)
     }
 
-    imageHandler = (e) => {
-        const reader = new FileReader();
-        let showimage = document.getElementById("showimage");
+    imageHandler(e){
+         let showimage = document.getElementById("showimage");
         let removeImage = document.getElementById("removeImage");
-
         showimage.style.display = "inline-block";
-        removeImage.classList.add("rmvM");
+        removeImage.classList.add("rmvM"); 
 
-        reader.onload = () => {
-            if (reader.readyState === 2) {
-                this.setState({ image: reader.result })
-            }
-        }
-        reader.readAsDataURL(e.target.files[0])
+        var input = document.querySelector('#captureimage')   
+        var file = input.files[0]
+        document.querySelector('#showimage').src = URL.createObjectURL(file)
+        
+        this.setState({
+            image: e.target.files[0]
+        })
+
     };
 
     removeImage = (e) => {
@@ -60,47 +74,77 @@ class EditRealisation extends React.Component {
             this.setState({
               id:result.id,
               title:result.title,
-              description:result.description,
+              descriptionR:result.description,
               start_at:Moment(result.start_at).format('YYYY-MM-DDThh:mm'),
               ended_at:Moment(result.ended_at).format('YYYY-MM-DDThh:mm'),
               place:result.place,
               partners:result.partners,
-              image:result.image
+              imageR:result.image
             })
           })
         })  
     }
 
-    handleCkeditorState = (event, editor) => {
-        const data = editor.getData();
-
-        this.setState({
-            content: data.replace(/<[^>]*>?/gm, '')
-        })
+    handleTitle(e){
+        this.setState({ title: e.target.value })    
     }
 
-    Update(){
-         console.log(this.state);
-        const url = "http://fva-backend-dev.herokuapp.com/api/app/realisation/"+this.state.id+"/"
-        fetch(url,{
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(this.state)
+    handleCkeditorState(event, editor){
+        const description = editor.getData();
+
+        this.setState({
+            description: description.replace(/<[^>]*>?/gm, '')
         })
-        .then((result)=>{
-            result.json().then((resp)=>{
-                alert('Realisation has been Edited');
-            })
-        })
-         /* window.location.href="/Realisation" */
-      }
+    }
+    
+    handleStartR(e){
+        this.setState({ start_at: e.target.value })    
+    }
+
+    handleEndR(e){
+        this.setState({ ended_at: e.target.value })    
+    }
+
+    handlePlace(e){
+        this.setState({ place: e.target.value })    
+    }
+
+    handlePartners(e){
+        this.setState({ partners: e.target.value })   
+    }
+
+    editRealisation(e) {
+        e.preventDefault();
+        const url = 'http://fva-backend-dev.herokuapp.com/api/app/realisation/'+this.state.id+'/'
+        const form_data = new FormData();
+
+        form_data.append('association', this.state.association);
+        form_data.append('title', this.state.title);
+        form_data.append('description', this.state.description);
+        form_data.append('start_at', this.state.start_at);
+        form_data.append('ended_at', this.state.ended_at);
+        form_data.append('place', this.state.place);
+        form_data.append('partners', this.state.partners);
+        if(this.state.image !==""){
+            form_data.append('image', this.state.image);
+        }
+
+        try {
+             axios.put(url, form_data)
+             alert("Realisation Has been edited success")
+             this.props.history.push("/Realisation");
+        } catch (err) {
+            console.log(err)
+        }; 
+
+    };
 
     render() {
         return (
             <div className="container">
-                <h1>Add Realisation</h1>
+                <h1>Edit Realisation</h1>
 
-                <form >
+                <form onSubmit={this.editRealisation}>
                     <div className="addcategory-page-container">
 
 
@@ -111,12 +155,12 @@ class EditRealisation extends React.Component {
                                         <IconButton color="primary" aria-label="upload picture" component="span">
                                             <PhotoCamera />
                                         </IconButton>
-                                        <input type="file" accept="image/*" capture="camera" id="captureimage" onChange={this.imageHandler} caption="true" style={{ display: "none" }} />
+                                        <input type="file" accept="image/*" capture="camera" id="captureimage" caption="true" onChange={this.imageHandler} style={{ display: "none" }} />
                                     </label>
                                 </div>
                                 <div id="imagewrapper">
                                     <input type="button" id="removeImage" alt="" onClick={this.removeImage} value="x" className="btn-rmv1" />
-                                    <img id="showimage" className="image-frame imgr" src={this.state.image} alt="" style={{ display: "block" }} />
+                                    <img id="showimage" className="image-frame imgr" src={this.state.imageR} alt="" style={{ display: "block" }} />
                                 </div>
                             </main>
 
@@ -126,7 +170,7 @@ class EditRealisation extends React.Component {
                                     label="Realisation Title"
                                     multiline
                                     rowsMax={4}
-                                    onChange={(e) => { this.setState({ title: e.target.value }) }}
+                                    onChange={this.handleTitle}
                                     value={this.state.title}
                                 />
                             </div>
@@ -137,10 +181,11 @@ class EditRealisation extends React.Component {
                             <div className="label-input">
                                 <CKEditor
                                     config={{ placeholder: "Description" }}
-                                    data={this.state.description}
+                                    data={this.state.descriptionR}
                                     editor={ClassicEditor}
                                     onInit={editor => {
                                     }}
+                                    onChange={this.handleCkeditorState}
                                 />
                             </div>
                             <div className="dateR">
@@ -152,7 +197,7 @@ class EditRealisation extends React.Component {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
-                                        onChange={(e) => { this.setState({ start_at: e.target.value }) }}
+                                        onChange={this.handleStartR}
                                         value={this.state.start_at}
                                     />
                                 </div>
@@ -165,7 +210,7 @@ class EditRealisation extends React.Component {
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
-                                        onChange={(e) => { this.setState({ ended_at: e.target.value }) }}
+                                        onChange={this.handleEndR}
                                         value={this.state.ended_at}
                                     />
                                 </div>
@@ -176,7 +221,7 @@ class EditRealisation extends React.Component {
                                     label="Place"
                                     multiline
                                     rowsMax={4}
-                                    onChange={(e) => { this.setState({ place: e.target.value }) }}
+                                    onChange={this.handlePlace}
                                     value={this.state.place}
                                 />
                             </div>
@@ -187,7 +232,7 @@ class EditRealisation extends React.Component {
                                     label="partners"
                                     multiline
                                     rowsMax={4}
-                                    onChange={(e) => { this.setState({ partners: e.target.value }) }}
+                                    onChange={this.handlePartners}
                                     value={this.state.partners}
                                 />
                             </div>

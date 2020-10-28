@@ -33,6 +33,7 @@ class EditEvent extends React.Component {
             title: '',
             short_description: '',
             description: '',
+            descriptionE: '',
             price: '',
             is_paid: 'select',
             start_at: '',
@@ -65,7 +66,7 @@ class EditEvent extends React.Component {
             this.setState({
               id:result.id,
               title:result.title,
-              description:result.description,
+              descriptionE:result.description,
               short_description:result.short_description,
               is_paid:result.is_paid,
               price:result.price,
@@ -142,14 +143,14 @@ class EditEvent extends React.Component {
         form_data.append('start_at', this.state.start_at);
         form_data.append('end_at', this.state.end_at);
         form_data.append('reserve_before', this.state.reserve_before);
-        form_data.append('met_keyword', this.state.met_keyword);
+        form_data.append('meta_title', this.state.meta_title);
         form_data.append('meta_description', this.state.meta_description);
         form_data.append('meta_keyword', this.state.meta_keyword);
 
         try {
              axios.put(url, form_data)
-             alert("Event Has been added success")
-             this.props.history.push("/Event") 
+             alert("Event Has been Edited success")
+             this.props.history.push("/Event");
         } catch (err) {
             console.log(err)
         }; 
@@ -191,7 +192,7 @@ class EditEvent extends React.Component {
                             <div className="label-input">
                                 <CKEditor
                                     config={{placeholder: "Description"}}
-                                    data={this.state.description}
+                                    data={this.state.descriptionE}
                                     editor={ClassicEditor}
                                     onInit={editor=>{
                                     }}
@@ -270,7 +271,7 @@ class EditEvent extends React.Component {
                             <div style={{marginBottom:"3rem"}} className="label-input">
                                 <TextField
                                     id="standard-multiline-flexible"
-                                    placeholder="Meta Title"
+                                    label="Meta Title"
                                     multiline
                                     rowsMax={4}
                                     onChange={this.handleMetaTitle}

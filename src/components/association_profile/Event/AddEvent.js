@@ -133,7 +133,7 @@ class AddEvent extends React.Component {
         try {
              axios.post(url, form_data)
              alert("Event Has been edited success")
-             this.props.history.push("/Event") 
+             this.props.history.push("/Event");
         } catch (err) {
             console.log(err)
         }; 
@@ -249,7 +249,7 @@ class AddEvent extends React.Component {
                             <div style={{ marginBottom: "3rem" }} className="label-input">
                                 <TextField
                                     id="standard-multiline-flexible"
-                                    placeholder="Meta Title"
+                                    label="Meta Title"
                                     multiline
                                     rowsMax={4}
                                     onChange={this.handleMetaTitle}

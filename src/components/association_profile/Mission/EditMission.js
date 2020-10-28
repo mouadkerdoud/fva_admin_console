@@ -14,6 +14,7 @@ export class EditMission extends React.Component {
             id:'',
             title: '',
             content: '',
+            contentM: '',
             avatar: '',
             image:'',
             association:1
@@ -22,7 +23,6 @@ export class EditMission extends React.Component {
     }
 
     imageHandler = (e) => {
-        
         var input = document.querySelector('#upload')   
         var file = input.files[0]
         document.querySelector('#avatarI').src = URL.createObjectURL(file)
@@ -56,8 +56,9 @@ export class EditMission extends React.Component {
         
         try {
              axios.put(url, form_data)
-             alert("Mission Has been added success")
-        } catch (err) {
+             alert("Mission Has been edited success")
+             this.props.history.push("/Mission");
+            } catch (err) {
             console.log(err)
         }
     };
@@ -70,7 +71,7 @@ export class EditMission extends React.Component {
                 this.setState({
                     id: result.id,
                     title: result.title,
-                    content: result.content,
+                    contentM: result.content,
                     image: result.avatar
                 })
             })
@@ -99,7 +100,7 @@ export class EditMission extends React.Component {
                             <div className="description-element label-input">
                                 <CKEditor
                                     config={{ placeholder: "Content" }}
-                                    data={this.state.content}
+                                    data={this.state.contentM}
                                     editor={ClassicEditor}
                                     onInit={editor => {
                                     }}
