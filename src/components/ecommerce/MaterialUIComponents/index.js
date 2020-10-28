@@ -93,6 +93,8 @@ import { makeStyles } from "@material-ui/core/styles";
         )
     }
 
+
+    
     export const BrandProduct = (props) => {
 
         const brandsProduct = props.brands;
@@ -235,6 +237,178 @@ import { makeStyles } from "@material-ui/core/styles";
             />
         )
     })
+
+
+    //Product edit form
+
+    const findChosenList = (props,array)=>{
+        let selectedValue = 0
+        array.map(item=>{
+            if(item.id == props.value ){
+                 selectedValue = item
+            }
+        })
+        return selectedValue
+    }
+
+    export const ProductNameEdit = (props) => {
+
+        return (
+                <TextField
+                    name="product_title"
+                    value={props.value}
+                    id="standard-multiline-flexible"
+                    label="Product Name"
+                    multiline
+                    rowsMax={4}
+                    onChange={props.handleChange}
+                />
+        )
+    } 
+
+
+    export const ProductModelEdit = (props) => {
+
+        return (
+                <TextField
+                    name="product_model"
+                    value={props.value}
+                    id="standard-multiline-flexible"
+                    label="Product Model"
+                    multiline
+                    rowsMax={4}
+                    onChange={props.handleChange}
+
+                />
+        )
+    } 
+
+    export function TagsProductsEdit(props) {
+
+        const useStyles = makeStyles((theme) => ({
+          root: {
+            width: 500,
+            "& > * + *": {
+              marginTop: theme.spacing(3)
+            }
+          }
+        }));
+      
+        const productTags = props.tags
+        const classes = useStyles();
+      
+        return (
+              <div className={classes.root}>
+              <Autocomplete
+                  multiple
+                  id="tags-outlined"
+                  options={productTags}
+                  getOptionLabel={(option) => option.title}
+                  filterSelectedOptions
+                  onChange={props.handleTags}
+                  renderInput={(params) => (
+                  <TextField {...params} label="Choose Tags" variant="outlined"  />
+                  )}
+              />
+              </div>
+        );
+      }
+      
+
+    export const CategoryProductEdit = (props) => {
+
+        
+        const categoriesProduct = props.categories
+        
+
+        return (
+            <>
+                <Autocomplete
+                    id="controllable-states-demo"
+                    options={categoriesProduct}
+                    defaultValue={findChosenList(props,categoriesProduct)}
+                    getOptionLabel={(option) => option.category_title}
+                    filterSelectedOptions
+                    style={{ width: 500 }}
+                    onChange={props.handleCategories}
+                    renderInput={(params) => <TextField {...params} label="Select Category Product" variant="outlined" />}
+                />
+
+            </>
+        )
+    }
+
+    
+    export const BrandProductEdit = (props) => {
+
+        const brandsProduct = props.brands;
+
+        return (
+            <>
+                <Autocomplete
+                    id="controllable-states-demo"
+                    defaultValue={findChosenList(props,brandsProduct)}
+                    options={brandsProduct}
+                    getOptionLabel={(option) => option.brand_name}
+                    filterSelectedOptions
+                    style={{ width: 500 }}
+                    onChange={props.handleBrands}
+                    renderInput={(params) => <TextField {...params} label="Select Brand Product" variant="outlined" />}
+                />
+
+            </>
+        )
+    }
+
+    export const QuantityProductEdit = (props) => {
+
+        return (
+                <TextField
+                    name="quantity"
+                    value={props.value}
+                    id="standard-number"
+                    label="Quantity Product"
+                    type="number"
+                    onChange={props.handleChange}
+
+                />
+        )
+    } 
+
+
+    export const PriceProductEdit = (props) => {
+
+        return (
+                <TextField
+                    name="price"
+                    value={props.value}
+                    id="standard-number"
+                    label="Price Product"
+                    type="number"
+                    onChange={props.handleChange}
+
+                />
+        )
+    } 
+
+    export const DiscountProductEdit = (props) => {
+
+        return (
+                <TextField
+                    name="discount"
+                    value={props.value}
+                    id="standard-multiline-flexible"
+                    label="Discount Product"
+                    multiline
+                    rowsMax={4}
+                    onChange={props.handleDiscount}
+
+                />
+        )
+    } 
+
+  
+
 
                                         //Category FORM
 export const CategoryName = (props) => {

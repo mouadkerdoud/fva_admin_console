@@ -7,8 +7,9 @@ import CKEditor from "@ckeditor/ckeditor5-react"
 
 
 // Material UI
-import {ProductName, ImageProduct,ProductModel, TagsProducts ,CategoryProduct, BrandProduct, QuantityProduct, PriceProduct, DiscountProduct} from "../MaterialUIComponents/index"
-import {MetaName, MetaKeyword, MetaDescription } from "../MaterialUIComponents/index"
+import {ProductNameEdit, ProductModelEdit, TagsProductsEdit, CategoryProductEdit, BrandProductEdit, QuantityProductEdit, PriceProductEdit, DiscountProductEdit, ImageProduct } from "../MaterialUIComponents/index"
+
+import {MetaNameEdit, MetaKeywordEdit, MetaDescriptionEdit } from "../MaterialUIComponents/index"
 
 // import ImageUploader from "../../layout/ImageUploader"
 
@@ -16,7 +17,7 @@ import {MetaName, MetaKeyword, MetaDescription } from "../MaterialUIComponents/i
 
 
 
-class AddProduct extends Component {
+class EditProduct extends Component {
 
 
     constructor(){
@@ -50,40 +51,57 @@ class AddProduct extends Component {
         this.handleCkeditorStateLong = this.handleCkeditorStateLong.bind(this)
         this.handleCkeditorStateShort = this.handleCkeditorStateShort.bind(this)
         this.handleImage = this.handleImage.bind(this)
-        this.addProduct = this.addProduct.bind(this)
+        this.editProduct = this.editProduct.bind(this)
 
     }
-    
-
+   
     async componentDidMount(){
         const url_tags = "http://fva-backend-dev.herokuapp.com/api/shop/tag/"
         const url_brands = "http://fva-backend-dev.herokuapp.com/api/shop/brand/"
         const url_categories = "http://fva-backend-dev.herokuapp.com/api/shop/category/"
+        const url_edit = "http://fva-backend-dev.herokuapp.com/api/shop/product/"+this.props.match.params.id
+
         
         try{
-            const [tags_db, category_db, brand_db] = await Promise.all([
+            const [tags_db, category_db, brand_db, result] = await Promise.all([
                 (await fetch(url_tags)).json(),
                 (await fetch(url_categories)).json(),
-                (await fetch(url_brands)).json()
+                (await fetch(url_brands)).json(),
+                (await fetch(url_edit)).json()
             ])
             this.setState({
                 isLoading: false,
                 tags_db: tags_db.results,
                 category_db: category_db.results,
-                brand_db: brand_db.results
+                brand_db: brand_db.results,
+                id:result.id,
+                tags:result.tags,
+                category:result.category,
+                brand:result.brand,
+                product_model:result.product_model,
+                product_title:result.product_title,
+                price:result.price,
+                quantity:result.quantity,
+                discount:result.discount,
+                image:result.image,
+                meta_keywords:result.meta_keywords,
+                meta_description:result.meta_description,
+                meta_name:result.meta_name,
+                long_desc_product:result.long_desc_product,
+                short_desc_product:result.short_desc_product
             })
 
         } catch(err){
             console.log(err)
         }
-        
+
        
     }
 
+    
 
-      addProduct(e){
-        e.preventDefault();
-        const url = "http://fva-backend-dev.herokuapp.com/api/shop/product/"
+     editProduct(){
+        const url = "http://fva-backend-dev.herokuapp.com/api/shop/product/"+this.state.id+"/"
         const formData = new FormData();
 
         formData.append("product_title", this.state.product_title);
@@ -101,16 +119,13 @@ class AddProduct extends Component {
         formData.append("long_desc_product", this.state.long_desc_product);
         formData.append("short_desc_product", this.state.short_desc_product);
 
-       
-
-        axios.post(url, formData)
+        axios.put(url, formData)
         .then(()=>{
-            this.props.history.push('/products')
+            console.log("edited")
         })
         .catch(err=>{
             console.log(err)
         })
-        
     }
 
     handleChange(e,payload){
@@ -198,7 +213,7 @@ class AddProduct extends Component {
                             <div className="side">
             
                                 <div className="field label-input">
-                                    <ProductName 
+                                    <ProductNameEdit 
                                         handleChange={this.handleChange}
                                         value={this.state.product_title}  
                                     />
@@ -206,49 +221,52 @@ class AddProduct extends Component {
             
             
                                 <div className="field label-input">
-                                    <ProductModel 
+                                    <ProductModelEdit 
                                         value={this.state.product_model}  
                                         handleChange={this.handleChange}
                                     />
                                 </div>
             
                                 <div className="field label-input">
-                                   <QuantityProduct 
+                                   <QuantityProductEdit 
                                         value={this.state.quantity}  
                                         handleChange={this.handleChange}
                                 />
                                 </div>
             
                                 <div className="field label-input">
-                                    <PriceProduct 
+                                    <PriceProductEdit 
                                         value={this.state.price}  
                                         handleChange={this.handleChange}
                                     />                        
                                 </div>
             
                                 <div className="field label-input">
-                                    <TagsProducts 
+                                    <TagsProductsEdit 
+                                        value={this.state.tags}
                                         handleTags={this.handleTags}
                                         tags={tags_db} 
                                     />
                                 </div>
             
                                 <div className="field label-input">
-                                    <CategoryProduct 
+                                    <CategoryProductEdit 
+                                        value={this.state.category}
                                         handleCategories={this.handleCategories}
                                         categories={category_db} 
                                     />
                                 </div>
             
                                 <div className="field label-input">
-                                    <BrandProduct 
+                                    <BrandProductEdit 
+                                        value={this.state.brand}
                                         handleBrands={this.handleBrands}
                                         brands={brand_db} 
                                     />
                                 </div>
             
                                 <div className="field label-input">
-                                    <DiscountProduct 
+                                    <DiscountProductEdit 
                                         value={this.state.discount}  
                                         handleDiscount={this.handleDiscount}
                                     />
@@ -258,6 +276,7 @@ class AddProduct extends Component {
                                 <div className="label-input">
                                     <CKEditor
                                             config={{placeholder: "Short Description"}}
+                                            data={this.state.short_desc_product}
                                             editor={ClassicEditor}
                                             onInit={editor=>{
                                             }}
@@ -268,6 +287,7 @@ class AddProduct extends Component {
                                 <div className="label-input">
                                     <CKEditor
                                         config={{placeholder: "Long Description"}}
+                                        data={this.state.long_desc_product}
                                         editor={ClassicEditor}
                                         onInit={editor=>{
                                         }}
@@ -287,24 +307,24 @@ class AddProduct extends Component {
                             <div className="side side-second">
                                
                                 <div style={{marginBottom:"3rem"}} className="label-input">
-                                    <MetaName 
+                                    <MetaNameEdit 
                                      value={this.state.meta_name} 
                                      handleChange={this.handleChange} />
                                 </div>
             
                                 <div style={{marginBottom:"3rem"}} className="label-input">
-                                    <MetaKeyword 
+                                    <MetaKeywordEdit 
                                      value={this.state.meta_keywords} 
                                      handleChange={this.handleChange} />
                                 </div>
             
                                 <div style={{marginBottom:"3rem"}} className="label-input">
-                                    <MetaDescription 
+                                    <MetaDescriptionEdit 
                                      value={this.state.meta_description} 
                                      handleChange={this.handleChange} /> 
                                 </div>
             
-                                <input type="submit" value="Add Product" className="btn" />
+                                <button type="button" className="btn" onClick={()=>{this.editProduct()}}>Edit Product</button>
             
                             </div>
             
@@ -323,4 +343,4 @@ class AddProduct extends Component {
   
 }
 
-export default AddProduct
+export default EditProduct

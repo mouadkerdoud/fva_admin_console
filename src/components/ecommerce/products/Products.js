@@ -84,7 +84,9 @@ class Products extends Component {
                                         <td>{item.price}<span className="currency-product">DH</span></td>
                                         <td>{item.quantity}</td>
                                         <td className="actions-table">
-                                            <i className="fas fa-edit"></i>
+                                            <Link to={"/EditProduct/"+item.id} className="linkEdit" >
+                                                <i className="fas fa-edit"></i>
+                                            </Link>
                                             <i onClick={()=>this.deleteProduct(item.id)} className="fas fa-trash"></i>
                                         </td>
                                     </tr>
