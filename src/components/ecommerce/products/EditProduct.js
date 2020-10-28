@@ -20,7 +20,7 @@ import {MetaNameEdit, MetaKeywordEdit, MetaDescriptionEdit } from "../MaterialUI
 class EditProduct extends Component {
 
 
-    constructor(){
+    constructor(props){
         super()
         this.state={
             isLoading: true,
@@ -100,7 +100,7 @@ class EditProduct extends Component {
 
     
 
-     editProduct(){
+      editProduct(){
         const url = "https://fva-backend-dev.herokuapp.com/api/shop/product/"+this.state.id+"/"
         const formData = new FormData();
 
@@ -121,11 +121,12 @@ class EditProduct extends Component {
 
         axios.put(url, formData)
         .then(()=>{
-            console.log("edited")
+            this.props.history.push("/products")
         })
         .catch(err=>{
             console.log(err)
         })
+      
     }
 
     handleChange(e,payload){

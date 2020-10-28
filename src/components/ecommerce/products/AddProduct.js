@@ -81,7 +81,7 @@ class AddProduct extends Component {
     }
 
 
-      addProduct(e){
+       addProduct(e){
         e.preventDefault();
         const url = "https://fva-backend-dev.herokuapp.com/api/shop/product/"
         const formData = new FormData();
@@ -103,13 +103,14 @@ class AddProduct extends Component {
 
        
 
-        axios.post(url, formData)
+         axios.post(url, formData)
         .then(()=>{
-            this.props.history.push('/products')
+            this.props.history.push("/products")
         })
         .catch(err=>{
             console.log(err)
         })
+        
         
     }
 
