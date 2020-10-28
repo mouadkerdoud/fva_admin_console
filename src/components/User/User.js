@@ -13,10 +13,10 @@ class User extends Component {
         users: null
     }
     async componentDidMount() {
-      const url = "https://jsonplaceholder.typicode.com/users"
+      const url = "http://fva-backend-dev.herokuapp.com/api/app/user/"
       const response = await fetch(url)
       const data = await response.json()
-      this.setState({ users: data, isLoading: false });
+      this.setState({ users: data.results, isLoading: false });
       $(function () {
            $('#example').DataTable({
               "pagingType": "full_numbers",
@@ -25,9 +25,19 @@ class User extends Component {
     
           
       });
-      
     }
-    
+
+    deleteUser(UserID) {
+        const currentUser = this.state.users
+        this.setState({
+            users: currentUser.filter(user => user.id !== UserID),
+        });
+        const url = 'http://fva-backend-dev.herokuapp.com/api/app/User/' + UserID
+        fetch(url, {
+            method: "DELETE"
+        })
+    }
+
     render(){
         const { users, isLoading } = this.state
 
@@ -55,11 +65,12 @@ class User extends Component {
                 <table id="example" className="table-User hover display compact row-border hover order-column" style={{ width: '100%' }}>
                 <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Name</th>
+                            <th>Photo</th>
+                            <th>Username</th>
                             <th>Email</th>
                             <th>Phone</th>
                             <th>City</th>
+                            <th>Points</th>
                             <th>Role</th>
                             <th>Actions</th>
                         </tr>
@@ -68,15 +79,16 @@ class User extends Component {
                     {users.map((user, i) => (
                        
                             <tr key={i}>
-                                <td>{user.id}</td>
-                                <td>{user.name}</td>
+                                <td>{<img className="img-news-list" alt="" src={user.photo} />}</td>
+                                <td>{user.username}</td>
                                 <td>{user.email}</td>
-                                <td>{user.phone}</td>
-                                <td>{user.address.city}</td>
-                                <td>{user.id % 2 === 0 ? "Admin" : "User"}</td>
-                                <td className="actions-table">
+                                <td>{user.profile.phone_number}</td>
+                                <td>{user.profile.city}</td>
+                                <td>{user.profile.points}</td>
+                                <td>{user.profile_distinction % 2 === 0 ? "Admin" : "User"}</td>
+                                <td className="actions-table mission-manip">
                                     <i className="fas fa-edit"></i>
-                                    <i className="fas fa-trash"></i>
+                                    <i className="fas fa-trash" onClick={() => { this.deleteUser(user.id) }}></i>
                                 </td>
                             </tr>
                       
