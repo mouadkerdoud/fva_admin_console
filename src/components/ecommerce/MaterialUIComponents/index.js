@@ -470,7 +470,7 @@ export const CategoryNameEdit = (props) => {
 
         return (
             <TextField
-                name="meta_description"
+                name="meta_keyword"
                 id="outlined-textarea"
                 placeholder="Meta Keywords"
                 multiline
@@ -492,7 +492,7 @@ export const CategoryNameEdit = (props) => {
 
         return (
             <TextField
-                name="meta_keyword"
+                name="meta_description"
                 id="outlined-textarea"
                 placeholder="Meta Description"
                 multiline

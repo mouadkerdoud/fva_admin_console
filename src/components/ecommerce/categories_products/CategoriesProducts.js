@@ -31,12 +31,11 @@ class CategoriesProducts extends Component {
         this.setState({
             products_categories: currentCategories.filter(category => category.id !== categoryID),
           });
-        const url='http://fva-backend-dev.herokuapp.com/api/shop/category/'+categoryID
+        const url='http://fva-backend-dev.herokuapp.com/api/shop/category/'+categoryID+'/'
          fetch(url, {
             method : "DELETE"
         })
     }
-
 
     render(){
         const {products_categories, isLoading} = this.state

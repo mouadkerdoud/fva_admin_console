@@ -46,13 +46,16 @@ class  EditCategory extends Component {
         }) 
     }
   
-    async editCategory(){
+     editCategory(){
 
         const url = "http://fva-backend-dev.herokuapp.com/api/shop/category/"+this.state.id+"/"
-        await fetch(url,{
+         fetch(url,{
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(this.state)
+        })
+        .then(()=>{
+            console.log("edited")
         })
         this.props.history.push("/CategoriesProducts")
 
